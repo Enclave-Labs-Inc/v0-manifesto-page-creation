@@ -4,6 +4,7 @@ import Section from '@/components/manifesto/section'
 import DoctrineGrid from '@/components/manifesto/doctrine-grid'
 import PullQuote from '@/components/manifesto/pull-quote'
 import Footer from '@/components/manifesto/footer'
+import FounderSocial from '@/components/manifesto/founder-social'
 
 export default function Home() {
   return (
@@ -130,9 +131,10 @@ export default function Home() {
             Your company's brain.<br />
             Complete. Private. Always on.
           </p>
-          <p className="text-[13px] font-mono text-[#B4B8C2] mb-8">
+          <p className="text-[13px] font-mono text-[#B4B8C2] mb-4">
             — Shashank Bhardwaj, Founder · getenclave.ai
           </p>
+          <FounderSocial />
         </div>
       </main>
 

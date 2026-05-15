@@ -1,5 +1,7 @@
 'use client'
 
+import { LinkedinIcon } from "lucide-react"
+
 export default function Footer() {
   return (
     <footer className="bg-[#080909] border-t border-[#1A1C20] py-6">
@@ -9,13 +11,7 @@ export default function Footer() {
         </p>
         <div className="flex gap-8">
           <a href="#" className="text-[9px] font-mono text-[#9499A6] hover:text-[#B4B8C2] transition-colors">
-            © 2026
-          </a>
-          <a href="#" className="text-[9px] font-mono text-[#9499A6] hover:text-[#B4B8C2] transition-colors">
-            privacy
-          </a>
-          <a href="#" className="text-[9px] font-mono text-[#9499A6] hover:text-[#B4B8C2] transition-colors">
-            shashank bhardwaj
+            © 2026 Enclave AI Inc.
           </a>
         </div>
       </div>
