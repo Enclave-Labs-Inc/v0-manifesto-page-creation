@@ -15,7 +15,7 @@ const doctrines = [
     num: '03',
     title: 'Consistency',
     subtitle: 'Same question. Same answer.',
-    body: 'We use deterministic tiebreakers, source authority scoring, and priority-ranked indexing to ensure the same query returns consistent, traceable answers — every time.',
+    body: 'We use deterministic tiebreakers, source authority scoring, and priority-ranked indexing to ensure the same query returns consistent, traceable answers, every time.',
   },
   {
     num: '04',
@@ -27,7 +27,7 @@ const doctrines = [
     num: '05',
     title: 'Ownership',
     subtitle: 'Own the stack. Own the moat.',
-    body: 'No third-party vector DB. No managed dependencies. Full control from byte to answer. The infrastructure advantage compounds over time — and it cannot be copied by a product pivot.',
+    body: 'No third-party vector DB. No managed dependencies. Full control from byte to answer. The infrastructure advantage compounds over time, and it cannot be copied by a product pivot.',
   },
   {
     num: '06',

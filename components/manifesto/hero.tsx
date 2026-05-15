@@ -15,7 +15,7 @@ export default function Hero() {
 
       {/* Subline */}
       <p className="text-manifesto-body max-w-2xl mb-8">
-        A doctrine for how enterprise knowledge should work — and why we built Enclave to make it real.
+        A doctrine for how enterprise knowledge should work, and why we built Enclave to make it real.
       </p>
 
       {/* CTA */}
