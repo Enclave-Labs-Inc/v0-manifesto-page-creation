@@ -28,7 +28,7 @@ export default function Section({ num, title, children }: SectionProps) {
             § {roman}
           </span>
         </div>
-        <h2 className="text-[9px] font-mono text-[#9499A6] tracking-[0.12em] uppercase">
+        <h2 className="text-[10px] font-mono text-[#9499A6] tracking-[0.12em] uppercase">
           {title}
         </h2>
       </div>

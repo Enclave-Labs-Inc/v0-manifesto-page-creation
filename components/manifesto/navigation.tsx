@@ -20,7 +20,7 @@ export default function Navigation() {
 
         <a
           href="#manifesto"
-          className="text-[10px] font-mono text-[#9499A6] hover:text-[#B4B8C2] transition-colors ml-auto"
+          className="text-sm font-mono text-[#9499A6] hover:text-[#B4B8C2] transition-colors ml-auto"
         >
           manifesto
         </a>
