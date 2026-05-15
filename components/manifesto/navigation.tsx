@@ -1,20 +1,22 @@
 'use client'
 
+import Image from 'next/image'
+import Link from 'next/link'
+
 export default function Navigation() {
   return (
     <nav className="sticky top-0 z-50 bg-[#111215] border-b border-[#1E2025]">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-12">
-        {/* Logo */}
-        <div className="flex items-center gap-3 flex-shrink-0">
-          <div className="flex gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#1E2025]" />
-            <div className="w-1.5 h-1.5 rounded-full bg-[#1E2025]" />
-            <div className="w-1.5 h-1.5 rounded-full bg-[#1E2025]" />
-          </div>
-          <span className="text-[11px] font-mono text-[#E8E9EC] tracking-[0.06em] uppercase">
-            enclave
-          </span>
-        </div>
+        <Link href="/" className="flex-shrink-0">
+          <Image
+            src="/enclave_logo_transparent.png"
+            alt="Enclave"
+            width={242}
+            height={40}
+            className="h-10 w-auto"
+            priority
+          />
+        </Link>
 
         <a
           href="#manifesto"
