@@ -24,11 +24,11 @@ export default function Section({ num, title, children }: SectionProps) {
       {/* Section Bar */}
       <div className="flex items-center gap-3 mb-8 pb-4 border-b border-[#1A1C20]">
         <div className="flex items-center justify-center w-7 h-7 border border-[#1E2025] rounded-[4px] flex-shrink-0">
-          <span className="text-[9px] font-mono text-[#3A3D45]">
+          <span className="text-[9px] font-mono text-[#9499A6]">
             § {roman}
           </span>
         </div>
-        <h2 className="text-[9px] font-mono text-[#4A4D55] tracking-[0.12em] uppercase">
+        <h2 className="text-[9px] font-mono text-[#9499A6] tracking-[0.12em] uppercase">
           {title}
         </h2>
       </div>

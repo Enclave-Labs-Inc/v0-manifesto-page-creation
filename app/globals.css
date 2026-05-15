@@ -115,6 +115,48 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* Manifesto page — readable contrast on dark backgrounds */
+:root {
+  --manifesto-bg: #0a0b0d;
+  --manifesto-text: #e8e9ec;
+  --manifesto-body: #b4b8c2;
+  --manifesto-secondary: #9499a6;
+  --manifesto-muted: #787d8a;
+  --manifesto-dim: #5e636f;
+  --manifesto-border: #1a1c20;
+}
+
+@layer utilities {
+  .text-manifesto-body {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.75;
+    color: var(--manifesto-body);
+  }
+
+  .text-manifesto-label {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.6875rem; /* 11px */
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--manifesto-muted);
+  }
+
+  .text-manifesto-eyebrow {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.6875rem; /* 11px */
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--manifesto-secondary);
+  }
+
+  .text-manifesto-caption {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.8125rem; /* 13px */
+    color: var(--manifesto-muted);
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
