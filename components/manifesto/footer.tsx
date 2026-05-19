@@ -1,7 +1,5 @@
 'use client'
 
-import { LinkedinIcon } from "lucide-react"
-
 export default function Footer() {
   return (
     <footer className="bg-[#080909] border-t border-[#1A1C20] py-6">
