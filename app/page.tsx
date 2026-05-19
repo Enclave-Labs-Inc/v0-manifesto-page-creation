@@ -50,7 +50,7 @@ export default function Home() {
           title="The architectural claim"
         >
           <p className="text-[#B4B8C2] text-[13px] leading-[1.85] mb-4 font-mono">
-            Enclave deploys inside your cloud account. Your S3, your KMS keys, your Postgres, your audit logs.
+            Enclave deploys inside your AWS account. Your S3, your KMS keys, your Postgres, your audit logs. GCP and Azure support on the public roadmap; talk to the founder about your environment.
           </p>
           <p className="text-[#B4B8C2] text-[13px] leading-[1.85] mb-4 font-mono">
             Our principals are excluded from your key policies. We do not operate a service inside your perimeter. Your private knowledge stays under your infrastructure, your governance, and your audit surface.

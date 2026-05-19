@@ -2,8 +2,8 @@ const doctrines = [
   {
     num: '01',
     title: 'Deployment',
-    subtitle: 'Runs inside your cloud — AWS, GCP, Azure, or on-prem.',
-    body: 'Your S3, your KMS keys, your Postgres, your audit logs. Enclave is deployed into infrastructure you control, not routed through infrastructure you have to trust.',
+    subtitle: 'Runs inside your AWS account',
+    body: 'GCP, Azure, and on-prem on the roadmap, delivered when a design partner requires them. Enclave is deployed into infrastructure you control, not routed through infrastructure you have to trust.',
   },
   {
     num: '02',

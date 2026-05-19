@@ -32,7 +32,7 @@ export default function Hero() {
       <div className="flex items-center gap-2">
         <div className="w-1 h-1 rounded-full bg-[#1D9E75]" />
         <span className="text-manifesto-eyebrow normal-case tracking-normal text-[#9499A6]">
-          deploys inside your cloud account
+          deploys inside your AWS account
         </span>
       </div>
     </div>
