@@ -21,7 +21,7 @@ export default function Hero() {
       {/* CTA */}
       <div className="mb-8">
         <a
-          href="mailto:founder@getenclave.ai?subject=Design%20partner%20call"
+          href="mailto:shashankbhardwaj2030@gmail.com?subject=Design%20partner%20call"
           className="inline-flex text-xs font-mono px-4 py-2 bg-[#E8E9EC] text-[#0A0B0D] rounded-[4px] hover:bg-white transition-colors"
         >
           get on a design-partner call
@@ -32,7 +32,7 @@ export default function Hero() {
       <div className="flex items-center gap-2">
         <div className="w-1 h-1 rounded-full bg-[#1D9E75]" />
         <span className="text-manifesto-eyebrow normal-case tracking-normal text-[#9499A6]">
-          deploys inside your AWS account
+          deploys inside your cloud account
         </span>
       </div>
     </div>

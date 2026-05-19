@@ -37,7 +37,7 @@ export default function Home() {
             Enclave is the Company Brain for organizations that cannot send their data to SaaS AI vendors.
           </p>
           <p className="text-[#B4B8C2] text-[13px] leading-[1.85] mb-4 font-mono">
-            It connects the documents, decisions, messages, tickets, policies, contracts, and operational memory your company already owns. Then it lets employees ask natural-language questions and receive sourced answers they can actually use.
+            It connects what your company already knows — across Slack, Drive, GitHub, Confluence, Jira, and the rest — and lets employees ask natural-language questions that come back with sourced answers.
           </p>
           <p className="text-[#B4B8C2] text-[13px] leading-[1.85] font-mono">
             The buyer outcome is simple: approved AI for internal knowledge, without forcing legal, security, or compliance to accept a deployment model they already rejected.
@@ -50,7 +50,7 @@ export default function Home() {
           title="The architectural claim"
         >
           <p className="text-[#B4B8C2] text-[13px] leading-[1.85] mb-4 font-mono">
-            Enclave deploys inside your AWS account. Your S3, your KMS keys, your Postgres, your audit logs.
+            Enclave deploys inside your cloud account. Your S3, your KMS keys, your Postgres, your audit logs.
           </p>
           <p className="text-[#B4B8C2] text-[13px] leading-[1.85] mb-4 font-mono">
             Our principals are excluded from your key policies. We do not operate a service inside your perimeter. Your private knowledge stays under your infrastructure, your governance, and your audit surface.
@@ -90,6 +90,16 @@ export default function Home() {
         {/* Section VI */}
         <Section
           num="VI"
+          title="What Enclave is not"
+        >
+          <p className="text-[#B4B8C2] text-[13px] leading-[1.85] font-mono">
+            Enclave is not a chat product. It is not a SaaS. It is not a model. It is the retrieval and knowledge infrastructure that sits underneath whatever LLM your organisation already trusts — Bedrock, Azure OpenAI, your own Vertex, or a local Mistral. We are the substrate, not the answer engine. We do not train on your data, because we never see it.
+          </p>
+        </Section>
+
+        {/* Section VII */}
+        <Section
+          num="VII"
           title="The founder note"
         >
           <p className="text-[#B4B8C2] text-[13px] leading-[1.85] mb-4 font-mono">
@@ -99,7 +109,7 @@ export default function Home() {
             The first version is for design partners with real constraints: private data, serious compliance pressure, and employees who still need AI to do their best work.
           </p>
           <p className="text-[#B4B8C2] text-[13px] leading-[1.85] font-mono">
-            Design partners welcome. Talk directly to the founder: founder@getenclave.ai.
+            Design partners welcome. Talk directly to the founder: shashankbhardwaj2030@gmail.com.
           </p>
         </Section>
 
@@ -107,10 +117,11 @@ export default function Home() {
         <div className="py-16 border-t border-[#1A1C20] mt-16">
           <p className="text-[26px] font-serif italic text-[#E8E9EC] leading-[1.15] mb-8">
             The Company Brain<br />
-            your security team can approve.
+            your security team can actually approve.<br />
+            Because nothing leaves your perimeter.
           </p>
           <a
-            href="mailto:founder@getenclave.ai?subject=Design%20partner%20call"
+            href="mailto:shashankbhardwaj2030@gmail.com?subject=Design%20partner%20call"
             className="inline-flex text-xs font-mono px-4 py-2 mb-8 bg-[#E8E9EC] text-[#0A0B0D] rounded-[4px] hover:bg-white transition-colors"
           >
             get on a design-partner call

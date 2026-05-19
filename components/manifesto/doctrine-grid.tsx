@@ -2,7 +2,7 @@ const doctrines = [
   {
     num: '01',
     title: 'Deployment',
-    subtitle: 'Runs inside your AWS account',
+    subtitle: 'Runs inside your cloud — AWS, GCP, Azure, or on-prem.',
     body: 'Your S3, your KMS keys, your Postgres, your audit logs. Enclave is deployed into infrastructure you control, not routed through infrastructure you have to trust.',
   },
   {
@@ -21,7 +21,7 @@ const doctrines = [
     num: '04',
     title: 'Traceability',
     subtitle: 'Every answer points back to evidence',
-    body: 'Answers must be sourced, consistent, and auditable. When the evidence is thin, the system should say so instead of manufacturing certainty.',
+    body: 'Answers must be sourced, consistent, and auditable. When the evidence is thin, Enclave refuses to guess. Honest uncertainty is a feature, not a failure mode.',
   },
   {
     num: '05',
