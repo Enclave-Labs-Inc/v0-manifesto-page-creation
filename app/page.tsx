@@ -109,7 +109,7 @@ export default function Home() {
             The first version is for design partners with real constraints: private data, serious compliance pressure, and employees who still need AI to do their best work.
           </p>
           <p className="text-[#B4B8C2] text-[13px] leading-[1.85] font-mono">
-            Design partners welcome. Talk directly to the founder: shashankbhardwaj2030@gmail.com.
+            Design partners welcome. Talk directly to the founder: contact@getenclave.ai.
           </p>
         </Section>
 
@@ -121,7 +121,7 @@ export default function Home() {
             Because nothing leaves your perimeter.
           </p>
           <a
-            href="mailto:shashankbhardwaj2030@gmail.com?subject=Design%20partner%20call"
+            href="mailto:contact@getenclave.ai?subject=Design%20partner%20call"
             className="inline-flex text-xs font-mono px-4 py-2 mb-8 bg-[#E8E9EC] text-[#0A0B0D] rounded-[4px] hover:bg-white transition-colors"
           >
             get on a design-partner call

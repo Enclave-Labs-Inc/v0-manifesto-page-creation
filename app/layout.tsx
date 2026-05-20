@@ -8,7 +8,6 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: 'Enclave - Sovereign Company Brain',
   description: 'The Company Brain for organizations that cannot send their data to SaaS AI vendors.',
-  generator: 'v0.app',
   icons: {
     icon: [
       { url: '/enclave_icon_dark_preview.png', type: 'image/png' },
