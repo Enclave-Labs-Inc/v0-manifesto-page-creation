@@ -21,7 +21,7 @@ export default function Hero() {
       {/* CTA */}
       <div className="mb-8">
         <a
-          href="mailto:contact@getenclave.ai?subject=Design%20partner%20call"
+          href="https://cal.com/shashank-bhardwaj-fwmii1/30min"
           className="inline-flex text-xs font-mono px-4 py-2 bg-[#E8E9EC] text-[#0A0B0D] rounded-[4px] hover:bg-white transition-colors"
         >
           get on a design-partner call
