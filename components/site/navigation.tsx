@@ -8,9 +8,9 @@ import EnclaveLogo from '@/components/site/enclave-logo'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
+  { href: '/', label: 'Home' },
   { href: '/manifesto', label: 'Manifesto' },
-  { href: '/manifesto#III', label: 'Architecture' },
-  { href: 'mailto:contact@getenclave.ai', label: 'Contact' },
+  { href: 'mailto:contact@getenclav.ai', label: 'Contact' },
 ]
 
 interface NavigationProps {
@@ -51,24 +51,30 @@ export default function Navigation({ theme = 'light' }: NavigationProps) {
         </Link>
 
         <div className="hidden flex-1 items-center justify-center gap-[4.4rem] md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                'relative text-[14px] font-bold tracking-[-0.02em] transition-colors duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]',
-                isDark
-                  ? 'text-[#AEB3BC] hover:text-[#F0F2F5]'
-                  : 'text-[#45484E] hover:text-[#07080A]',
-                link.href === '/manifesto' && (pathname === '/' || pathname.startsWith('/manifesto')) && (isDark ? 'text-[#F0F2F5]' : 'text-[#07080A]')
-              )}
-            >
-              {link.label}
-              {link.href === '/manifesto' && (
-                <span className="absolute left-1/2 top-[calc(100%+9px)] h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-current" />
-              )}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive =
+              (link.href === '/' && pathname === '/') ||
+              (link.href === '/manifesto' && pathname.startsWith('/manifesto'))
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  'relative text-[14px] font-bold tracking-[-0.02em] transition-colors duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]',
+                  isDark
+                    ? 'text-[#AEB3BC] hover:text-[#F0F2F5]'
+                    : 'text-[#45484E] hover:text-[#07080A]',
+                  isActive && (isDark ? 'text-[#F0F2F5]' : 'text-[#07080A]'),
+                )}
+              >
+                {link.label}
+                {isActive && (
+                  <span className="absolute left-1/2 top-[calc(100%+9px)] h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-current" />
+                )}
+              </Link>
+            )
+          })}
         </div>
 
         <div className="ml-auto flex items-center gap-2 sm:gap-3">

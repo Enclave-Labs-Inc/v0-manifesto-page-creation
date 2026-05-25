@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Cloud, Database, ShieldCheck, Server } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import RippleBackground from '@/components/landing/ripple-background'
 
 const trustPills = [
@@ -8,58 +8,58 @@ const trustPills = [
   'Sourced answers only',
 ]
 
+// Logo files live in /public/brand/. Drop in the official SVGs there to
+// swap any of these without touching code.
 const infrastructure = [
-  { name: 'aws', label: 'AWS', icon: Server },
-  { name: 's3', label: 'S3', icon: Database },
-  { name: 'kms', label: 'KMS', icon: ShieldCheck },
-  { name: 'postgresql', label: 'PostgreSQL', icon: Database },
-  { name: 'cloudtrail', label: 'CloudTrail', icon: Cloud },
+  { name: 'aws', label: 'AWS', src: '/brand/aws.svg', wide: true },
+  { name: 's3', label: 'S3', src: '/brand/s3.svg', wide: false },
+  { name: 'kms', label: 'KMS', src: '/brand/kms.svg', wide: false },
+  { name: 'postgresql', label: 'PostgreSQL', src: '/brand/postgresql.svg', wide: false },
+  { name: 'cloudtrail', label: 'CloudTrail', src: '/brand/cloudtrail.svg', wide: false },
 ]
 
 export default function LandingHero() {
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-[oklch(0.965_0.003_145)] text-[#07080A]">
+    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[oklch(0.965_0.003_145)] text-[#07080A]">
       <RippleBackground />
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] flex-col px-6 pb-0 pt-[108px] sm:px-10 lg:px-16">
-        <div className="mx-auto flex w-full flex-1 flex-col items-center text-center">
-          <p className="landing-reveal mb-5 text-[11px] font-bold uppercase tracking-[0.36em] text-[#50545B] sm:text-[12px]">
-            Sovereign infrastructure for enterprise AI
+      <div className="relative z-10 mx-auto flex w-full max-w-[1320px] flex-1 flex-col px-6 pb-0 pt-[130px] sm:px-10 lg:px-14">
+        <div className="mx-auto flex w-full flex-col items-center text-center">
+          <p className="landing-reveal landing-reveal-eyebrow mb-4 text-[10px] font-bold uppercase tracking-[0.36em] text-[#50545B] sm:text-[11px]">
+            Sovereign AI for regulated industries
           </p>
 
-          <h1 className="landing-reveal max-w-none text-[clamp(3.8rem,8vw,7.4rem)] font-bold leading-[0.92] tracking-[-0.06em] text-[#050608]">
+          <h1 className="landing-reveal landing-reveal-title max-w-none text-[clamp(2rem,5.8vw,5.4rem)] font-bold leading-[0.92] tracking-[-0.06em] text-[#050608]">
             <span className="block">Deploy AI.</span>
-            <span className="block whitespace-nowrap">Keep your data.</span>
+            <span className="block md:whitespace-nowrap">Keep your data.</span>
           </h1>
 
-          <p className="landing-reveal mt-6 max-w-[68ch] text-[clamp(1rem,1.3vw,1.12rem)] leading-[1.68] tracking-[-0.02em] text-[#50545B]">
-            Enclave connects Slack, Drive, GitHub, Confluence, Jira, and the rest,
+          <p className="landing-reveal landing-reveal-body mt-5 max-w-[92ch] text-[clamp(0.92rem,1.18vw,1.02rem)] leading-[1.65] tracking-[-0.02em] text-[#50545B]">
+            Enclave connects Slack, Drive, GitHub, Confluence, Jira, and the rest, then deploys
             <br className="hidden md:block" />
-            then deploys inside your AWS account with your S3, your KMS keys,
-            <br className="hidden md:block" />
-            your Postgres, and your audit logs.
+            inside your AWS account with your S3, your KMS keys, your Postgres, and your audit logs.
           </p>
 
-          <div className="landing-reveal landing-reveal-delay-1 mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="landing-reveal landing-reveal-actions mt-7 flex flex-wrap items-center justify-center gap-3.5">
             <a
               href="https://cal.com/shashank-bhardwaj-fwmii1/30min"
-              className="group inline-flex h-[54px] items-center gap-3 rounded-[11px] bg-[#050608] px-8 text-[15px] font-bold tracking-[-0.02em] text-[oklch(0.985_0.002_145)] shadow-[0_18px_44px_oklch(0.12_0.006_145/0.28),inset_0_1px_0_oklch(1_0_0/0.12)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] hover:shadow-[0_22px_54px_oklch(0.12_0.006_145/0.33),inset_0_1px_0_oklch(1_0_0/0.14)] active:scale-[0.985]"
+              className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] bg-[#050608] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[oklch(0.985_0.002_145)] shadow-[0_16px_40px_oklch(0.12_0.006_145/0.28),inset_0_1px_0_oklch(1_0_0/0.12)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] hover:shadow-[0_20px_48px_oklch(0.12_0.006_145/0.33),inset_0_1px_0_oklch(1_0_0/0.14)] active:scale-[0.985]"
             >
               Book a design-partner call
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2} />
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2} />
             </a>
             <Link
               href="/manifesto"
-              className="group inline-flex h-[54px] items-center gap-3 rounded-[11px] border border-[oklch(0.86_0.006_145/0.82)] bg-[oklch(0.99_0.002_145/0.76)] px-8 text-[15px] font-bold tracking-[-0.02em] text-[#111214] shadow-[0_12px_30px_oklch(0.2_0.006_145/0.08),inset_0_1px_0_oklch(1_0_0/0.85)] backdrop-blur-xl transition-[background-color,border-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-[oklch(0.78_0.008_145)] hover:bg-[oklch(1_0_0/0.92)] active:scale-[0.985]"
+              className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] border border-[oklch(0.86_0.006_145/0.82)] bg-[oklch(0.99_0.002_145/0.76)] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[#111214] shadow-[0_10px_26px_oklch(0.2_0.006_145/0.08),inset_0_1px_0_oklch(1_0_0/0.85)] backdrop-blur-xl transition-[background-color,border-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-[oklch(0.78_0.008_145)] hover:bg-[oklch(1_0_0/0.92)] active:scale-[0.985]"
             >
               Read the manifesto
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2} />
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2} />
             </Link>
           </div>
 
-          <div className="landing-reveal landing-reveal-delay-1 mt-9 flex max-w-4xl flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[12px] font-bold tracking-[-0.01em] text-[#555B64]">
+          <div className="landing-reveal landing-reveal-pills mt-7 flex max-w-4xl flex-wrap items-center justify-center gap-x-5 gap-y-2.5 text-[11px] font-bold tracking-[-0.01em] text-[#555B64]">
             {trustPills.map((pill, index) => (
-              <span key={pill} className="inline-flex items-center gap-3">
+              <span key={pill} className="inline-flex items-center gap-2.5">
                 {index === 0 ? (
                   <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.63_0.16_162)]" />
                 ) : (
@@ -70,38 +70,43 @@ export default function LandingHero() {
             ))}
           </div>
 
-          <div className="mt-auto flex flex-col items-center pb-3 pt-6 text-[9px] font-bold uppercase tracking-[0.28em] text-[#8A9099]">
-            <span>Scroll</span>
-            <span className="mt-2.5 h-8 w-px bg-gradient-to-b from-[#A8AEB7] to-transparent" />
-          </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[1180px] overflow-hidden rounded-t-[22px] border border-[oklch(1_0_0/0.08)] bg-[oklch(0.095_0.006_145/0.96)] px-8 py-7 text-[oklch(0.94_0.004_145)] shadow-[0_34px_110px_oklch(0.06_0.004_145/0.48),inset_0_1px_0_oklch(1_0_0/0.08)] backdrop-blur-2xl sm:px-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,oklch(1_0_0/0.13),transparent_44%)]" />
-          <div className="relative grid gap-8 lg:grid-cols-[1.2fr_2fr] lg:items-center">
+        <div className="landing-reveal landing-reveal-scroll mt-auto flex flex-col items-center pb-5 text-[11px] font-bold uppercase tracking-[0.32em] text-[#050608]">
+          <span>Scroll</span>
+          <span className="mt-3 h-10 w-px bg-gradient-to-b from-[#050608] to-transparent" />
+        </div>
+      </div>
+
+      {/* Infrastructure rail — original max-w card width with rounded top
+          corners. Flat dark, same base color as Section 2 below. */}
+      <div className="relative z-10 mx-auto w-full max-w-[1320px] px-6 sm:px-10 lg:px-14">
+        <div className="landing-reveal landing-reveal-rail relative overflow-hidden rounded-t-[24px] bg-[oklch(0.095_0.006_145)] px-7 py-5 text-[oklch(0.94_0.004_145)] sm:px-9">
+          <div className="grid gap-6 lg:grid-cols-[1.2fr_2fr] lg:items-center">
             <div>
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.32em] text-[#A7ADB6]">
+              <p className="mb-1.5 text-[9px] font-bold uppercase tracking-[0.32em] text-[#A7ADB6]">
                 Built around the systems
               </p>
-              <p className="text-[clamp(1.25rem,2vw,1.6rem)] font-normal tracking-[-0.035em] text-[oklch(0.96_0.004_145)]">
+              <p className="text-[clamp(1.1rem,1.8vw,1.4rem)] font-normal tracking-[-0.035em] text-[oklch(0.96_0.004_145)]">
                 your security team already trusts
               </p>
             </div>
 
-            <div className="grid grid-cols-2 overflow-hidden rounded-[14px] border border-[oklch(1_0_0/0.06)] sm:grid-cols-5">
-              {infrastructure.map((item) => {
-                const Icon = item.icon
-
-                return (
-                  <div
-                    key={item.name}
-                    className="flex h-[72px] items-center justify-center gap-3 border-[oklch(1_0_0/0.08)] px-4 text-[14px] font-bold text-[#D5D9DF] sm:border-l first:border-l-0"
-                  >
-                    <Icon className="h-5 w-5 text-[#BFC5CE]" strokeWidth={1.45} />
-                    <span>{item.label}</span>
-                  </div>
-                )
-              })}
+            <div className="grid grid-cols-2 overflow-hidden rounded-[12px] border border-[oklch(1_0_0/0.06)] sm:grid-cols-5">
+              {infrastructure.map((item) => (
+                <div
+                  key={item.name}
+                  className="flex h-[68px] items-center justify-center gap-2.5 border-[oklch(1_0_0/0.08)] px-3 text-[13px] font-bold text-[#D5D9DF] sm:border-l first:border-l-0"
+                >
+                  <img
+                    src={item.src}
+                    alt=""
+                    aria-hidden="true"
+                    className={item.wide ? 'h-6 w-auto' : 'h-5 w-5'}
+                  />
+                  <span>{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

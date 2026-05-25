@@ -1,6 +1,12 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
+
+// useLayoutEffect paints synchronously after DOM mutation but before browser
+// paint — the canvas mesh appears on the first frame instead of a frame
+// after. Falls back to useEffect during SSR to silence React's warning.
+const useIsoLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 const STAGE_WIDTH = 1920
 const STAGE_HEIGHT = 1080
@@ -160,6 +166,45 @@ function elevation(u: number, v: number, time: number) {
   const leftBottomMicro =
     (valueNoise(u * 18 + 7.7, v * 18 - 3.3) - 0.5) * 0.55 * leftBottomMask
 
+  // Mirror in the right-bottom quadrant with its own noise seed so the
+  // hills don't look symmetric.
+  const rightBottomMask =
+    Math.exp(-Math.pow((u - 0.28) / 0.22, 2)) *
+    Math.exp(-Math.pow((v - 0.78) / 0.22, 2))
+  const rightBottomBumps =
+    (fbm(u * 7.1 + 23.7, v * 8.4 + 9.1 + drift * 0.5) - 0.5) * 1.6 * rightBottomMask
+  const rightBottomRidges =
+    ridged(u * 9.2 + 17.4, v * 9.4 + 12.6 - drift * 0.3) * 0.9 * rightBottomMask
+  const rightBottomMicro =
+    (valueNoise(u * 17.5 + 19.2, v * 17.5 + 6.1) - 0.5) * 0.5 * rightBottomMask
+
+  // Hills: positive elevation pumps in both corners so the terrain visibly
+  // rises into "hills" (vs the negative dunes/bumps which only displace).
+  // ridged() returns [0, 1] — we add it directly so the contribution is
+  // always lifting, then scale by the corner mask.
+  const leftHill = ridged(u * 4.2 + 3.1, v * 4.6 + 0.7) * 1.35 * leftBottomMask
+  const rightHill = ridged(u * 4.4 + 14.7, v * 4.8 + 8.3) * 1.3 * rightBottomMask
+
+  // Smaller scattered hills inside the central valley. Heights are
+  // intentionally uneven — a low-frequency amplitude field modulates each
+  // hill's height so some are nearly flat and some lift noticeably, instead
+  // of a uniform sea of bumps.
+  const valleyMask =
+    Math.exp(-Math.pow(u / 0.2, 2)) *
+    Math.exp(-Math.pow((v - 0.4) / 0.28, 2))
+  // 0..1 amplitude field varying slowly across the valley. Squaring pushes
+  // most of the area toward "flat" while leaving occasional taller pockets.
+  const heightField = Math.pow(fbm(u * 3.4 + 71.3, v * 3.8 + 53.4), 1.6)
+  // Mix of ridged (sharp peaks) + fbm (rolling) — multiplied by heightField
+  // so amplitude varies dramatically by location.
+  const valleyHill =
+    ridged(u * 9.4 + 31.7, v * 10.2 + 27.3) * 1.15 * valleyMask * heightField
+  const valleyBumps =
+    (fbm(u * 7.6 + 41.2, v * 7.9 + 33.1) - 0.4) *
+    1.35 *
+    valleyMask *
+    (0.2 + heightField * 1.4)
+
   return (
     baseShape -
     centerDip +
@@ -169,7 +214,14 @@ function elevation(u: number, v: number, time: number) {
     microRipple +
     leftBottomBumps +
     leftBottomRidges +
-    leftBottomMicro
+    leftBottomMicro +
+    rightBottomBumps +
+    rightBottomRidges +
+    rightBottomMicro +
+    leftHill +
+    rightHill +
+    valleyHill +
+    valleyBumps
   )
 }
 
@@ -188,7 +240,7 @@ function project(worldX: number, worldY: number, worldZ: number) {
 export default function RippleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d', { alpha: true })
@@ -196,7 +248,7 @@ export default function RippleBackground() {
 
     let scaleX = 1
     let scaleY = 1
-    // Animation paused for now while we tune the static composition.
+    // Animation paused — mesh renders once on mount and on resize.
     const STATIC_TIME = 0
 
     const seededRandom = (seed: number) => {
@@ -420,18 +472,16 @@ export default function RippleBackground() {
           const leftWeight =
             0.85 + Math.exp(-Math.pow((screenU - 0.22) / 0.5, 2)) * 0.25
 
-          // Central headline fade — dots in the middle band dim sharply so
-          // the valley reads as an empty pocket behind the title rather than
-          // a uniformly bright mesh.
+          // Central headline fade — dots in the middle band stay sharp but
+          // dim, so the valley reads as a softer pocket without going blurry.
           const centerFade =
             1 -
-            Math.exp(-Math.pow((screenU - 0.5) / 0.22, 2)) *
-              Math.exp(-Math.pow((screenV - 0.18) / 0.34, 2)) *
-              0.85
+            Math.exp(-Math.pow((screenU - 0.5) / 0.24, 2)) *
+              Math.exp(-Math.pow((screenV - 0.2) / 0.36, 2)) *
+              0.7
 
-          // Depth-of-field: the camera is focused on the mid-band, so the
-          // bottom-left and bottom-right corners go progressively out of
-          // focus (bokeh blur).
+          // Depth-of-field: only the bottom-left and bottom-right corners go
+          // out of focus. The valley stays in focus (just faded).
           const leftBottomBlur =
             Math.exp(-Math.pow(screenU / 0.32, 2)) *
             Math.exp(-Math.pow(Math.max(0, 1 - screenV) / 0.4, 2))
@@ -462,11 +512,33 @@ export default function RippleBackground() {
       // Back-to-front sort so closer dots draw on top.
       particles.sort((a, b) => a.y - b.y)
 
-      // Single crisp dot per particle. With ~28k particles overlapping in
-      // bright regions, screen blending creates the luminous fabric glow.
+      // Out-of-focus pass: soft radial discs for particles in the bottom
+      // corners (depth-of-field bokeh).
       for (const p of particles) {
+        if (p.blur < 0.18) continue
+        const haloAlpha = Math.min(0.55, p.alpha * (0.4 + p.blur * 0.6))
+        const halo = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.haloRadius)
+        halo.addColorStop(0, `rgba(255,255,255,${haloAlpha})`)
+        halo.addColorStop(0.45, `rgba(255,255,255,${haloAlpha * 0.28})`)
+        halo.addColorStop(1, 'rgba(255,255,255,0)')
+        ctx.fillStyle = halo
+        ctx.fillRect(
+          p.x - p.haloRadius,
+          p.y - p.haloRadius,
+          p.haloRadius * 2,
+          p.haloRadius * 2
+        )
+      }
+
+      // In-focus pass: crisp pinpoints. Blurred dots drop their sharp core
+      // entirely (the bokeh halo above carries them), so the corners read as
+      // soft light rather than dot-on-glow.
+      for (const p of particles) {
+        if (p.blur > 0.55) continue
+        const coreAlpha = p.alpha * (1 - p.blur * 0.7)
+        if (coreAlpha < 0.02) continue
         ctx.beginPath()
-        ctx.fillStyle = `rgba(255,255,255,${p.alpha})`
+        ctx.fillStyle = `rgba(255,255,255,${coreAlpha})`
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
         ctx.fill()
       }
@@ -517,7 +589,10 @@ export default function RippleBackground() {
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
       <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.985_0.002_145)_0%,oklch(0.94_0.003_145)_28%,oklch(0.82_0.004_145)_54%,oklch(0.36_0.004_145)_82%,oklch(0.08_0.003_145)_100%)]" />
       <div className="absolute inset-x-0 top-0 h-[42vh] bg-[radial-gradient(ellipse_at_center_top,oklch(1_0_0/0.7)_0%,oklch(0.99_0.002_145/0.32)_45%,transparent_82%)]" />
-      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
+      <canvas
+        ref={canvasRef}
+        className="landing-mesh-reveal absolute inset-0 h-full w-full"
+      />
       <div className="absolute inset-x-0 bottom-0 h-[16vh] bg-[linear-gradient(to_bottom,transparent,oklch(0.06_0.003_145/0.9)_82%)]" />
     </div>
   )
