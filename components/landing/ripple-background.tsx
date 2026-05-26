@@ -540,7 +540,7 @@ export default function RippleBackground() {
         ctx.beginPath()
         ctx.fillStyle = `rgba(255,255,255,${coreAlpha})`
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fill()
+          ctx.fill()
       }
 
       ctx.restore()

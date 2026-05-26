@@ -1,6 +1,7 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
-import RippleBackground from '@/components/landing/ripple-background'
+// import RippleBackground from '@/components/landing/ripple-background'
 
 const trustPills = [
   'Runs in your AWS account',
@@ -21,7 +22,24 @@ const infrastructure = [
 export default function LandingHero() {
   return (
     <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[oklch(0.965_0.003_145)] text-[#07080A]">
-      <RippleBackground />
+      {/* <RippleBackground /> */}
+      <Image
+        src="/landing-hero-bg.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="pointer-events-none object-cover object-center"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute bottom-0 left-0 z-[1] h-[34vh] w-[min(34vw,420px)] bg-[radial-gradient(ellipse_at_0%_100%,oklch(0.095_0.006_145)_0%,oklch(0.095_0.006_145/0.62)_42%,transparent_72%)]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute bottom-0 right-0 z-[1] h-[34vh] w-[min(34vw,420px)] bg-[radial-gradient(ellipse_at_100%_100%,oklch(0.095_0.006_145)_0%,oklch(0.095_0.006_145/0.62)_42%,transparent_72%)]"
+        aria-hidden
+      />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1320px] flex-1 flex-col px-6 pb-0 pt-[130px] sm:px-10 lg:px-14">
         <div className="mx-auto flex w-full flex-col items-center text-center">
