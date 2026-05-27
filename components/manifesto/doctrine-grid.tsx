@@ -47,13 +47,13 @@ export default function DoctrineGrid() {
             idx % 3 !== 2 ? 'border-r' : ''
           } ${idx < 3 ? 'border-b' : ''}`}
         >
-          <p className="text-[10px] font-mono text-[#9499A6] mb-1.5">
+          <p className="text-[10px] font-bold text-[#9499A6] mb-1.5">
             {doctrine.num} / {doctrine.title}
           </p>
-          <p className="text-[11px] font-mono text-[#B4B8C2] mb-2">
+          <p className="text-[11px] font-bold text-[#B4B8C2] mb-2">
             {doctrine.subtitle}
           </p>
-          <p className="text-[10px] font-mono text-[#AEB3BC] leading-[1.65]">
+          <p className="text-[10px] text-[#AEB3BC] leading-[1.65]">
             {doctrine.body}
           </p>
         </div>

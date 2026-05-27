@@ -9,7 +9,7 @@ export default function Hero() {
       </p>
 
       {/* Headline */}
-      <h1 className="text-[64px] font-serif italic text-[#E8E9EC] leading-[1.1] mb-6 max-w-3xl">
+      <h1 className="text-[64px] font-bold text-[#E8E9EC] leading-[1.05] tracking-[-0.02em] mb-6 max-w-3xl">
         The Company Brain for sovereign deployment.
       </h1>
 
@@ -22,7 +22,7 @@ export default function Hero() {
       <div className="mb-8">
         <a
           href="https://cal.com/shashank-bhardwaj-fwmii1/30min"
-          className="inline-flex text-xs font-mono px-4 py-2 bg-[#E8E9EC] text-[#0A0B0D] rounded-[4px] hover:bg-white transition-colors"
+          className="inline-flex text-xs font-bold px-4 py-2 bg-[#E8E9EC] text-[#0A0B0D] rounded-[4px] hover:bg-[#F4F5F7] active:scale-[0.97] transition-[background-color,transform] duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
         >
           get on a design-partner call
         </a>
