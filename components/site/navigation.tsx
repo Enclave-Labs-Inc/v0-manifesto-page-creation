@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils'
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/manifesto', label: 'Manifesto' },
+  { href: '/releases', label: 'Releases' },
   { href: 'mailto:contact@getenclav.ai', label: 'Contact' },
 ]
 
@@ -54,7 +55,8 @@ export default function Navigation({ theme = 'light' }: NavigationProps) {
           {navLinks.map((link) => {
             const isActive =
               (link.href === '/' && pathname === '/') ||
-              (link.href === '/manifesto' && pathname.startsWith('/manifesto'))
+              (link.href === '/manifesto' && pathname.startsWith('/manifesto')) ||
+              (link.href === '/releases' && pathname.startsWith('/releases'))
 
             return (
               <Link
