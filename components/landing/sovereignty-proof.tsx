@@ -18,7 +18,7 @@ const claims = [
   {
     title: 'No standing access inside your perimeter',
     detail:
-      'We cannot reach your data, even if compelled. Subpoena us — you keep your keys.',
+      'We cannot reach your data, even if compelled. Subpoena us   you keep your keys.',
   },
   {
     title: 'Full audit log in your CloudTrail',
@@ -131,7 +131,7 @@ function PerimeterDiagram() {
           className="stagger-pop relative overflow-hidden rounded-xl border border-[#3A3D43] bg-[oklch(0.13_0.005_145)] p-5 sm:p-6"
           style={{ ['--stagger-delay' as string]: '180ms' } as CSSProperties}
         >
-          {/* Faint scan-line sweeping horizontally — reads as "this is live". */}
+          {/* Faint scan-line sweeping horizontally   reads as "this is live". */}
           <div
             aria-hidden
             className="scan-sweep pointer-events-none absolute inset-y-0 w-[28%] bg-[linear-gradient(to_right,transparent,oklch(1_0_0/0.06),transparent)]"
@@ -162,7 +162,7 @@ function PerimeterDiagram() {
         </div>
       </div>
 
-      {/* Vendor sits outside the perimeter — explicitly blocked */}
+      {/* Vendor sits outside the perimeter   explicitly blocked */}
       <div
         className="stagger-pop mt-5 flex flex-wrap items-center gap-3"
         style={{ ['--stagger-delay' as string]: '320ms' } as CSSProperties}
@@ -282,7 +282,7 @@ export default function SovereigntyProof() {
           className="scroll-reveal mt-6 max-w-[62ch] text-[15px] leading-[1.65] tracking-[-0.005em] text-[#9499A6]"
         >
           Every vendor says &ldquo;private.&rdquo; These are the five claims that survive
-          a security review — each one verifiable inside your own AWS console.
+          a security review   each one verifiable inside your own AWS console.
         </p>
 
         <div className="mt-14 grid gap-12 md:mt-20 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">

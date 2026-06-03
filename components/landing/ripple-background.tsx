@@ -3,7 +3,7 @@
 import { useEffect, useLayoutEffect, useRef } from 'react'
 
 // useLayoutEffect paints synchronously after DOM mutation but before browser
-// paint — the canvas mesh appears on the first frame instead of a frame
+// paint   the canvas mesh appears on the first frame instead of a frame
 // after. Falls back to useEffect during SSR to silence React's warning.
 const useIsoLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect
@@ -27,7 +27,7 @@ const CAMERA = { x: 0, y: -380, z: 0 }
 const FOCAL = 1450
 const HORIZON_Y = STAGE_HEIGHT * 0.32
 
-// Grazing light from upper-left — surfaces facing the light read bright.
+// Grazing light from upper-left   surfaces facing the light read bright.
 const LIGHT = normalize(-0.65, -0.78, -0.32)
 
 interface Particle {
@@ -35,7 +35,7 @@ interface Particle {
   y: number
   size: number
   alpha: number
-  // Density scoring — brighter cores at peaks/ridges.
+  // Density scoring   brighter cores at peaks/ridges.
   intensity: number
   // Pre-computed halo radius so we don't recompute per draw call.
   haloRadius: number
@@ -138,22 +138,22 @@ function elevation(u: number, v: number, time: number) {
   // whole surface. These break the symmetry of the U-shape.
   const dunes = (fbm(u * 2.4 + 1.7 + drift * 0.4, v * 2.6 + 0.3) - 0.5) * 1.4
 
-  // Sharp ridges scattered through the terrain — gives the topology
+  // Sharp ridges scattered through the terrain   gives the topology
   // mountain-range character rather than smooth dunes alone.
   const ridges =
     ridged(u * 4.2 - 0.6 + drift * 0.3, v * 4.6 + 0.9) * 0.55
 
-  // Smaller secondary bumps — adds the "uneven" detail the user asked for,
+  // Smaller secondary bumps   adds the "uneven" detail the user asked for,
   // varying across the whole field rather than concentrated.
   const secondaryBumps =
     (fbm(u * 5.8 + 3.1, v * 5.4 - drift * 0.5) - 0.5) * 0.55
 
-  // High-frequency surface tension — strongest in the foreground (large v)
+  // High-frequency surface tension   strongest in the foreground (large v)
   // so distant terrain reads smoother (atmospheric compression).
   const microRipple =
     valueNoise(u * 10.5 + drift, v * 10.5 - drift * 0.8) * 0.22 * Math.pow(v, 1.5)
 
-  // Localized "broken topology" in the left-bottom quadrant — a soft
+  // Localized "broken topology" in the left-bottom quadrant   a soft
   // gaussian mask concentrates extra bumps + sharp ridges there so that
   // corner reads as more chaotic / mountainous than the rest.
   const leftBottomMask =
@@ -180,13 +180,13 @@ function elevation(u: number, v: number, time: number) {
 
   // Hills: positive elevation pumps in both corners so the terrain visibly
   // rises into "hills" (vs the negative dunes/bumps which only displace).
-  // ridged() returns [0, 1] — we add it directly so the contribution is
+  // ridged() returns [0, 1]   we add it directly so the contribution is
   // always lifting, then scale by the corner mask.
   const leftHill = ridged(u * 4.2 + 3.1, v * 4.6 + 0.7) * 1.35 * leftBottomMask
   const rightHill = ridged(u * 4.4 + 14.7, v * 4.8 + 8.3) * 1.3 * rightBottomMask
 
   // Smaller scattered hills inside the central valley. Heights are
-  // intentionally uneven — a low-frequency amplitude field modulates each
+  // intentionally uneven   a low-frequency amplitude field modulates each
   // hill's height so some are nearly flat and some lift noticeably, instead
   // of a uniform sea of bumps.
   const valleyMask =
@@ -195,7 +195,7 @@ function elevation(u: number, v: number, time: number) {
   // 0..1 amplitude field varying slowly across the valley. Squaring pushes
   // most of the area toward "flat" while leaving occasional taller pockets.
   const heightField = Math.pow(fbm(u * 3.4 + 71.3, v * 3.8 + 53.4), 1.6)
-  // Mix of ridged (sharp peaks) + fbm (rolling) — multiplied by heightField
+  // Mix of ridged (sharp peaks) + fbm (rolling)   multiplied by heightField
   // so amplitude varies dramatically by location.
   const valleyHill =
     ridged(u * 9.4 + 31.7, v * 10.2 + 27.3) * 1.15 * valleyMask * heightField
@@ -248,7 +248,7 @@ export default function RippleBackground() {
 
     let scaleX = 1
     let scaleY = 1
-    // Animation paused — mesh renders once on mount and on resize.
+    // Animation paused   mesh renders once on mount and on resize.
     const STATIC_TIME = 0
 
     const seededRandom = (seed: number) => {
@@ -315,7 +315,7 @@ export default function RippleBackground() {
       ctx.save()
       ctx.scale(scaleX, scaleY)
 
-      // Top studio wash — bright cream falling to neutral.
+      // Top studio wash   bright cream falling to neutral.
       const topWash = ctx.createRadialGradient(
         STAGE_WIDTH * 0.5,
         STAGE_HEIGHT * 0.02,
@@ -339,7 +339,7 @@ export default function RippleBackground() {
       ctx.fillStyle = fogWash
       ctx.fillRect(0, STAGE_HEIGHT * 0.28, STAGE_WIDTH, STAGE_HEIGHT * 0.44)
 
-      // Bottom anchor — kept tight (last ~15%) so mesh dots stay visible
+      // Bottom anchor   kept tight (last ~15%) so mesh dots stay visible
       // through the lower corners.
       const bottomAnchor = ctx.createLinearGradient(0, STAGE_HEIGHT * 0.85, 0, STAGE_HEIGHT)
       bottomAnchor.addColorStop(0, 'rgba(40,44,50,0)')
@@ -447,7 +447,7 @@ export default function RippleBackground() {
           const fog = Math.pow(1 - depthT, 1.15)
 
           // Tiny pinpoint dots. They grow only slightly toward the
-          // foreground — density and overlap (via screen blending) carry the
+          // foreground   density and overlap (via screen blending) carry the
           // glow.
           const size = 0.45 + projected.scale * 1.2
 
@@ -460,7 +460,7 @@ export default function RippleBackground() {
           const sparkleSeed = hash2(c * 17 + 7, r * 31 + 3)
           const sparkle = sparkleSeed > 0.985 ? 2.0 : sparkleSeed > 0.94 ? 1.3 : 1
 
-          // Vertical anchor — only fades the very last sliver above the rail
+          // Vertical anchor   only fades the very last sliver above the rail
           // so the bottom-left/right corners still carry mesh dots.
           const screenV = (projected.y - HORIZON_Y) / (STAGE_HEIGHT - HORIZON_Y)
           const railFade = 1 - Math.pow(Math.max(0, screenV - 0.86) / 0.14, 1.6) * 0.85
@@ -472,7 +472,7 @@ export default function RippleBackground() {
           const leftWeight =
             0.85 + Math.exp(-Math.pow((screenU - 0.22) / 0.5, 2)) * 0.25
 
-          // Central headline fade — dots in the middle band stay sharp but
+          // Central headline fade   dots in the middle band stay sharp but
           // dim, so the valley reads as a softer pocket without going blurry.
           const centerFade =
             1 -

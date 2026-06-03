@@ -19,7 +19,7 @@ const paths: Path[] = [
     category: 'SaaS AI',
     context: 'Glean · Copilot · ChatGPT Enterprise',
     headline: 'Great products. Not for your data.',
-    body: 'Excellent tools — for companies that can send their data into a vendor’s cloud. Your security team already said no, and they were right to.',
+    body: 'Excellent tools   for companies that can send their data into a vendor’s cloud. Your security team already said no, and they were right to.',
     verdict: 'Closed by compliance',
   },
   {
@@ -35,7 +35,7 @@ const paths: Path[] = [
     category: 'Enclave',
     context: 'Sovereign infrastructure',
     headline: 'Sovereign by architecture. Live in weeks.',
-    body: 'Deploys inside your AWS account. You own the data; we maintain the engine. Same isolation as a build — without the 12-month detour.',
+    body: 'Deploys inside your AWS account. You own the data; we maintain the engine. Same isolation as a build   without the 12-month detour.',
     verdict: 'Open to regulated companies',
     primary: true,
   },
@@ -254,7 +254,7 @@ export default function AlternativesSection() {
           className="scroll-reveal mt-6 max-w-[62ch] text-[15px] leading-[1.65] tracking-[-0.005em] text-[#50545B]"
         >
           You’re comparing us to something whether we name it or not. Here’s
-          the honest version — no feature tables, no swipes. Just the trade-off
+          the honest version   no feature tables, no swipes. Just the trade-off
           each path actually carries.
         </p>
 

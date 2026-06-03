@@ -53,9 +53,9 @@ export default function LandingHero() {
           </h1>
 
           <p className="landing-reveal landing-reveal-body mt-5 max-w-[92ch] text-[clamp(0.92rem,1.18vw,1.02rem)] leading-[1.65] tracking-[-0.02em] text-[#50545B]">
-            Enclave connects Slack, Drive, GitHub, Confluence, Jira, and the rest, then deploys
-            <br className="hidden md:block" />
-            inside your AWS account with your S3, your KMS keys, your Postgres, and your audit logs.
+            A company brain for your internal knowledge. Enclave connects Slack, Drive, GitHub,
+            Confluence, Jira, and the rest then deploys inside your AWS account with your S3,
+            KMS keys, Postgres, and audit logs.
           </p>
 
           <div className="landing-reveal landing-reveal-actions mt-7 flex flex-wrap items-center justify-center gap-3.5">
@@ -96,7 +96,7 @@ export default function LandingHero() {
         </div>
       </div>
 
-      {/* Infrastructure rail — original max-w card width with rounded top
+      {/* Infrastructure rail   original max-w card width with rounded top
           corners. Flat dark, same base color as Section 2 below. */}
       <div className="relative z-10 mx-auto w-full max-w-[1320px] px-6 sm:px-10 lg:px-14">
         <div className="landing-reveal landing-reveal-rail relative overflow-hidden rounded-t-[24px] bg-[oklch(0.095_0.006_145)] px-7 py-5 text-[oklch(0.94_0.004_145)] sm:px-9">

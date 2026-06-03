@@ -33,7 +33,7 @@ function useReveal<T extends HTMLElement>() {
 }
 
 // ============================================================================
-// Card backgrounds — visual mocks behind each bento card
+// Card backgrounds   visual mocks behind each bento card
 // ============================================================================
 
 const QUESTION_TEXT = 'Where’s the rollback runbook for billing?'
@@ -327,7 +327,7 @@ const cards = [
     Icon: MessageSquareQuote,
     name: 'Sourced answers',
     description:
-      'Every response carries the documents it came from. No hallucinated facts — if the evidence is thin, Enclave says so.',
+      'Every response carries the documents it came from. No hallucinated facts   if the evidence is thin, Enclave says so.',
     href: '/manifesto#IV',
     cta: 'Read the doctrine',
     background: <SourcedAnswersBackground />,
@@ -409,8 +409,8 @@ export default function CapabilitiesSection() {
           data-in-view={subhead.inView}
           className="scroll-reveal mt-6 max-w-[62ch] text-[15px] leading-[1.65] tracking-[-0.005em] text-[#9499A6]"
         >
-          A look at the product surface — sourced answers, integrations,
-          permissions, audit, and the model layer — so security review starts
+          A look at the product surface   sourced answers, integrations,
+          permissions, audit, and the model layer   so security review starts
           from concrete behavior, not promises.
         </p>
 

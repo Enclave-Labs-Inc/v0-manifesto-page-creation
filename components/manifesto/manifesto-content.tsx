@@ -138,7 +138,7 @@ function ManifestoHero() {
           data-in-view={sub.inView}
           className="scroll-reveal mt-8 max-w-[58ch] text-[clamp(1rem,1.3vw,1.18rem)] leading-[1.55] tracking-[-0.015em] text-[#50545B]"
         >
-          Built for organizations that need AI across internal knowledge — but
+          Built for organizations that need AI across internal knowledge   but
           cannot send their data to SaaS AI vendors.
         </p>
 
@@ -391,7 +391,7 @@ export default function ManifestoContent() {
     <>
       <ManifestoHero />
 
-      {/* I — The problem buyers already have (dark) */}
+      {/* I   The problem buyers already have (dark) */}
       <SectionShell id="I" theme="dark" numeral="I" eyebrow="The problem buyers already have">
         <Reveal
           as="h2"
@@ -415,7 +415,7 @@ export default function ManifestoContent() {
             as="p"
             className="max-w-[60ch] text-[15px] leading-[1.7] tracking-[-0.005em] text-[#9499A6]"
           >
-            Enclave exists for the organizations that want enterprise AI — but
+            Enclave exists for the organizations that want enterprise AI   but
             cannot approve a product that asks them to send regulated,
             proprietary, or customer-sensitive data into someone else&rsquo;s
             cloud.
@@ -423,7 +423,7 @@ export default function ManifestoContent() {
         </div>
       </SectionShell>
 
-      {/* II — The category (light) */}
+      {/* II   The category (light) */}
       <SectionShell id="II" theme="light" numeral="II" eyebrow="The category">
         <Reveal
           as="h2"
@@ -439,8 +439,8 @@ export default function ManifestoContent() {
             as="p"
             className="max-w-[58ch] text-[15px] leading-[1.7] tracking-[-0.005em] text-[#50545B]"
           >
-            Enclave connects what your company already knows — across Slack,
-            Drive, GitHub, Confluence, Jira, and the rest — and lets employees
+            Enclave connects what your company already knows   across Slack,
+            Drive, GitHub, Confluence, Jira, and the rest   and lets employees
             ask natural-language questions that come back with sourced answers.
           </Reveal>
           <Reveal
@@ -454,7 +454,7 @@ export default function ManifestoContent() {
         </div>
       </SectionShell>
 
-      {/* III — The architectural claim (dark) — anchor target */}
+      {/* III   The architectural claim (dark)   anchor target */}
       <SectionShell
         id="III"
         theme="dark"
@@ -480,7 +480,7 @@ export default function ManifestoContent() {
             >
               Enclave deploys inside your AWS account. Your S3, your KMS keys,
               your Postgres, your audit logs. GCP and Azure support on the
-              public roadmap — talk to the founder about your environment.
+              public roadmap   talk to the founder about your environment.
             </Reveal>
             <Reveal
               as="p"
@@ -496,14 +496,14 @@ export default function ManifestoContent() {
               className="text-[15px] leading-[1.7] tracking-[-0.005em] text-[#9499A6]"
             >
               Every AI company says it values privacy. Enclave is built so
-              privacy isn&rsquo;t a promise in a sales deck — it&rsquo;s the
+              privacy isn&rsquo;t a promise in a sales deck   it&rsquo;s the
               deployment boundary itself.
             </Reveal>
           </div>
         </div>
       </SectionShell>
 
-      {/* IV — The evidence (light) — doctrine grid */}
+      {/* IV   The evidence (light)   doctrine grid */}
       <SectionShell id="IV" theme="light" numeral="IV" eyebrow="The evidence">
         <Reveal
           as="h2"
@@ -535,7 +535,7 @@ export default function ManifestoContent() {
         </div>
       </SectionShell>
 
-      {/* V — Who Enclave is for (dark) */}
+      {/* V   Who Enclave is for (dark) */}
       <SectionShell id="V" theme="dark" numeral="V" eyebrow="Who Enclave is for">
         <Reveal
           as="h2"
@@ -576,7 +576,7 @@ export default function ManifestoContent() {
         </Reveal>
       </SectionShell>
 
-      {/* VI — What Enclave is not (light) */}
+      {/* VI   What Enclave is not (light) */}
       <SectionShell
         id="VI"
         theme="light"
@@ -598,14 +598,14 @@ export default function ManifestoContent() {
         >
           Enclave is not a chat product. It&rsquo;s not a SaaS. It&rsquo;s not
           a model. It&rsquo;s the retrieval and knowledge infrastructure that
-          sits underneath whatever LLM your organization already trusts —
+          sits underneath whatever LLM your organization already trusts  
           Bedrock, Azure OpenAI, your own Vertex, or a local Mistral. We are
           the substrate, not the answer engine. We do not train on your data,
           because we never see it.
         </Reveal>
       </SectionShell>
 
-      {/* VII — The founder note (dark) — CTA + founder credit */}
+      {/* VII   The founder note (dark)   CTA + founder credit */}
       <SectionShell
         id="VII"
         theme="dark"
