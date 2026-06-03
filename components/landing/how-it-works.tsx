@@ -92,7 +92,7 @@ function DeployViz() {
   )
 }
 
-// Abstract placeholder marks — drop the official brand SVGs into
+// Abstract placeholder marks   drop the official brand SVGs into
 // /public/brand/{slack,drive,github,confluence}.svg to swap with real
 // favicons. These use currentColor so they adapt to whatever text-color
 // the parent sets.
@@ -218,7 +218,7 @@ function ConnectViz() {
 
       {/* Animated beams: 6 streams converging on Enclave with staggered
           delays. Top satellites curve downward, mid go straight, bottom
-          curve upward — same pattern as the MagicUI demo. */}
+          curve upward   same pattern as the MagicUI demo. */}
       <AnimatedBeam
         containerRef={containerRef}
         fromRef={leftTopRef}
@@ -439,7 +439,7 @@ const steps: Step[] = [
     number: '03',
     label: 'Ask',
     description:
-      'Employees query in natural language. Permission-aware — people only see what they’re allowed to.',
+      'Employees query in natural language. Permission-aware   people only see what they’re allowed to.',
     Viz: AskViz,
   },
   {
@@ -530,7 +530,7 @@ export default function HowItWorks() {
 
         {/* Cards grid + flow line */}
         <div className="relative mt-14 md:mt-20">
-          {/* Animated horizontal "flow" through the row of cards — runs
+          {/* Animated horizontal "flow" through the row of cards   runs
               through the visual area at the top of each card. Desktop only. */}
           <div
             aria-hidden

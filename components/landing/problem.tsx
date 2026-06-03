@@ -22,7 +22,7 @@ const beats: Beat[] = [
     icon: Cloud,
     motion: 'icon-drift',
     title: 'The good tools are SaaS',
-    body: 'The good AI tools are SaaS — your data has to leave to use them. Compliance says no.',
+    body: 'The good AI tools are SaaS   your data has to leave to use them. Compliance says no.',
     tagPrefix: 'Vendor lane',
     tags: ['Glean', 'Microsoft Copilot', 'ChatGPT Enterprise'],
   },
@@ -47,7 +47,7 @@ const beats: Beat[] = [
 ]
 
 // Each element reveals as IT individually enters the viewport, and hides
-// again when it leaves — so scrolling back up + down re-plays the effect.
+// again when it leaves   so scrolling back up + down re-plays the effect.
 function useReveal<T extends HTMLElement>() {
   const ref = useRef<T | null>(null)
   const [inView, setInView] = useState(false)
@@ -213,7 +213,7 @@ export default function ProblemSection() {
           data-in-view={subhead.inView}
           className="scroll-reveal mt-6 max-w-[62ch] text-[15px] leading-[1.65] tracking-[-0.005em] text-[#9499A6]"
         >
-          Three reasons regulated AI projects stall — and the workaround that
+          Three reasons regulated AI projects stall   and the workaround that
           quietly makes the risk worse.
         </p>
 

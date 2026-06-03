@@ -65,7 +65,7 @@ export default function FinalCTA() {
     <section className="relative overflow-hidden bg-[#050608] text-[#E8E9EC]">
       {/* Hairline from the light section above */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[oklch(0.18_0.004_145)]" />
-      {/* Soft top glow — echoes the hero's mesh light, gives the close visual lift */}
+      {/* Soft top glow   echoes the hero's mesh light, gives the close visual lift */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] bg-[radial-gradient(ellipse_at_50%_0%,oklch(0.32_0.008_145/0.7)_0%,transparent_70%)]" />
 
       <div className="relative mx-auto flex max-w-[1320px] flex-col items-center px-6 py-[clamp(6rem,12vw,10rem)] text-center sm:px-10 lg:px-14">
@@ -105,7 +105,7 @@ export default function FinalCTA() {
           data-in-view={ctaBlock.inView}
           className="scroll-reveal relative mt-12"
         >
-          {/* Ambient glow behind the CTA — pulses softly, draws the eye. */}
+          {/* Ambient glow behind the CTA   pulses softly, draws the eye. */}
           <div
             aria-hidden
             className="cta-glow pointer-events-none absolute -inset-6 rounded-full bg-[radial-gradient(circle,oklch(0.78_0.13_162/0.22)_0%,transparent_60%)] blur-md"
