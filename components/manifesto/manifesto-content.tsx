@@ -37,9 +37,10 @@ type SectionShellProps = {
   numeral: string
   eyebrow: string
   children: React.ReactNode
+  className?: string
 }
 
-function SectionShell({ id, theme, numeral, eyebrow, children }: SectionShellProps) {
+function SectionShell({ id, theme, numeral, eyebrow, children, className }: SectionShellProps) {
   const isDark = theme === 'dark'
   const eyebrowReveal = useReveal<HTMLDivElement>()
 
@@ -52,7 +53,7 @@ function SectionShell({ id, theme, numeral, eyebrow, children }: SectionShellPro
           : 'bg-[oklch(0.98_0.001_145)] text-[#0a0b0d]'
       }`}
     >
-      <div className="relative mx-auto max-w-[1320px] px-6 py-[clamp(5.5rem,10vw,8.5rem)] sm:px-10 lg:px-14">
+      <div className={`relative mx-auto max-w-[1320px] px-6 py-[clamp(5.5rem,10vw,8.5rem)] sm:px-10 lg:px-14 ${className ?? ''}`}>
         <div
           ref={eyebrowReveal.ref}
           data-in-view={eyebrowReveal.inView}
@@ -611,6 +612,7 @@ export default function ManifestoContent() {
         theme="dark"
         numeral="VII"
         eyebrow="The founder note"
+        className="!pb-[clamp(3rem,5vw,4.5rem)]"
       >
         <Reveal
           as="h2"
@@ -651,10 +653,10 @@ export default function ManifestoContent() {
             />
           </a>
           <a
-            href="mailto:contact@getenclav.ai"
+            href="mailto:contact@getenclave.ai"
             className="text-[13px] font-bold tracking-[-0.01em] text-[#C5C9D2] transition-colors duration-200 hover:text-white"
           >
-            contact@getenclav.ai
+            contact@getenclave.ai
           </a>
         </Reveal>
 
@@ -672,6 +674,15 @@ export default function ManifestoContent() {
           </div>
           <FounderSocial />
         </Reveal>
+
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-[#1A1D22] pt-6 text-[12px] font-bold tracking-[-0.005em] text-[#4A4F5A]">
+          <span>© 2026 Enclave</span>
+          <nav className="flex items-center gap-6">
+            <Link href="/" className="transition-colors duration-150 hover:text-[#9499A6]">Home</Link>
+            <Link href="/releases" className="transition-colors duration-150 hover:text-[#9499A6]">Releases</Link>
+            <a href="mailto:contact@getenclave.ai" className="transition-colors duration-150 hover:text-[#9499A6]">Contact</a>
+          </nav>
+        </div>
       </SectionShell>
     </>
   )

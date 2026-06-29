@@ -7,7 +7,7 @@ import EnclaveLogo from '@/components/site/enclave-logo'
 const navLinks = [
   { href: '/manifesto', label: 'Manifesto' },
   { href: '/manifesto#III', label: 'Architecture' },
-  { href: 'mailto:contact@getenclav.ai', label: 'Contact' },
+  { href: 'mailto:contact@getenclave.ai', label: 'Contact' },
 ]
 
 function useReveal<T extends HTMLElement>() {
@@ -86,11 +86,11 @@ export default function LandingFooter() {
           className="mt-6 flex flex-col gap-3 text-[12px] font-bold tracking-[-0.005em] text-[#787D8A] sm:flex-row sm:items-center sm:justify-between"
         >
           <a
-            href="mailto:contact@getenclav.ai"
+            href="mailto:contact@getenclave.ai"
             className="stagger-pop nav-underline inline-flex self-start transition-colors duration-150 hover:text-[#C5C9D2]"
             style={{ ['--stagger-delay' as string]: '60ms' } as React.CSSProperties}
           >
-            contact@getenclav.ai
+            contact@getenclave.ai
           </a>
           <p
             className="stagger-pop"
