@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Navigation from '@/components/site/navigation'
-import LandingFooter from '@/components/landing/landing-footer'
 import ManifestoContent from '@/components/manifesto/manifesto-content'
 
 export const metadata: Metadata = {
@@ -16,7 +15,6 @@ export default function ManifestoPage() {
       <main>
         <ManifestoContent />
       </main>
-      <LandingFooter />
     </div>
   )
 }

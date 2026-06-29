@@ -1050,10 +1050,10 @@ export default function ReleasesContent() {
             />
           </a>
           <a
-            href="mailto:contact@getenclav.ai"
+            href="mailto:contact@getenclave.ai"
             className="text-[13px] font-bold tracking-[-0.01em] text-[#45484E] transition-colors duration-200 hover:text-[#07080A]"
           >
-            contact@getenclav.ai
+            contact@getenclave.ai
           </a>
         </Reveal>
 

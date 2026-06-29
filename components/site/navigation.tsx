@@ -11,7 +11,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/manifesto', label: 'Manifesto' },
   { href: '/releases', label: 'Releases' },
-  { href: 'mailto:contact@getenclav.ai', label: 'Contact' },
+  { href: 'mailto:contact@getenclave.ai', label: 'Contact' },
 ]
 
 interface NavigationProps {

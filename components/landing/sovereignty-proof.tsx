@@ -294,6 +294,10 @@ export default function SovereigntyProof() {
             ))}
           </div>
         </div>
+
+        <p className="mt-12 max-w-[72ch] text-[12px] leading-[1.7] tracking-[-0.005em] text-[#5E636F]">
+          Architectural and policy claims describe the system as designed. Infrastructure claims (deployment location, key ownership, audit logs) are verifiable directly in your AWS console today. Conduct and data-handling claims (no standing access, no training on customer data) are currently self-attested; independent verification (SOC&nbsp;2 Type&nbsp;II) is in progress and audit findings will be shared with design partners under NDA as they become available.
+        </p>
       </div>
     </section>
   )
