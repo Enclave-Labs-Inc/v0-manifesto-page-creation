@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/manifesto', label: 'Manifesto' },
   { href: '/releases', label: 'Releases' },
+  { href: '/demo', label: 'Demo' },
   { href: 'mailto:contact@getenclave.ai', label: 'Contact' },
 ]
 
@@ -56,7 +57,8 @@ export default function Navigation({ theme = 'light' }: NavigationProps) {
             const isActive =
               (link.href === '/' && pathname === '/') ||
               (link.href === '/manifesto' && pathname.startsWith('/manifesto')) ||
-              (link.href === '/releases' && pathname.startsWith('/releases'))
+              (link.href === '/releases' && pathname.startsWith('/releases')) ||
+              (link.href === '/demo' && pathname.startsWith('/demo'))
 
             return (
               <Link
