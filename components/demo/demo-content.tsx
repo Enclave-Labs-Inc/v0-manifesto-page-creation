@@ -54,7 +54,7 @@ export default function DemoContent() {
       <div className="relative mt-12 overflow-hidden rounded-2xl border border-[#E0E3E8] bg-[#07080A] shadow-[0_32px_80px_oklch(0.18_0.008_145/0.14)]">
         <video
           ref={videoRef}
-          src="/demo.mp4"
+          src="/demo-1.mp4"
           className="w-full"
           playsInline
           controls={playing}
