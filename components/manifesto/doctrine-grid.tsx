@@ -27,7 +27,7 @@ const doctrines = [
     num: '05',
     title: 'Retrieval',
     subtitle: 'The moat is below the UI',
-    body: 'Built around Rust shard workers (parallelized, low-latency shard scanning), byte-level vector formats (~13 KB read per query at scale), and deterministic ranking (same query, same result order, regardless of load) — designed to make the sovereignty claim real at production scale.',
+    body: 'Built around Rust shard workers (parallelized, low-latency shard scanning), byte-level vector formats (~13 KB read per query at scale), and deterministic ranking (same query, same result order, regardless of load), designed to make the sovereignty claim real at production scale.',
   },
   {
     num: '06',

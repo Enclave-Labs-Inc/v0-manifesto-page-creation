@@ -6,7 +6,7 @@ import DemoContent from '@/components/demo/demo-content'
 export const metadata: Metadata = {
   title: 'Demo · Enclave',
   description:
-    'See Enclave in action — sovereign AI search running entirely inside your AWS account.',
+    'See Enclave in action: sovereign AI search running entirely inside your AWS account.',
 }
 
 export default function DemoPage() {
