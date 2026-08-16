@@ -45,8 +45,8 @@ export default function DemoContent() {
 
       {/* Description */}
       <p className="mt-6 max-w-[56ch] text-[clamp(0.95rem,1.2vw,1.1rem)] leading-[1.6] tracking-[-0.015em] text-[#50545B]">
-        Watch sovereign AI search running end-to-end — employees asking
-        natural-language questions against internal knowledge, with every byte
+        Watch sovereign AI search running end-to-end, with employees asking
+        natural-language questions against internal knowledge and every byte
         staying inside the customer&rsquo;s VPC. No data leaves the perimeter.
       </p>
 

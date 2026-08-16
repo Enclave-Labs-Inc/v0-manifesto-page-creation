@@ -439,7 +439,7 @@ const steps: Step[] = [
     number: '03',
     label: 'Ask',
     description:
-      'Employees query in natural language. Permission-aware   people only see what they’re allowed to.',
+      'Employees query in natural language. Permission-aware: people only see what they’re allowed to.',
     Viz: AskViz,
   },
   {
