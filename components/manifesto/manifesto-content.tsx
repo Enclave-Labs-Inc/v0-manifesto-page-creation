@@ -50,30 +50,36 @@ function SectionShell({ id, theme, numeral, eyebrow, children, className }: Sect
       className={`relative overflow-hidden ${
         isDark
           ? 'bg-[oklch(0.095_0_0)] text-[#E8E9EC]'
-          : 'bg-[oklch(0.98_0_0)] text-[#0a0b0d]'
+          : 'bg-[oklch(0.965_0_0)] text-[#0a0b0d]'
       }`}
     >
-      <div className={`relative mx-auto max-w-[1320px] px-6 py-[clamp(5.5rem,10vw,8.5rem)] sm:px-10 lg:px-14 ${className ?? ''}`}>
+      <div className={`relative mx-auto max-w-[1440px] px-5 py-[clamp(5.5rem,10vw,8.5rem)] sm:px-10 lg:px-14 ${className ?? ''}`}>
         <div
           ref={eyebrowReveal.ref}
           data-in-view={eyebrowReveal.inView}
-          className="scroll-reveal flex items-center gap-3"
+          className={`scroll-reveal inline-flex items-center gap-2.5 rounded-full border px-3.5 py-1.5 backdrop-blur-md ${
+            isDark
+              ? 'border-[oklch(1_0_0/0.18)] bg-[oklch(1_0_0/0.06)]'
+              : 'border-[oklch(0.86_0_0/0.9)] bg-[oklch(1_0_0/0.65)]'
+          }`}
         >
           <span
-            className={`flex h-7 min-w-7 items-center justify-center rounded-md border px-2 text-[10px] font-bold tracking-[0.18em] ${
-              isDark
-                ? 'border-[#2A2D34] bg-[oklch(0.13_0_0)] text-[#9499A6]'
-                : 'border-[#D6DAE1] bg-white text-[#5E636F]'
+            className={`font-mono text-[11px] tracking-[0.14em] ${
+              isDark ? 'text-[#C5C9D2]' : 'text-[#5E636F]'
             }`}
           >
             § {numeral}
           </span>
           <span
-            className={`text-[11px] font-bold uppercase tracking-[0.34em] ${
-              isDark ? 'text-[#787D8A]' : 'text-[#5E636F]'
+            className={`h-[10px] w-px ${isDark ? 'bg-[oklch(1_0_0/0.22)]' : 'bg-[#C7CCD4]'}`}
+            aria-hidden
+          />
+          <span
+            className={`font-mono text-[11px] tracking-[0.14em] ${
+              isDark ? 'text-[#F4F5F7]' : 'text-[#2E3238]'
             }`}
           >
-            {eyebrow}
+            {eyebrow.toUpperCase()}
           </span>
         </div>
 
@@ -114,20 +120,22 @@ function ManifestoHero() {
   const meta = useReveal<HTMLDivElement>()
 
   return (
-    <section className="relative overflow-hidden bg-[oklch(0.98_0_0)] text-[#0a0b0d]">
-      <div className="relative mx-auto max-w-[1320px] px-6 pb-[clamp(5rem,9vw,8rem)] pt-[clamp(6rem,11vw,9rem)] sm:px-10 lg:px-14">
-        <p
-          ref={eyebrow.ref}
+    <section className="relative overflow-hidden bg-[oklch(0.965_0_0)] text-[#0a0b0d]">
+      <div className="relative mx-auto max-w-[1440px] px-5 pb-[clamp(5rem,9vw,8rem)] pt-[clamp(6rem,11vw,9rem)] sm:px-10 lg:px-14">
+        <div
+          ref={eyebrow.ref as never}
           data-in-view={eyebrow.inView}
-          className="scroll-reveal text-[11px] font-bold uppercase tracking-[0.34em] text-[#5E636F]"
+          className="scroll-reveal inline-flex items-center gap-2.5 rounded-full border border-[oklch(0.86_0_0/0.9)] bg-[oklch(1_0_0/0.65)] px-3.5 py-1.5 backdrop-blur-md"
         >
-          Manifesto · v1.0
-        </p>
+          <span className="font-mono text-[11px] tracking-[0.14em] text-[#5E636F]">MANIFESTO</span>
+          <span aria-hidden className="h-[10px] w-px bg-[#C7CCD4]" />
+          <span className="font-mono text-[11px] tracking-[0.14em] text-[#2E3238]">V1.0</span>
+        </div>
 
         <h1
           ref={headline.ref}
           data-in-view={headline.inView}
-          className="scroll-reveal mt-8 max-w-[22ch] text-[clamp(2.4rem,6vw,5.4rem)] font-bold leading-[1.02] tracking-[-0.05em] text-[#050608]"
+          className="font-display scroll-reveal mt-6 max-w-[22ch] text-[clamp(2.4rem,6vw,5.4rem)] font-normal leading-[1.02] tracking-[-0.025em] text-[#050608]"
         >
           The Company Brain
           <br className="hidden md:block" />
@@ -150,9 +158,9 @@ function ManifestoHero() {
         >
           <a
             href={CAL_URL}
-            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] bg-[#050608] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[oklch(0.985_0_0)] shadow-[0_16px_40px_oklch(0.12_0_0/0.28),inset_0_1px_0_oklch(1_0_0/0.12)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
+            className="group inline-flex h-[46px] items-center gap-2.5 rounded-[6px] bg-[#050608] px-6 text-[11px] font-bold uppercase tracking-[0.18em] text-[oklch(0.985_0_0)] transition-[background-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
           >
-            Book a design-partner call
+            Request access
             <ArrowRight
               className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
               strokeWidth={2}
@@ -160,7 +168,7 @@ function ManifestoHero() {
           </a>
           <Link
             href="/"
-            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] border border-[oklch(0.86_0_0/0.82)] bg-[oklch(0.99_0_0/0.76)] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[#111214] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-[oklch(0.78_0_0)] hover:bg-[oklch(1_0_0/0.92)] active:scale-[0.985]"
+            className="group inline-flex h-[46px] items-center gap-2 rounded-[6px] border border-[#050608] px-5 text-[11px] font-bold uppercase tracking-[0.18em] text-[#050608] transition-[background-color,color] duration-200 hover:bg-[#050608] hover:text-[oklch(0.985_0_0)]"
           >
             Back to overview
           </Link>
@@ -241,31 +249,31 @@ function DoctrineCard({
     <article
       ref={ref}
       data-in-view={inView}
-      className={`scroll-reveal group flex flex-col rounded-2xl border p-6 transition-[border-color,background-color,transform] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5 sm:p-7 ${
+      className={`scroll-reveal group flex flex-col rounded-[14px] border p-6 transition-[border-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] sm:p-7 ${
         isDark
-          ? 'border-[#1E2127] bg-[oklch(0.115_0_0)] hover:border-[#2C3038] hover:bg-[oklch(0.13_0_0)]'
-          : 'border-[#E0E3E8] bg-[oklch(0.995_0_0)] hover:border-[#C7CCD4] hover:bg-white'
+          ? 'border-[#1E2127] bg-[oklch(0.115_0_0)] hover:border-[#2C3038]'
+          : 'border-[#E0E3E8] bg-[oklch(1_0_0/0.5)] hover:border-[#C7CCD4]'
       }`}
     >
       <div className="mb-5 flex items-center justify-between">
         <span
-          className={`text-[10px] font-bold uppercase tracking-[0.36em] ${
+          className={`font-mono text-[11px] tracking-[0.14em] ${
             isDark ? 'text-[#5E636F]' : 'text-[#9499A6]'
           }`}
         >
           {doctrine.num}
         </span>
         <span
-          className={`text-[10px] font-bold uppercase tracking-[0.28em] ${
+          className={`font-mono text-[10px] tracking-[0.14em] ${
             isDark ? 'text-[#9499A6]' : 'text-[#787D8A]'
           }`}
         >
-          {doctrine.title}
+          {doctrine.title.toUpperCase()}
         </span>
       </div>
 
       <h3
-        className={`text-[17px] font-bold tracking-[-0.015em] ${
+        className={`font-display text-[17px] font-medium tracking-[-0.015em] ${
           isDark ? 'text-[#F4F5F7]' : 'text-[#050608]'
         }`}
       >
@@ -309,7 +317,7 @@ function PerimeterDiagram() {
           <p className="text-[10px] font-bold uppercase tracking-[0.34em] text-[#787D8A]">
             Inside your VPC
           </p>
-          <p className="mt-2 text-[22px] font-bold tracking-[-0.02em] text-[#F4F5F7]">
+          <p className="mt-2 font-display text-[22px] font-medium tracking-[-0.02em] text-[#F4F5F7]">
             Enclave
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] font-bold text-[#C5C9D2]">
@@ -396,7 +404,7 @@ export default function ManifestoContent() {
       <SectionShell id="I" theme="dark" numeral="I" eyebrow="The problem buyers already have">
         <Reveal
           as="h2"
-          className="max-w-[22ch] text-[clamp(2rem,4.8vw,4rem)] font-bold leading-[1.04] tracking-[-0.04em] text-[#F4F5F7]"
+          className="max-w-[22ch] text-[clamp(2rem,4.8vw,4rem)] font-display font-normal leading-[1.02] tracking-[-0.025em] text-[#F4F5F7]"
         >
           Your security team killed Copilot.
           <br className="hidden md:block" />
@@ -428,7 +436,7 @@ export default function ManifestoContent() {
       <SectionShell id="II" theme="light" numeral="II" eyebrow="The category">
         <Reveal
           as="h2"
-          className="max-w-[24ch] text-[clamp(2rem,4.8vw,4rem)] font-bold leading-[1.04] tracking-[-0.04em] text-[#050608]"
+          className="max-w-[24ch] text-[clamp(2rem,4.8vw,4rem)] font-display font-normal leading-[1.02] tracking-[-0.025em] text-[#050608]"
         >
           The Company Brain
           <br className="hidden md:block" />
@@ -464,7 +472,7 @@ export default function ManifestoContent() {
       >
         <Reveal
           as="h2"
-          className="max-w-[24ch] text-[clamp(2rem,4.8vw,4rem)] font-bold leading-[1.04] tracking-[-0.04em] text-[#F4F5F7]"
+          className="max-w-[24ch] text-[clamp(2rem,4.8vw,4rem)] font-display font-normal leading-[1.02] tracking-[-0.025em] text-[#F4F5F7]"
         >
           Privacy isn&rsquo;t a promise.
           <br className="hidden md:block" />
@@ -508,7 +516,7 @@ export default function ManifestoContent() {
       <SectionShell id="IV" theme="light" numeral="IV" eyebrow="The evidence">
         <Reveal
           as="h2"
-          className="max-w-[26ch] text-[clamp(2rem,4.8vw,4rem)] font-bold leading-[1.04] tracking-[-0.04em] text-[#050608]"
+          className="max-w-[26ch] text-[clamp(2rem,4.8vw,4rem)] font-display font-normal leading-[1.02] tracking-[-0.025em] text-[#050608]"
         >
           Six doctrines.
           <br className="hidden md:block" />
@@ -540,7 +548,7 @@ export default function ManifestoContent() {
       <SectionShell id="V" theme="dark" numeral="V" eyebrow="Who Enclave is for">
         <Reveal
           as="h2"
-          className="max-w-[24ch] text-[clamp(2rem,4.8vw,4rem)] font-bold leading-[1.04] tracking-[-0.04em] text-[#F4F5F7]"
+          className="max-w-[24ch] text-[clamp(2rem,4.8vw,4rem)] font-display font-normal leading-[1.02] tracking-[-0.025em] text-[#F4F5F7]"
         >
           For regulated teams
           <br className="hidden md:block" />
@@ -586,7 +594,7 @@ export default function ManifestoContent() {
       >
         <Reveal
           as="h2"
-          className="max-w-[26ch] text-[clamp(2rem,4.8vw,4rem)] font-bold leading-[1.04] tracking-[-0.04em] text-[#050608]"
+          className="max-w-[26ch] text-[clamp(2rem,4.8vw,4rem)] font-display font-normal leading-[1.02] tracking-[-0.025em] text-[#050608]"
         >
           Not a chat product.
           <br className="hidden md:block" />
@@ -616,7 +624,7 @@ export default function ManifestoContent() {
       >
         <Reveal
           as="h2"
-          className="max-w-[24ch] text-[clamp(2rem,4.8vw,4rem)] font-bold leading-[1.04] tracking-[-0.04em] text-[#F4F5F7]"
+          className="max-w-[24ch] text-[clamp(2rem,4.8vw,4rem)] font-display font-normal leading-[1.02] tracking-[-0.025em] text-[#F4F5F7]"
         >
           Tired of every AI company
           <br className="hidden md:block" />
@@ -628,61 +636,20 @@ export default function ManifestoContent() {
             as="p"
             className="text-[15px] leading-[1.7] tracking-[-0.005em] text-[#9499A6]"
           >
-            Enclave is being built by a solo engineer who got tired of every AI
-            company asking enterprises to trust their cloud.
+            I&rsquo;ve sat in enough security reviews to know how they end. Any product that asks a
+            regulated team to send their data to someone else&rsquo;s cloud is dead on arrival. So I&rsquo;m
+            building the one that doesn&rsquo;t.
           </Reveal>
           <Reveal
             as="p"
             className="text-[15px] leading-[1.7] tracking-[-0.005em] text-[#9499A6]"
           >
-            The first version is for design partners with real constraints:
-            private data, serious compliance pressure, and employees who still
-            need AI to do their best work.
+            The first release is for design partners with real constraints. Private data, serious
+            compliance pressure, and teams who still need AI to do their best work. If that&rsquo;s you,
+            get in touch.
           </Reveal>
         </div>
 
-        <Reveal as="div" className="mt-12 flex flex-wrap items-center gap-4">
-          <a
-            href={CAL_URL}
-            className="group inline-flex h-[52px] items-center gap-3 rounded-[11px] bg-[#F4F5F7] px-8 text-[14px] font-bold tracking-[-0.02em] text-[#050608] shadow-[0_18px_44px_oklch(0.6_0_0/0.16),inset_0_1px_0_oklch(1_0_0/0.8)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white active:scale-[0.985]"
-          >
-            Book a design-partner call
-            <ArrowRight
-              className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
-              strokeWidth={2}
-            />
-          </a>
-          <a
-            href="mailto:contact@getenclave.ai"
-            className="text-[13px] font-bold tracking-[-0.01em] text-[#C5C9D2] transition-colors duration-200 hover:text-white"
-          >
-            contact@getenclave.ai
-          </a>
-        </Reveal>
-
-        <Reveal
-          as="div"
-          className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-[#1F2227] pt-8"
-        >
-          <div>
-            <p className="text-[13px] font-bold tracking-[-0.01em] text-[#E4E7EC]">
-              Shashank Bhardwaj
-            </p>
-            <p className="mt-1 text-[12px] tracking-[-0.005em] text-[#787D8A]">
-              Founder · getenclave.ai
-            </p>
-          </div>
-          <FounderSocial />
-        </Reveal>
-
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-[#1A1D22] pt-6 text-[12px] font-bold tracking-[-0.005em] text-[#4A4F5A]">
-          <span>© 2026 Enclave</span>
-          <nav className="flex items-center gap-6">
-            <Link href="/" className="transition-colors duration-150 hover:text-[#9499A6]">Home</Link>
-            <Link href="/releases" className="transition-colors duration-150 hover:text-[#9499A6]">Releases</Link>
-            <a href="mailto:contact@getenclave.ai" className="transition-colors duration-150 hover:text-[#9499A6]">Contact</a>
-          </nav>
-        </div>
       </SectionShell>
     </>
   )

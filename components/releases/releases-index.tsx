@@ -1,8 +1,9 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { releases } from '@/components/releases/releases-data'
 
 function useReveal<T extends HTMLElement>() {
@@ -30,9 +31,11 @@ function useReveal<T extends HTMLElement>() {
 function TimelineEntry({
   release,
   isLatest,
+  isLast,
 }: {
   release: (typeof releases)[number]
   isLatest: boolean
+  isLast: boolean
 }) {
   const { ref, inView } = useReveal<HTMLAnchorElement>()
 
@@ -41,55 +44,55 @@ function TimelineEntry({
       ref={ref as never}
       data-in-view={inView}
       href={`/releases/${release.slug}`}
-      className="scroll-reveal group block rounded-2xl outline-none ring-[#5E636F] focus-visible:ring-2"
+      className={`scroll-reveal group block outline-none ring-[#5E636F] focus-visible:ring-2 ${
+        isLast ? '' : 'border-b border-[#E0E3E8]'
+      }`}
     >
-      <article className="grid gap-y-5 lg:grid-cols-[200px_1fr] lg:gap-x-14">
-        <div className="lg:pt-1">
+      <article className="grid gap-y-5 py-10 md:grid-cols-[200px_1fr] md:gap-x-12">
+        <div>
           <div className="flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-[#5E636F]" />
-            <span className="text-[22px] font-bold tracking-[-0.03em] text-[#050608]">
+            <span className="font-mono text-[11px] tracking-[0.14em] text-[#5E636F]">
               {release.version}
             </span>
             {isLatest && (
-              <span className="rounded-full border border-[oklch(0.82_0.07_162)] bg-[oklch(0.95_0.04_162)] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.18em] text-[oklch(0.45_0.11_162)]">
-                Latest
+              <span className="inline-flex items-center gap-1.5 rounded-[4px] bg-[#050608] px-2 py-1 font-mono text-[9.5px] tracking-[0.14em] text-[#F4F5F7]">
+                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[#F4F5F7]" />
+                LATEST
               </span>
             )}
           </div>
-          <p className="mt-2 pl-5 text-[11px] font-bold uppercase tracking-[0.28em] text-[#787D8A]">
-            {release.date}
+          <p className="mt-3 font-mono text-[10px] tracking-[0.14em] text-[#787D8A]">
+            {release.date.toUpperCase()}
           </p>
         </div>
 
-        <div className="relative pb-14 lg:border-l lg:border-[#E0E3E8] lg:pl-14">
-          <span className="absolute -left-[4.5px] top-1.5 hidden h-2 w-2 rounded-full border-2 border-[oklch(0.98_0_0)] bg-[#C7CCD4] transition-colors duration-200 group-hover:bg-[#5E636F] lg:block" />
-
-          <h2 className="text-[clamp(1.5rem,2.8vw,2.1rem)] font-bold leading-[1.1] tracking-[-0.03em] text-[#050608]">
+        <div>
+          <h2 className="font-display text-[clamp(1.4rem,2.4vw,1.9rem)] font-medium leading-[1.15] tracking-[-0.02em] text-[#050608]">
             {release.title}
           </h2>
-          <p className="mt-1.5 text-[15px] font-bold tracking-[-0.02em] text-[#7F848F]">
+          <p className="mt-1.5 text-[14px] font-medium tracking-[-0.01em] text-[#7F848F]">
             {release.subtitle}
           </p>
 
-          <p className="mt-5 max-w-[64ch] text-[15px] leading-[1.7] tracking-[-0.005em] text-[#50545B]">
+          <p className="mt-4 max-w-[64ch] text-[13.5px] leading-[1.6] tracking-[-0.005em] text-[#50545B]">
             {release.description}
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-2">
+          <div className="mt-5 flex flex-wrap items-center gap-2">
             {release.tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center rounded-full border border-[#D6DAE1] bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#5E636F]"
+                className="inline-flex items-center rounded-[4px] border border-[#050608] bg-transparent px-2 py-1 font-mono text-[10px] tracking-[0.14em] text-[#050608]"
               >
-                {tag}
+                {tag.toUpperCase()}
               </span>
             ))}
           </div>
 
-          <span className="mt-7 inline-flex items-center gap-2 text-[13px] font-bold tracking-[-0.01em] text-[#111214]">
+          <span className="mt-6 inline-flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-[#050608] transition-colors duration-150 group-hover:text-[#3A3D43]">
             Read the full report
-            <ArrowRight
-              className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1"
+            <ArrowUpRight
+              className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               strokeWidth={2}
             />
           </span>
@@ -100,62 +103,79 @@ function TimelineEntry({
 }
 
 function IndexHero() {
-  const eyebrow = useReveal<HTMLParagraphElement>()
+  const chip = useReveal<HTMLDivElement>()
   const headline = useReveal<HTMLHeadingElement>()
   const sub = useReveal<HTMLParagraphElement>()
 
   return (
-    <section className="relative overflow-hidden bg-[oklch(0.98_0_0)] text-[#0a0b0d]">
-      <div className="relative mx-auto max-w-[1320px] px-6 pb-[clamp(3rem,5vw,4.5rem)] pt-[clamp(6rem,11vw,9rem)] sm:px-10 lg:px-14">
-        <p
-          ref={eyebrow.ref}
-          data-in-view={eyebrow.inView}
-          className="scroll-reveal text-[11px] font-bold uppercase tracking-[0.34em] text-[#5E636F]"
-        >
-          Changelog · Enclave
-        </p>
-
-        <h1
-          ref={headline.ref}
-          data-in-view={headline.inView}
-          className="scroll-reveal mt-8 max-w-[20ch] text-[clamp(2.4rem,6vw,5.4rem)] font-bold leading-[1.02] tracking-[-0.05em] text-[#050608]"
-        >
-          Releases,
-          <br className="hidden md:block" />
-          <span className="text-[#7F848F]">shipped in the open.</span>
-        </h1>
-
-        <p
-          ref={sub.ref}
-          data-in-view={sub.inView}
-          className="scroll-reveal mt-8 max-w-[56ch] text-[clamp(1rem,1.3vw,1.18rem)] leading-[1.55] tracking-[-0.015em] text-[#50545B]"
-        >
-          Every milestone for Enclave, with the numbers and the methodology
-          behind it. Open one to read the full report.
-        </p>
+    <div className="flex flex-col items-start text-left">
+      <div
+        ref={chip.ref}
+        data-in-view={chip.inView}
+        className="scroll-reveal inline-flex items-center gap-2.5 rounded-full border border-[oklch(0.86_0_0/0.9)] bg-[oklch(1_0_0/0.65)] px-3.5 py-1.5 backdrop-blur-md"
+      >
+        <span className="font-mono text-[11px] tracking-[0.14em] text-[#5E636F]">01</span>
+        <span className="h-[10px] w-px bg-[#C7CCD4]" aria-hidden />
+        <span className="font-mono text-[11px] tracking-[0.14em] text-[#2E3238]">CHANGELOG</span>
       </div>
-    </section>
+
+      <h1
+        ref={headline.ref}
+        data-in-view={headline.inView}
+        className="font-display mt-6 max-w-[20ch] text-[clamp(2.4rem,5.5vw,4.8rem)] font-normal leading-[1.02] tracking-[-0.025em] text-[#050608]"
+      >
+        <span className="block">Releases,</span>
+        <span className="block text-[#7F848F]">shipped in the open.</span>
+      </h1>
+
+      <p
+        ref={sub.ref}
+        data-in-view={sub.inView}
+        className="scroll-reveal mt-6 max-w-[58ch] text-[15px] leading-[1.6] tracking-[-0.005em] text-[#50545B]"
+      >
+        Every milestone for Enclave, with the numbers and methodology behind it. Open one to read
+        the full report.
+      </p>
+    </div>
   )
 }
 
 export default function ReleasesIndex() {
   return (
-    <>
-      <IndexHero />
+    <section className="relative overflow-hidden bg-[oklch(0.965_0_0)] text-[#050608]">
+      {/* Ghosted mountain — color thread */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.08]">
+        <Image
+          src="/landing-hero-bg.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-[35%_center]"
+        />
+      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_100%_0%,oklch(0.86_0.02_240/0.3)_0%,transparent_55%),radial-gradient(ellipse_at_0%_100%,oklch(0.99_0_0/0.85)_0%,transparent_55%)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,oklch(0.965_0_0/0.72)_0%,oklch(0.965_0_0/0.86)_100%)]"
+      />
 
-      <section className="relative overflow-hidden bg-[oklch(0.98_0_0)] text-[#0a0b0d]">
-        <div className="relative mx-auto max-w-[1320px] px-6 pb-[clamp(5rem,9vw,8rem)] sm:px-10 lg:px-14">
-          <div className="space-y-2">
-            {releases.map((release, i) => (
-              <TimelineEntry
-                key={release.slug}
-                release={release}
-                isLatest={i === 0}
-              />
-            ))}
-          </div>
+      <div className="relative z-[1] mx-auto max-w-[1440px] px-5 pt-[clamp(6rem,11vw,9rem)] pb-[clamp(5rem,9vw,8rem)] sm:px-10 lg:px-14">
+        <IndexHero />
+
+        <div className="mt-16 border-t border-[#E0E3E8] md:mt-20">
+          {releases.map((release, i) => (
+            <TimelineEntry
+              key={release.slug}
+              release={release}
+              isLatest={i === 0}
+              isLast={i === releases.length - 1}
+            />
+          ))}
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }

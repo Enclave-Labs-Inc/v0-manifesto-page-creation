@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ReleasesPage() {
   return (
-    <div className="min-h-screen bg-[oklch(0.98_0_0)] text-[#0a0b0d]">
+    <div className="min-h-screen bg-[oklch(0.965_0_0)] text-[#050608]">
       <Navigation theme="light" />
       <main>
         <ReleasesIndex />

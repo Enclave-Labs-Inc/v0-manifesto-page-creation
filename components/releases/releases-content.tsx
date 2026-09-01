@@ -73,7 +73,7 @@ function SectionShell({
       className={`relative overflow-hidden ${
         isDark
           ? 'bg-[oklch(0.095_0_0)] text-[#E8E9EC]'
-          : 'bg-[oklch(0.98_0_0)] text-[#0a0b0d]'
+          : 'bg-[oklch(0.965_0_0)] text-[#0a0b0d]'
       }`}
     >
       <div className="relative mx-auto max-w-[1320px] px-6 py-[clamp(4.5rem,8vw,7rem)] sm:px-10 lg:px-14">
@@ -373,7 +373,7 @@ function ReleaseHero() {
   const meta = useReveal<HTMLDivElement>()
 
   return (
-    <section className="relative overflow-hidden bg-[oklch(0.98_0_0)] text-[#0a0b0d]">
+    <section className="relative overflow-hidden bg-[oklch(0.965_0_0)] text-[#0a0b0d]">
       <div className="relative mx-auto max-w-[1320px] px-6 pb-[clamp(3.5rem,6vw,5rem)] pt-[clamp(6rem,11vw,9rem)] sm:px-10 lg:px-14">
         <Link
           href="/releases"
