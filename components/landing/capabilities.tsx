@@ -135,7 +135,7 @@ function SourcedAnswersBackground() {
 
   return (
     <div className="absolute inset-0 flex flex-col gap-3 p-6 [mask-image:linear-gradient(to_top,transparent_18%,black_72%)]">
-      <div className="self-end max-w-[80%] rounded-2xl rounded-tr-md bg-[oklch(0.18_0.005_145)] px-3.5 py-2 text-[12px] text-[#C5C9D2] shadow-[inset_0_1px_0_oklch(1_0_0/0.06)] min-h-[2.2em]">
+      <div className="self-end max-w-[80%] rounded-2xl rounded-tr-md bg-[oklch(0.18_0_0)] px-3.5 py-2 text-[12px] text-[#C5C9D2] shadow-[inset_0_1px_0_oklch(1_0_0/0.06)] min-h-[2.2em]">
         {question}
         {question.length > 0 && question.length < QUESTION_TEXT.length && (
           <span className="ml-0.5 inline-block h-3 w-[2px] -mb-[2px] animate-pulse bg-[#C5C9D2] align-middle" />
@@ -143,7 +143,7 @@ function SourcedAnswersBackground() {
       </div>
 
       {answerStarted && (
-        <div className="max-w-[88%] rounded-2xl rounded-tl-md bg-[oklch(0.14_0.005_145)] p-3.5 text-[12px] leading-[1.55] text-[#9499A6] shadow-[inset_0_1px_0_oklch(1_0_0/0.05)]">
+        <div className="max-w-[88%] rounded-2xl rounded-tl-md bg-[oklch(0.14_0_0)] p-3.5 text-[12px] leading-[1.55] text-[#9499A6] shadow-[inset_0_1px_0_oklch(1_0_0/0.05)]">
           <AnswerStream
             full={ANSWER_FULL}
             length={answerLen}
@@ -152,7 +152,7 @@ function SourcedAnswersBackground() {
             {CITATIONS.map((c, i) => (
               <span
                 key={c}
-                className={`rounded-md border border-[#2A2D34] bg-[oklch(0.1_0.005_145)] px-2 py-1 text-[#9499A6] transition-all duration-300 ease-out ${
+                className={`rounded-md border border-[#2A2D34] bg-[oklch(0.1_0_0)] px-2 py-1 text-[#9499A6] transition-all duration-300 ease-out ${
                   i < citationsShown
                     ? 'translate-y-0 opacity-100'
                     : '-translate-y-1 opacity-0'
@@ -245,9 +245,9 @@ function PermissionBackground() {
   return (
     <div className="absolute inset-0 flex items-center justify-center [mask-image:linear-gradient(to_top,transparent_22%,black_75%)]">
       <div className="relative h-32 w-32">
-        <div className="absolute inset-0 rounded-full border border-[#2A2D34] bg-[oklch(0.12_0.005_145)]" />
-        <div className="absolute inset-3 rounded-full border border-[#2A2D34] bg-[oklch(0.13_0.005_145)]" />
-        <div className="absolute inset-6 rounded-full border border-[#3A3D43] bg-[oklch(0.15_0.005_145)] shadow-[inset_0_1px_0_oklch(1_0_0/0.05)]" />
+        <div className="absolute inset-0 rounded-full border border-[#2A2D34] bg-[oklch(0.12_0_0)]" />
+        <div className="absolute inset-3 rounded-full border border-[#2A2D34] bg-[oklch(0.13_0_0)]" />
+        <div className="absolute inset-6 rounded-full border border-[#3A3D43] bg-[oklch(0.15_0_0)] shadow-[inset_0_1px_0_oklch(1_0_0/0.05)]" />
       </div>
     </div>
   )
@@ -260,10 +260,10 @@ function ModelAgnosticBackground() {
       {models.map((m) => (
         <div
           key={m}
-          className="flex items-center justify-between rounded-lg border border-[#2A2D34] bg-[oklch(0.12_0.005_145)] px-3 py-2"
+          className="flex items-center justify-between rounded-lg border border-[#2A2D34] bg-[oklch(0.12_0_0)] px-3 py-2"
         >
           <span className="text-[12px] font-bold text-[#E4E7EC]">{m}</span>
-          <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.63_0.16_162)]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-[#5E636F]" />
         </div>
       ))}
     </div>
@@ -290,7 +290,7 @@ function IntegrationsBackground() {
         preserveAspectRatio="none"
         aria-hidden
       >
-        <g stroke="oklch(0.3 0.005 145)" strokeWidth="0.2" fill="none">
+        <g stroke="oklch(0.3 0 0)" strokeWidth="0.2" fill="none">
           <line x1="50" y1="50" x2="17" y2="16" />
           <line x1="50" y1="50" x2="78" y2="18" />
           <line x1="50" y1="50" x2="11" y2="54" />
@@ -300,7 +300,7 @@ function IntegrationsBackground() {
         </g>
       </svg>
 
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-[#3A3D43] bg-[oklch(0.15_0.005_145)] px-3.5 py-2 text-[11px] font-bold text-[#F4F5F7] shadow-[inset_0_1px_0_oklch(1_0_0/0.06)]">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-[#3A3D43] bg-[oklch(0.15_0_0)] px-3.5 py-2 text-[11px] font-bold text-[#F4F5F7] shadow-[inset_0_1px_0_oklch(1_0_0/0.06)]">
         Enclave
       </div>
 
@@ -308,7 +308,7 @@ function IntegrationsBackground() {
         <span
           key={i.label}
           style={{ top: i.top, left: i.left, animationDelay: i.delay }}
-          className="brand-float absolute inline-flex items-center gap-1.5 rounded-md border border-[#2A2D34] bg-[oklch(0.11_0.005_145)] px-2 py-1 text-[10px] font-bold text-[#C5C9D2]"
+          className="brand-float absolute inline-flex items-center gap-1.5 rounded-md border border-[#2A2D34] bg-[oklch(0.11_0_0)] px-2 py-1 text-[10px] font-bold text-[#C5C9D2]"
         >
           <img src={i.src} alt="" aria-hidden className="h-3.5 w-3.5" />
           {i.label}
@@ -382,7 +382,7 @@ export default function CapabilitiesSection() {
   const grid = useReveal<HTMLDivElement>()
 
   return (
-    <section className="relative overflow-hidden bg-[oklch(0.095_0.006_145)] text-[#E8E9EC]">
+    <section className="relative overflow-hidden bg-[oklch(0.095_0_0)] text-[#E8E9EC]">
       <div className="relative mx-auto max-w-[1320px] px-6 py-[clamp(5.5rem,10vw,8.5rem)] sm:px-10 lg:px-14">
         <p
           ref={eyebrow.ref}

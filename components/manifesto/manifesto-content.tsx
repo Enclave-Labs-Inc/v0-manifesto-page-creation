@@ -49,8 +49,8 @@ function SectionShell({ id, theme, numeral, eyebrow, children, className }: Sect
       id={id}
       className={`relative overflow-hidden ${
         isDark
-          ? 'bg-[oklch(0.095_0.006_145)] text-[#E8E9EC]'
-          : 'bg-[oklch(0.98_0.001_145)] text-[#0a0b0d]'
+          ? 'bg-[oklch(0.095_0_0)] text-[#E8E9EC]'
+          : 'bg-[oklch(0.98_0_0)] text-[#0a0b0d]'
       }`}
     >
       <div className={`relative mx-auto max-w-[1320px] px-6 py-[clamp(5.5rem,10vw,8.5rem)] sm:px-10 lg:px-14 ${className ?? ''}`}>
@@ -62,7 +62,7 @@ function SectionShell({ id, theme, numeral, eyebrow, children, className }: Sect
           <span
             className={`flex h-7 min-w-7 items-center justify-center rounded-md border px-2 text-[10px] font-bold tracking-[0.18em] ${
               isDark
-                ? 'border-[#2A2D34] bg-[oklch(0.13_0.005_145)] text-[#9499A6]'
+                ? 'border-[#2A2D34] bg-[oklch(0.13_0_0)] text-[#9499A6]'
                 : 'border-[#D6DAE1] bg-white text-[#5E636F]'
             }`}
           >
@@ -114,7 +114,7 @@ function ManifestoHero() {
   const meta = useReveal<HTMLDivElement>()
 
   return (
-    <section className="relative overflow-hidden bg-[oklch(0.98_0.001_145)] text-[#0a0b0d]">
+    <section className="relative overflow-hidden bg-[oklch(0.98_0_0)] text-[#0a0b0d]">
       <div className="relative mx-auto max-w-[1320px] px-6 pb-[clamp(5rem,9vw,8rem)] pt-[clamp(6rem,11vw,9rem)] sm:px-10 lg:px-14">
         <p
           ref={eyebrow.ref}
@@ -150,7 +150,7 @@ function ManifestoHero() {
         >
           <a
             href={CAL_URL}
-            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] bg-[#050608] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[oklch(0.985_0.002_145)] shadow-[0_16px_40px_oklch(0.12_0.006_145/0.28),inset_0_1px_0_oklch(1_0_0/0.12)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
+            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] bg-[#050608] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[oklch(0.985_0_0)] shadow-[0_16px_40px_oklch(0.12_0_0/0.28),inset_0_1px_0_oklch(1_0_0/0.12)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
           >
             Book a design-partner call
             <ArrowRight
@@ -160,7 +160,7 @@ function ManifestoHero() {
           </a>
           <Link
             href="/"
-            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] border border-[oklch(0.86_0.006_145/0.82)] bg-[oklch(0.99_0.002_145/0.76)] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[#111214] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-[oklch(0.78_0.008_145)] hover:bg-[oklch(1_0_0/0.92)] active:scale-[0.985]"
+            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] border border-[oklch(0.86_0_0/0.82)] bg-[oklch(0.99_0_0/0.76)] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[#111214] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-[oklch(0.78_0_0)] hover:bg-[oklch(1_0_0/0.92)] active:scale-[0.985]"
           >
             Back to overview
           </Link>
@@ -172,7 +172,7 @@ function ManifestoHero() {
           className="scroll-reveal mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 text-[12px] font-bold tracking-[-0.01em] text-[#555B64]"
         >
           <span className="inline-flex items-center gap-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.63_0.16_162)]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#5E636F]" />
             Deploys inside your AWS account
           </span>
           <span className="inline-flex items-center gap-3">
@@ -243,8 +243,8 @@ function DoctrineCard({
       data-in-view={inView}
       className={`scroll-reveal group flex flex-col rounded-2xl border p-6 transition-[border-color,background-color,transform] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-0.5 sm:p-7 ${
         isDark
-          ? 'border-[#1E2127] bg-[oklch(0.115_0.005_145)] hover:border-[#2C3038] hover:bg-[oklch(0.13_0.005_145)]'
-          : 'border-[#E0E3E8] bg-[oklch(0.995_0.001_145)] hover:border-[#C7CCD4] hover:bg-white'
+          ? 'border-[#1E2127] bg-[oklch(0.115_0_0)] hover:border-[#2C3038] hover:bg-[oklch(0.13_0_0)]'
+          : 'border-[#E0E3E8] bg-[oklch(0.995_0_0)] hover:border-[#C7CCD4] hover:bg-white'
       }`}
     >
       <div className="mb-5 flex items-center justify-between">
@@ -295,17 +295,17 @@ function PerimeterDiagram() {
       data-in-view={inView}
       className="scroll-reveal relative"
     >
-      <div className="rounded-2xl border border-dashed border-[#2A2D34] bg-[oklch(0.1_0.005_145/0.55)] p-6 sm:p-8">
+      <div className="rounded-2xl border border-dashed border-[#2A2D34] bg-[oklch(0.1_0_0/0.55)] p-6 sm:p-8">
         <div className="mb-6 flex items-center justify-between gap-3">
           <span className="text-[10px] font-bold uppercase tracking-[0.34em] text-[#787D8A]">
             Your AWS account
           </span>
-          <span className="rounded-full border border-[#2A2D34] bg-[oklch(0.13_0.005_145)] px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.24em] text-[#9499A6]">
+          <span className="rounded-full border border-[#2A2D34] bg-[oklch(0.13_0_0)] px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.24em] text-[#9499A6]">
             us-east-1
           </span>
         </div>
 
-        <div className="rounded-xl border border-[#3A3D43] bg-[oklch(0.13_0.005_145)] p-5 sm:p-6">
+        <div className="rounded-xl border border-[#3A3D43] bg-[oklch(0.13_0_0)] p-5 sm:p-6">
           <p className="text-[10px] font-bold uppercase tracking-[0.34em] text-[#787D8A]">
             Inside your VPC
           </p>
@@ -326,14 +326,14 @@ function PerimeterDiagram() {
       </div>
 
       <div className="mt-5 flex flex-wrap items-center gap-3">
-        <div className="flex-shrink-0 rounded-lg border border-[#2A2D34] bg-[oklch(0.09_0.004_145)] px-4 py-2.5">
+        <div className="flex-shrink-0 rounded-lg border border-[#2A2D34] bg-[oklch(0.09_0_0)] px-4 py-2.5">
           <p className="text-[9px] font-bold uppercase tracking-[0.34em] text-[#5E636F]">
             Outside
           </p>
           <p className="text-[12px] font-bold text-[#9499A6]">Vendor (us)</p>
         </div>
         <div className="hidden h-px flex-1 border-t border-dashed border-[#3A3D43] sm:block" />
-        <div className="inline-flex items-center gap-2 rounded-md border border-[#2A2D34] bg-[oklch(0.13_0.005_145)] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.28em] text-[#9499A6]">
+        <div className="inline-flex items-center gap-2 rounded-md border border-[#2A2D34] bg-[oklch(0.13_0_0)] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.28em] text-[#9499A6]">
           <span>No standing access</span>
         </div>
       </div>
@@ -644,7 +644,7 @@ export default function ManifestoContent() {
         <Reveal as="div" className="mt-12 flex flex-wrap items-center gap-4">
           <a
             href={CAL_URL}
-            className="group inline-flex h-[52px] items-center gap-3 rounded-[11px] bg-[#F4F5F7] px-8 text-[14px] font-bold tracking-[-0.02em] text-[#050608] shadow-[0_18px_44px_oklch(0.6_0.012_145/0.16),inset_0_1px_0_oklch(1_0_0/0.8)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white active:scale-[0.985]"
+            className="group inline-flex h-[52px] items-center gap-3 rounded-[11px] bg-[#F4F5F7] px-8 text-[14px] font-bold tracking-[-0.02em] text-[#050608] shadow-[0_18px_44px_oklch(0.6_0_0/0.16),inset_0_1px_0_oklch(1_0_0/0.8)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white active:scale-[0.985]"
           >
             Book a design-partner call
             <ArrowRight

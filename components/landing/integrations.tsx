@@ -13,7 +13,7 @@ const integrations = [
 
 export default function IntegrationsSection() {
   return (
-    <section className="border-t border-[oklch(0.9_0.006_145)] bg-[oklch(0.994_0.002_145)]">
+    <section className="border-t border-[oklch(0.9_0_0)] bg-[oklch(0.994_0_0)]">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
         <p className="mb-12 text-center text-[16px] tracking-[-0.02em] text-[#303236]">
           Built around the systems your security team already trusts
@@ -25,7 +25,7 @@ export default function IntegrationsSection() {
               <span className="text-[clamp(1.45rem,2.2vw,2.2rem)] font-bold leading-none tracking-[-0.055em] text-[#2B2D31] opacity-80 transition-opacity duration-200 group-hover:opacity-100">
                 {item.name}
               </span>
-              <span className="rounded-full border border-[oklch(0.9_0.006_145)] bg-[oklch(0.99_0.003_145)] px-2.5 py-1 text-[11px] font-bold text-[#8A9099]">
+              <span className="rounded-full border border-[oklch(0.9_0_0)] bg-[oklch(0.99_0_0)] px-2.5 py-1 text-[11px] font-bold text-[#8A9099]">
                 {item.note}
               </span>
             </div>

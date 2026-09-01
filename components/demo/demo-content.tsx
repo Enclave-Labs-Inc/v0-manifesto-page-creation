@@ -51,7 +51,7 @@ export default function DemoContent() {
       </p>
 
       {/* Video */}
-      <div className="relative mt-12 overflow-hidden rounded-2xl border border-[#E0E3E8] bg-[#07080A] shadow-[0_32px_80px_oklch(0.18_0.008_145/0.14)]">
+      <div className="relative mt-12 overflow-hidden rounded-2xl border border-[#E0E3E8] bg-[#07080A] shadow-[0_32px_80px_oklch(0.18_0_0/0.14)]">
         <video
           ref={videoRef}
           src="/demo-1.mp4"
@@ -80,7 +80,7 @@ export default function DemoContent() {
       <div className="mt-10 flex flex-wrap items-center gap-4">
         <a
           href={CAL_URL}
-          className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] bg-[#050608] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[oklch(0.985_0.002_145)] shadow-[0_16px_40px_oklch(0.12_0.006_145/0.28)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
+          className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] bg-[#050608] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[oklch(0.985_0_0)] shadow-[0_16px_40px_oklch(0.12_0_0/0.28)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
         >
           Book a design-partner call
           <ArrowRight
@@ -90,7 +90,7 @@ export default function DemoContent() {
         </a>
         <Link
           href="/manifesto"
-          className="inline-flex h-[48px] items-center rounded-[10px] border border-[oklch(0.86_0.006_145/0.82)] bg-[oklch(0.99_0.002_145/0.76)] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[#111214] transition-[background-color,border-color] duration-200 hover:bg-white"
+          className="inline-flex h-[48px] items-center rounded-[10px] border border-[oklch(0.86_0_0/0.82)] bg-[oklch(0.99_0_0/0.76)] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[#111214] transition-[background-color,border-color] duration-200 hover:bg-white"
         >
           Read the manifesto
         </Link>

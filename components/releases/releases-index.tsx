@@ -41,12 +41,12 @@ function TimelineEntry({
       ref={ref as never}
       data-in-view={inView}
       href={`/releases/${release.slug}`}
-      className="scroll-reveal group block rounded-2xl outline-none ring-[oklch(0.63_0.16_162)] focus-visible:ring-2"
+      className="scroll-reveal group block rounded-2xl outline-none ring-[#5E636F] focus-visible:ring-2"
     >
       <article className="grid gap-y-5 lg:grid-cols-[200px_1fr] lg:gap-x-14">
         <div className="lg:pt-1">
           <div className="flex items-center gap-3">
-            <span className="h-2 w-2 rounded-full bg-[oklch(0.63_0.16_162)]" />
+            <span className="h-2 w-2 rounded-full bg-[#5E636F]" />
             <span className="text-[22px] font-bold tracking-[-0.03em] text-[#050608]">
               {release.version}
             </span>
@@ -62,7 +62,7 @@ function TimelineEntry({
         </div>
 
         <div className="relative pb-14 lg:border-l lg:border-[#E0E3E8] lg:pl-14">
-          <span className="absolute -left-[4.5px] top-1.5 hidden h-2 w-2 rounded-full border-2 border-[oklch(0.98_0.001_145)] bg-[#C7CCD4] transition-colors duration-200 group-hover:bg-[oklch(0.63_0.16_162)] lg:block" />
+          <span className="absolute -left-[4.5px] top-1.5 hidden h-2 w-2 rounded-full border-2 border-[oklch(0.98_0_0)] bg-[#C7CCD4] transition-colors duration-200 group-hover:bg-[#5E636F] lg:block" />
 
           <h2 className="text-[clamp(1.5rem,2.8vw,2.1rem)] font-bold leading-[1.1] tracking-[-0.03em] text-[#050608]">
             {release.title}
@@ -105,7 +105,7 @@ function IndexHero() {
   const sub = useReveal<HTMLParagraphElement>()
 
   return (
-    <section className="relative overflow-hidden bg-[oklch(0.98_0.001_145)] text-[#0a0b0d]">
+    <section className="relative overflow-hidden bg-[oklch(0.98_0_0)] text-[#0a0b0d]">
       <div className="relative mx-auto max-w-[1320px] px-6 pb-[clamp(3rem,5vw,4.5rem)] pt-[clamp(6rem,11vw,9rem)] sm:px-10 lg:px-14">
         <p
           ref={eyebrow.ref}
@@ -143,7 +143,7 @@ export default function ReleasesIndex() {
     <>
       <IndexHero />
 
-      <section className="relative overflow-hidden bg-[oklch(0.98_0.001_145)] text-[#0a0b0d]">
+      <section className="relative overflow-hidden bg-[oklch(0.98_0_0)] text-[#0a0b0d]">
         <div className="relative mx-auto max-w-[1320px] px-6 pb-[clamp(5rem,9vw,8rem)] sm:px-10 lg:px-14">
           <div className="space-y-2">
             {releases.map((release, i) => (

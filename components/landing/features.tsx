@@ -18,7 +18,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="border-t border-[oklch(0.9_0.006_145)] bg-[oklch(0.975_0.004_145)]">
+    <section className="border-t border-[oklch(0.9_0_0)] bg-[oklch(0.975_0_0)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
         <div>
           <p className="mb-5 text-[13px] font-bold text-[#6C727C]">The architectural claim</p>
@@ -27,7 +27,7 @@ export default function FeaturesSection() {
           </h2>
         </div>
 
-        <div className="divide-y divide-[oklch(0.88_0.008_145)] border-y border-[oklch(0.88_0.008_145)]">
+        <div className="divide-y divide-[oklch(0.88_0_0)] border-y border-[oklch(0.88_0_0)]">
         {features.map((feature) => (
           <article key={feature.title} className="grid gap-5 py-8 sm:grid-cols-[4rem_1fr] sm:gap-8">
             <p className="text-[13px] font-bold text-[#8A9099]">{feature.label}</p>

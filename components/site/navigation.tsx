@@ -3,12 +3,11 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ArrowRight } from 'lucide-react'
+import { ArrowUpRight, Menu, X } from 'lucide-react'
 import EnclaveLogo from '@/components/site/enclave-logo'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/manifesto', label: 'Manifesto' },
   { href: '/releases', label: 'Releases' },
   { href: '/demo', label: 'Demo' },
@@ -23,28 +22,43 @@ export default function Navigation({ theme = 'light' }: NavigationProps) {
   const pathname = usePathname()
   const isDark = theme === 'dark'
   const [hasScrolled, setHasScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const updateScrolled = () => setHasScrolled(window.scrollY > 12)
-
     updateScrolled()
     window.addEventListener('scroll', updateScrolled, { passive: true })
-
     return () => window.removeEventListener('scroll', updateScrolled)
   }, [])
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
+  // Lock body scroll when the mobile drawer is open
+  useEffect(() => {
+    if (menuOpen) {
+      const prev = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = prev
+      }
+    }
+  }, [menuOpen])
 
   return (
     <nav
       className={cn(
-        'top-0 z-50 transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]',
+        'top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]',
         isDark
           ? 'sticky border-b border-[#1E2025] bg-[#111215]/95 backdrop-blur-md'
-          : hasScrolled
-            ? 'fixed inset-x-0 border-b border-[oklch(0.86_0.008_145/0.72)] bg-[oklch(0.985_0.004_145/0.62)] shadow-[0_18px_60px_oklch(0.22_0.015_145/0.08)] backdrop-blur-xl'
+          : hasScrolled || menuOpen
+            ? 'fixed inset-x-0 border-b border-[oklch(0.9_0_0/0.6)] bg-[oklch(0.985_0_0/0.92)] backdrop-blur-xl'
             : 'fixed inset-x-0 border-b border-transparent bg-transparent'
       )}
     >
-      <div className="mx-auto flex h-[84px] max-w-[1440px] items-center gap-5 px-6 sm:px-10 lg:px-16 xl:px-20">
+      <div className="mx-auto flex h-[64px] max-w-[1440px] items-center px-5 sm:h-[68px] sm:px-10 lg:px-14">
         <Link
           href="/"
           className="flex-shrink-0 active:opacity-80 transition-opacity duration-150"
@@ -52,10 +66,9 @@ export default function Navigation({ theme = 'light' }: NavigationProps) {
           <EnclaveLogo theme={theme} />
         </Link>
 
-        <div className="hidden flex-1 items-center justify-center gap-[4.4rem] md:flex">
+        <div className="ml-auto hidden items-center gap-9 md:flex">
           {navLinks.map((link) => {
             const isActive =
-              (link.href === '/' && pathname === '/') ||
               (link.href === '/manifesto' && pathname.startsWith('/manifesto')) ||
               (link.href === '/releases' && pathname.startsWith('/releases')) ||
               (link.href === '/demo' && pathname.startsWith('/demo'))
@@ -65,48 +78,68 @@ export default function Navigation({ theme = 'light' }: NavigationProps) {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'relative text-[14px] font-bold tracking-[-0.02em] transition-colors duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]',
+                  'text-[11px] font-medium uppercase tracking-[0.18em] transition-colors duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]',
                   isDark
-                    ? 'text-[#AEB3BC] hover:text-[#F0F2F5]'
-                    : 'text-[#45484E] hover:text-[#07080A]',
-                  isActive && (isDark ? 'text-[#F0F2F5]' : 'text-[#07080A]'),
+                    ? 'text-[#9499A6] hover:text-[#F0F2F5]'
+                    : 'text-[#50545B] hover:text-[#050608]',
+                  isActive && (isDark ? 'text-[#F0F2F5]' : 'text-[#050608]'),
                 )}
               >
                 {link.label}
-                {isActive && (
-                  <span className="absolute left-1/2 top-[calc(100%+9px)] h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-current" />
-                )}
               </Link>
             )
           })}
         </div>
 
-        <div className="ml-auto flex items-center gap-2 sm:gap-3">
-          <Link
-            href="/manifesto"
-            className={cn(
-              'hidden h-[44px] items-center rounded-[10px] px-5 text-[13px] font-bold active:scale-[0.98] transition-[background-color,color,transform,border-color,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] sm:inline-flex',
-              isDark
-                ? 'border border-[#2A2D34] text-[#E8E9EC] hover:bg-[#17191E]'
-                : 'border border-[oklch(0.87_0.008_145/0.8)] bg-[oklch(0.995_0.003_145/0.52)] text-[#111214] shadow-[inset_0_1px_0_oklch(1_0_0/0.62),0_10px_28px_oklch(0.34_0.01_145/0.06)] backdrop-blur-xl hover:bg-[oklch(0.995_0.003_145/0.76)]'
-            )}
-          >
-            Read manifesto
-          </Link>
+        <a
+          href="https://cal.com/shashank-bhardwaj-fwmii1/30min"
+          className={cn(
+            'ml-auto hidden h-[36px] items-center gap-2 rounded-[4px] border px-4 text-[11px] font-medium uppercase tracking-[0.18em] transition-[background-color,color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.985] sm:inline-flex md:ml-6',
+            isDark
+              ? 'border-[#2A2D34] text-[#E8E9EC] hover:bg-[#17191E]'
+              : 'border-[#1B1D21] text-[#050608] hover:bg-[#050608] hover:text-[oklch(0.985_0_0)]'
+          )}
+        >
+          Request access
+          <ArrowUpRight className="h-3 w-3" strokeWidth={2} />
+        </a>
+
+        <button
+          type="button"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+          className={cn(
+            'ml-auto inline-flex h-10 w-10 items-center justify-center rounded-[4px] border md:hidden',
+            isDark
+              ? 'border-[#2A2D34] text-[#E8E9EC]'
+              : 'border-[#1B1D21] text-[#050608]'
+          )}
+        >
+          {menuOpen ? <X className="h-4 w-4" strokeWidth={2} /> : <Menu className="h-4 w-4" strokeWidth={2} />}
+        </button>
+      </div>
+
+      {menuOpen && (
+        <div className="fixed inset-x-0 top-[64px] z-40 flex flex-col gap-6 border-t border-[oklch(0.9_0_0/0.6)] bg-[oklch(0.985_0_0/0.98)] px-5 pt-8 pb-10 backdrop-blur-xl md:hidden">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-[13px] font-medium uppercase tracking-[0.18em] text-[#050608]"
+            >
+              {link.label}
+            </Link>
+          ))}
           <a
             href="https://cal.com/shashank-bhardwaj-fwmii1/30min"
-            className={cn(
-              'inline-flex h-[44px] items-center gap-2 rounded-[10px] px-5 text-[13px] font-bold active:scale-[0.98] transition-[background-color,color,transform,border-color,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]',
-              isDark
-                ? 'bg-[#E8E9EC] text-[#0A0B0D] hover:bg-[#F4F5F7]'
-                : 'bg-[#07080A] text-[oklch(0.985_0.003_145)] shadow-[0_14px_34px_oklch(0.18_0.008_145/0.2)] hover:bg-[#1B1D21] hover:shadow-[0_18px_42px_oklch(0.18_0.008_145/0.24)]'
-            )}
+            className="mt-2 inline-flex h-[44px] w-full items-center justify-center gap-2 rounded-[4px] bg-[#050608] px-4 text-[11px] font-medium uppercase tracking-[0.18em] text-[oklch(0.985_0_0)]"
           >
-            Book a call
-            <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
+            Request access
+            <ArrowUpRight className="h-3 w-3" strokeWidth={2} />
           </a>
         </div>
-      </div>
+      )}
     </nav>
   )
 }

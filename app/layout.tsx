@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
-import { liberationSans } from './fonts'
+import { liberationSans, interTight, jetbrainsMono } from './fonts'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -20,7 +20,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={liberationSans.variable}>
+    <html lang="en" className={`${liberationSans.variable} ${interTight.variable} ${jetbrainsMono.variable}`}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap"
+        />
+      </head>
       <body className="bg-white text-[#111214] antialiased font-sans">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

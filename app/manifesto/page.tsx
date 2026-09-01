@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ManifestoPage() {
   return (
-    <div className="min-h-screen bg-[oklch(0.98_0.001_145)] text-[#0a0b0d]">
+    <div className="min-h-screen bg-[oklch(0.98_0_0)] text-[#0a0b0d]">
       <Navigation theme="light" />
       <main>
         <ManifestoContent />
