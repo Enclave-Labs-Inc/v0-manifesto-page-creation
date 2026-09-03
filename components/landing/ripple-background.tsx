@@ -587,13 +587,13 @@ export default function RippleBackground() {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.985_0.002_145)_0%,oklch(0.94_0.003_145)_28%,oklch(0.82_0.004_145)_54%,oklch(0.36_0.004_145)_82%,oklch(0.08_0.003_145)_100%)]" />
-      <div className="absolute inset-x-0 top-0 h-[42vh] bg-[radial-gradient(ellipse_at_center_top,oklch(1_0_0/0.7)_0%,oklch(0.99_0.002_145/0.32)_45%,transparent_82%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.985_0_0)_0%,oklch(0.94_0_0)_28%,oklch(0.82_0_0)_54%,oklch(0.36_0_0)_82%,oklch(0.08_0_0)_100%)]" />
+      <div className="absolute inset-x-0 top-0 h-[42vh] bg-[radial-gradient(ellipse_at_center_top,oklch(1_0_0/0.7)_0%,oklch(0.99_0_0/0.32)_45%,transparent_82%)]" />
       <canvas
         ref={canvasRef}
         className="landing-mesh-reveal absolute inset-0 h-full w-full"
       />
-      <div className="absolute inset-x-0 bottom-0 h-[16vh] bg-[linear-gradient(to_bottom,transparent,oklch(0.06_0.003_145/0.9)_82%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-[16vh] bg-[linear-gradient(to_bottom,transparent,oklch(0.06_0_0/0.9)_82%)]" />
     </div>
   )
 }

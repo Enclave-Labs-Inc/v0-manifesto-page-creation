@@ -72,8 +72,8 @@ function SectionShell({
       id={id}
       className={`relative overflow-hidden ${
         isDark
-          ? 'bg-[oklch(0.095_0.006_145)] text-[#E8E9EC]'
-          : 'bg-[oklch(0.98_0.001_145)] text-[#0a0b0d]'
+          ? 'bg-[oklch(0.095_0_0)] text-[#E8E9EC]'
+          : 'bg-[oklch(0.965_0_0)] text-[#0a0b0d]'
       }`}
     >
       <div className="relative mx-auto max-w-[1320px] px-6 py-[clamp(4.5rem,8vw,7rem)] sm:px-10 lg:px-14">
@@ -86,7 +86,7 @@ function SectionShell({
             <span
               className={`flex h-7 min-w-7 items-center justify-center rounded-md border px-2 text-[10px] font-bold tracking-[0.18em] ${
                 isDark
-                  ? 'border-[#2A2D34] bg-[oklch(0.13_0.005_145)] text-[#9499A6]'
+                  ? 'border-[#2A2D34] bg-[oklch(0.13_0_0)] text-[#9499A6]'
                   : 'border-[#D6DAE1] bg-white text-[#5E636F]'
               }`}
             >
@@ -229,7 +229,7 @@ function StatTable({
       <div className="overflow-x-auto">
         <table className="w-full min-w-[460px] border-collapse text-left">
           <thead>
-            <tr className={isDark ? 'bg-[oklch(0.13_0.005_145)]' : 'bg-[oklch(0.965_0.002_145)]'}>
+            <tr className={isDark ? 'bg-[oklch(0.13_0_0)]' : 'bg-[oklch(0.965_0_0)]'}>
               {head.map((h, i) => (
                 <th
                   key={i}
@@ -289,8 +289,8 @@ function Callout({
       as="div"
       className={`rounded-2xl border p-6 sm:p-7 ${
         isDark
-          ? 'border-[#23262C] bg-[oklch(0.115_0.005_145)]'
-          : 'border-[#E0E3E8] bg-[oklch(0.995_0.001_145)]'
+          ? 'border-[#23262C] bg-[oklch(0.115_0_0)]'
+          : 'border-[#E0E3E8] bg-[oklch(0.995_0_0)]'
       } ${className}`}
     >
       {label && (
@@ -373,7 +373,7 @@ function ReleaseHero() {
   const meta = useReveal<HTMLDivElement>()
 
   return (
-    <section className="relative overflow-hidden bg-[oklch(0.98_0.001_145)] text-[#0a0b0d]">
+    <section className="relative overflow-hidden bg-[oklch(0.965_0_0)] text-[#0a0b0d]">
       <div className="relative mx-auto max-w-[1320px] px-6 pb-[clamp(3.5rem,6vw,5rem)] pt-[clamp(6rem,11vw,9rem)] sm:px-10 lg:px-14">
         <Link
           href="/releases"
@@ -391,7 +391,7 @@ function ReleaseHero() {
           data-in-view={eyebrow.inView}
           className="scroll-reveal flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.34em] text-[#5E636F]"
         >
-          <span className="inline-flex h-1.5 w-1.5 rounded-full bg-[oklch(0.63_0.16_162)]" />
+          <span className="inline-flex h-1.5 w-1.5 rounded-full bg-[#5E636F]" />
           Release v0.0.1 · 27 May 2026
         </div>
 
@@ -439,7 +439,7 @@ function ReleaseHero() {
         >
           <a
             href={CAL_URL}
-            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] bg-[#050608] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[oklch(0.985_0.002_145)] shadow-[0_16px_40px_oklch(0.12_0.006_145/0.28),inset_0_1px_0_oklch(1_0_0/0.12)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
+            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] bg-[#050608] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[oklch(0.985_0_0)] shadow-[0_16px_40px_oklch(0.12_0_0/0.28),inset_0_1px_0_oklch(1_0_0/0.12)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
           >
             Scrutinise it with us
             <ArrowRight
@@ -449,7 +449,7 @@ function ReleaseHero() {
           </a>
           <Link
             href="/manifesto"
-            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] border border-[oklch(0.86_0.006_145/0.82)] bg-[oklch(0.99_0.002_145/0.76)] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[#111214] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-[oklch(0.78_0.008_145)] hover:bg-[oklch(1_0_0/0.92)] active:scale-[0.985]"
+            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] border border-[oklch(0.86_0_0/0.82)] bg-[oklch(0.99_0_0/0.76)] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[#111214] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-[oklch(0.78_0_0)] hover:bg-[oklch(1_0_0/0.92)] active:scale-[0.985]"
           >
             Read the manifesto
           </Link>
@@ -1041,7 +1041,7 @@ export default function ReleasesContent() {
         <Reveal as="div" className="mt-12 flex flex-wrap items-center gap-4">
           <a
             href={CAL_URL}
-            className="group inline-flex h-[52px] items-center gap-3 rounded-[11px] bg-[#050608] px-8 text-[14px] font-bold tracking-[-0.02em] text-[oklch(0.985_0.002_145)] shadow-[0_18px_44px_oklch(0.12_0.006_145/0.22),inset_0_1px_0_oklch(1_0_0/0.12)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
+            className="group inline-flex h-[52px] items-center gap-3 rounded-[11px] bg-[#050608] px-8 text-[14px] font-bold tracking-[-0.02em] text-[oklch(0.985_0_0)] shadow-[0_18px_44px_oklch(0.12_0_0/0.22),inset_0_1px_0_oklch(1_0_0/0.12)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
           >
             Run the suite on your corpus
             <ArrowRight
