@@ -83,17 +83,29 @@ export default function LandingHero() {
                 />
               ))}
             </div>
-            <p className="text-[11px] font-medium tracking-[-0.01em] text-[#2E3238] sm:text-[12px]">
+            <p className="text-[11px] font-medium tracking-[-0.01em] text-[#17191D] sm:text-[12px]">
               3 organisations on the waitlist
             </p>
           </div>
 
-          <h1 className="landing-reveal landing-reveal-title font-display mt-6 text-[clamp(2.2rem,6vw,5.4rem)] font-normal leading-[1.02] tracking-[-0.02em] text-[#050608]">
+          <h1
+            className="landing-reveal landing-reveal-title font-display mt-6 text-[clamp(2.2rem,6vw,5.4rem)] font-normal leading-[1.02] tracking-[-0.02em] text-[#050608]"
+            style={{
+              textShadow:
+                '0 2px 32px oklch(0.965 0 0 / 0.9), 0 0 16px oklch(0.965 0 0 / 0.8), 0 0 4px oklch(0.965 0 0 / 0.6)',
+            }}
+          >
             <span className="block">Sovereign AI</span>
-            <span className="block text-[#7F848F] md:whitespace-nowrap">for regulated companies</span>
+            <span className="block text-[#1F2226] md:whitespace-nowrap">for regulated companies</span>
           </h1>
 
-          <p className="landing-reveal landing-reveal-body mt-6 text-[14px] leading-[1.6] tracking-[-0.005em] text-[#050608] sm:mt-7 sm:text-[15px] md:whitespace-nowrap">
+          <p
+            className="landing-reveal landing-reveal-body mt-6 text-[14px] leading-[1.6] tracking-[-0.005em] text-[#0F1114] sm:mt-7 sm:text-[15px] md:whitespace-nowrap"
+            style={{
+              textShadow:
+                '0 1px 20px oklch(0.965 0 0 / 0.95), 0 0 8px oklch(0.965 0 0 / 0.8)',
+            }}
+          >
             Give your organisation AI superpowers without compromising your privacy.
           </p>
 
