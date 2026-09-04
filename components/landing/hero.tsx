@@ -56,11 +56,12 @@ export default function LandingHero() {
         />
       </div>
 
-      {/* Left-side cream fade so text sits on a clean ground.
-          On mobile the fade extends further right for readability. */}
+      {/* Gentle cream wash — enough to soften the image behind the eyebrow
+          and CTA without hiding the mountain. Text legibility across the
+          full headline width is carried by the cream halo on the h1. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,oklch(0.965_0_0/0.98)_0%,oklch(0.965_0_0/0.7)_38%,oklch(0.965_0_0/0.4)_62%,transparent_100%)] md:bg-[linear-gradient(90deg,oklch(0.965_0_0)_0%,oklch(0.965_0_0/0.96)_20%,oklch(0.965_0_0/0.55)_38%,transparent_60%)]"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,oklch(0.965_0_0/0.82)_0%,oklch(0.965_0_0/0.45)_50%,oklch(0.965_0_0/0.1)_80%,transparent_100%)] md:bg-[linear-gradient(95deg,oklch(0.965_0_0/0.75)_0%,oklch(0.965_0_0/0.45)_25%,oklch(0.965_0_0/0.15)_50%,transparent_75%)]"
       />
 
       {/* Bottom vignette that fades into the dark infrastructure rail below. */}
