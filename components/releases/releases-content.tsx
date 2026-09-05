@@ -80,25 +80,33 @@ function SectionShell({
         <div
           ref={head.ref}
           data-in-view={head.inView}
-          className="scroll-reveal flex items-center gap-3"
+          className={`scroll-reveal inline-flex items-center gap-2.5 rounded-full border px-3.5 py-1.5 backdrop-blur-md ${
+            isDark
+              ? 'border-[oklch(1_0_0/0.15)] bg-[oklch(1_0_0/0.06)]'
+              : 'border-[oklch(0.86_0_0/0.9)] bg-[oklch(1_0_0/0.65)]'
+          }`}
         >
           {marker && (
-            <span
-              className={`flex h-7 min-w-7 items-center justify-center rounded-md border px-2 text-[10px] font-bold tracking-[0.18em] ${
-                isDark
-                  ? 'border-[#2A2D34] bg-[oklch(0.13_0_0)] text-[#9499A6]'
-                  : 'border-[#D6DAE1] bg-white text-[#5E636F]'
-              }`}
-            >
-              {marker}
-            </span>
+            <>
+              <span
+                className={`font-mono text-[11px] tracking-[0.14em] ${
+                  isDark ? 'text-[#9499A6]' : 'text-[#5E636F]'
+                }`}
+              >
+                {marker}
+              </span>
+              <span
+                className={`h-[10px] w-px ${isDark ? 'bg-[oklch(1_0_0/0.2)]' : 'bg-[#C7CCD4]'}`}
+                aria-hidden
+              />
+            </>
           )}
           <span
-            className={`text-[11px] font-bold uppercase tracking-[0.34em] ${
-              isDark ? 'text-[#787D8A]' : 'text-[#5E636F]'
+            className={`font-mono text-[11px] tracking-[0.14em] ${
+              isDark ? 'text-[#E4E7EC]' : 'text-[#2E3238]'
             }`}
           >
-            {eyebrow}
+            {eyebrow.toUpperCase()}
           </span>
         </div>
 
@@ -120,7 +128,7 @@ function Headline({
   return (
     <Reveal
       as="h2"
-      className={`max-w-[24ch] text-[clamp(1.9rem,4.4vw,3.5rem)] font-bold leading-[1.06] tracking-[-0.04em] ${
+      className={`font-display max-w-[24ch] text-[clamp(1.8rem,3.8vw,3rem)] font-normal leading-[1.08] tracking-[-0.02em] ${
         theme === 'dark' ? 'text-[#F4F5F7]' : 'text-[#050608]'
       } ${className}`}
     >
@@ -152,14 +160,14 @@ function P({
 
 function strongCls(theme: Theme) {
   return theme === 'dark'
-    ? 'font-bold text-[#F4F5F7]'
-    : 'font-bold text-[#050608]'
+    ? 'font-medium text-[#F4F5F7]'
+    : 'font-medium text-[#050608]'
 }
 
 function accentCls(theme: Theme) {
   return theme === 'dark'
-    ? 'font-bold text-[oklch(0.74_0.14_162)]'
-    : 'font-bold text-[oklch(0.5_0.12_162)]'
+    ? 'font-medium text-[oklch(0.74_0.14_162)]'
+    : 'font-medium text-[oklch(0.5_0.12_162)]'
 }
 
 function Figure({
@@ -366,64 +374,62 @@ function NoteItem({ theme, children }: { theme: Theme; children: React.ReactNode
 // ============================================================================
 function ReleaseHero() {
   const eyebrow = useReveal<HTMLDivElement>()
-  const tags = useReveal<HTMLDivElement>()
   const headline = useReveal<HTMLHeadingElement>()
   const lead = useReveal<HTMLParagraphElement>()
+  const tags = useReveal<HTMLDivElement>()
   const cta = useReveal<HTMLDivElement>()
   const meta = useReveal<HTMLDivElement>()
 
   return (
-    <section className="relative overflow-hidden bg-[oklch(0.965_0_0)] text-[#0a0b0d]">
-      <div className="relative mx-auto max-w-[1320px] px-6 pb-[clamp(3.5rem,6vw,5rem)] pt-[clamp(6rem,11vw,9rem)] sm:px-10 lg:px-14">
-        <Link
-          href="/releases"
-          className="group mb-8 inline-flex items-center gap-2 text-[12px] font-bold tracking-[-0.01em] text-[#5E636F] transition-colors duration-200 hover:text-[#07080A]"
-        >
-          <ArrowLeft
-            className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5"
-            strokeWidth={2}
-          />
-          All releases
-        </Link>
+    <section className="relative overflow-hidden bg-[oklch(0.965_0_0)] text-[#050608]">
+      {/* Radial mesh — same warm morning-mist palette used on the landing
+          hero, so the document opens into the same visual world. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_100%_140%_at_-5%_50%,oklch(0.965_0_0/0.5)_0%,oklch(0.965_0_0/0.2)_40%,transparent_75%)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_100%_10%,oklch(0.92_0.02_75/0.18)_0%,transparent_55%)]"
+      />
+
+      <div className="relative z-[1] mx-auto max-w-[1440px] px-5 pb-[clamp(3.5rem,6vw,5rem)] pt-[clamp(6rem,11vw,9rem)] sm:px-10 lg:px-14">
+        <div className="mb-10">
+          <Link
+            href="/releases"
+            className="group inline-flex items-center gap-2 text-[12px] font-medium tracking-[-0.005em] text-[#5E636F] transition-colors duration-200 hover:text-[#050608]"
+          >
+            <ArrowLeft
+              className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5"
+              strokeWidth={2}
+            />
+            All releases
+          </Link>
+        </div>
 
         <div
           ref={eyebrow.ref}
           data-in-view={eyebrow.inView}
-          className="scroll-reveal flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.34em] text-[#5E636F]"
+          className="scroll-reveal inline-flex items-center gap-2.5 rounded-full border border-[oklch(0.86_0_0/0.9)] bg-[oklch(1_0_0/0.65)] px-3.5 py-1.5 backdrop-blur-md"
         >
-          <span className="inline-flex h-1.5 w-1.5 rounded-full bg-[#5E636F]" />
-          Release v0.0.1 · 27 May 2026
-        </div>
-
-        <div
-          ref={tags.ref}
-          data-in-view={tags.inView}
-          className="scroll-reveal mt-6 flex flex-wrap gap-2"
-        >
-          {['Benchmark', 'Retrieval engine', 'Part 1'].map((t) => (
-            <span
-              key={t}
-              className="inline-flex items-center rounded-full border border-[#D6DAE1] bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-[#5E636F]"
-            >
-              {t}
-            </span>
-          ))}
+          <span className="font-mono text-[11px] tracking-[0.14em] text-[#5E636F]">v0.0.1</span>
+          <span className="h-[10px] w-px bg-[#C7CCD4]" aria-hidden />
+          <span className="font-mono text-[11px] tracking-[0.14em] text-[#2E3238]">27 MAY 2026</span>
         </div>
 
         <h1
           ref={headline.ref}
           data-in-view={headline.inView}
-          className="scroll-reveal mt-7 max-w-[18ch] text-[clamp(2.4rem,6vw,5.2rem)] font-bold leading-[1.02] tracking-[-0.05em] text-[#050608]"
+          className="scroll-reveal font-display mt-6 max-w-[20ch] text-[clamp(2.2rem,5vw,4.4rem)] font-normal leading-[1.04] tracking-[-0.02em] text-[#050608]"
         >
-          Sovereign search at scale.
-          <br className="hidden md:block" />
-          <span className="text-[#7F848F]">A detailed benchmark.</span>
+          <span className="block">Sovereign search at scale.</span>
+          <span className="block text-[#3A3D43]">A detailed benchmark.</span>
         </h1>
 
         <p
           ref={lead.ref}
           data-in-view={lead.inView}
-          className="scroll-reveal mt-8 max-w-[62ch] text-[clamp(1rem,1.3vw,1.18rem)] leading-[1.55] tracking-[-0.015em] text-[#50545B]"
+          className="scroll-reveal mt-7 max-w-[62ch] text-[15px] leading-[1.65] tracking-[-0.005em] text-[#3D414A] sm:text-[16px]"
         >
           A regulated organisation&rsquo;s AI tools die in security review
           because their data legally cannot leave the perimeter. Enclave is
@@ -433,13 +439,28 @@ function ReleaseHero() {
         </p>
 
         <div
+          ref={tags.ref}
+          data-in-view={tags.inView}
+          className="scroll-reveal mt-7 flex flex-wrap gap-2"
+        >
+          {['Benchmark', 'Retrieval engine', 'Part 1'].map((t) => (
+            <span
+              key={t}
+              className="inline-flex items-center rounded-full border border-[#D6DAE1] bg-white/70 px-3 py-1 font-mono text-[10.5px] tracking-[0.14em] text-[#3D414A] backdrop-blur-sm"
+            >
+              {t.toUpperCase()}
+            </span>
+          ))}
+        </div>
+
+        <div
           ref={cta.ref}
           data-in-view={cta.inView}
-          className="scroll-reveal mt-10 flex flex-wrap items-center gap-3.5"
+          className="scroll-reveal mt-10 flex flex-wrap items-center gap-4"
         >
           <a
             href={CAL_URL}
-            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] bg-[#050608] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[oklch(0.985_0_0)] shadow-[0_16px_40px_oklch(0.12_0_0/0.28),inset_0_1px_0_oklch(1_0_0/0.12)] transition-[background-color,transform,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
+            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[6px] bg-[#050608] px-6 text-[11px] font-bold uppercase tracking-[0.18em] text-[oklch(0.985_0_0)] transition-[background-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
           >
             Scrutinise it with us
             <ArrowRight
@@ -449,22 +470,22 @@ function ReleaseHero() {
           </a>
           <Link
             href="/manifesto"
-            className="group inline-flex h-[48px] items-center gap-2.5 rounded-[10px] border border-[oklch(0.86_0_0/0.82)] bg-[oklch(0.99_0_0/0.76)] px-7 text-[13.5px] font-bold tracking-[-0.02em] text-[#111214] backdrop-blur-xl transition-[background-color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-[oklch(0.78_0_0)] hover:bg-[oklch(1_0_0/0.92)] active:scale-[0.985]"
+            className="text-[12px] font-medium tracking-[-0.005em] text-[#3D414A] transition-colors duration-200 hover:text-[#050608]"
           >
-            Read the manifesto
+            Read the manifesto →
           </Link>
         </div>
 
         <div
           ref={meta.ref}
           data-in-view={meta.inView}
-          className="scroll-reveal mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 text-[12px] font-bold tracking-[-0.01em] text-[#555B64]"
+          className="scroll-reveal mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[10.5px] tracking-[0.14em] text-[#5E636F]"
         >
-          {['FiQA-2018 (BEIR)', '1M-chunk synthetic corpus', 'Real AWS S3'].map(
+          {['FiQA-2018 (BEIR)', '1M-CHUNK SYNTHETIC CORPUS', 'REAL AWS S3'].map(
             (m, i, arr) => (
-              <span key={m} className="inline-flex items-center gap-3">
-                {m}
-                {i < arr.length - 1 && <span className="text-[#C2C7CF]">·</span>}
+              <span key={m} className="inline-flex items-center gap-5">
+                {m.toUpperCase()}
+                {i < arr.length - 1 && <span className="text-[#C7CCD4]">·</span>}
               </span>
             ),
           )}
