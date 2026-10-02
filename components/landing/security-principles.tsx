@@ -23,8 +23,8 @@ export default function SecurityPrinciples() {
           </h2>
         </div>
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-[8px] border border-[#D8D8D3] bg-[#D8D8D3] md:grid-cols-2">
-          <div className="bg-transparent/90 backdrop-blur-[2px] p-8 sm:p-10">
+        <div className="mt-12 grid md:grid-cols-2">
+          <div className="border-b border-[#CFCFCA] py-8 pr-0 md:border-r md:pr-10">
             <h3 className="text-[20px] font-semibold tracking-[-0.02em]">
               People only see what they are allowed to see
             </h3>
@@ -33,7 +33,7 @@ export default function SecurityPrinciples() {
             </p>
           </div>
 
-          <div className="bg-transparent/90 backdrop-blur-[2px] p-8 sm:p-10">
+          <div className="border-b border-[#CFCFCA] py-8 md:pl-10">
             <h3 className="text-[20px] font-semibold tracking-[-0.02em]">
               Every answer shows its sources
             </h3>
@@ -42,7 +42,7 @@ export default function SecurityPrinciples() {
             </p>
           </div>
 
-          <div className="bg-transparent/90 backdrop-blur-[2px] p-8 sm:p-10">
+          <div className="border-b border-[#CFCFCA] py-8 pr-0 md:border-b-0 md:border-r md:pr-10">
             <h3 className="text-[20px] font-semibold tracking-[-0.02em]">
               Your data stays in your cloud
             </h3>
@@ -51,7 +51,7 @@ export default function SecurityPrinciples() {
             </p>
           </div>
 
-          <div className="bg-transparent/90 backdrop-blur-[2px] p-8 sm:p-10">
+          <div className="py-8 md:pl-10">
             <h3 className="text-[20px] font-semibold tracking-[-0.02em]">
               Use the model you already trust
             </h3>

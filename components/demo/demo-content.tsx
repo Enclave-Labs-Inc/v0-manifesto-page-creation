@@ -82,24 +82,12 @@ export default function DemoContent() {
       <div className="relative z-[1] mx-auto max-w-[1440px] px-5 pt-[clamp(6rem,11vw,9rem)] pb-[clamp(5rem,9vw,8rem)] sm:px-10 lg:px-14">
         {/* Header block — LEFT-aligned, echoes the landing rhythm */}
         <div className="flex flex-col items-start text-left">
-          <div
-            ref={chip.ref}
-            data-in-view={chip.inView}
-            className="scroll-reveal inline-flex items-center gap-2.5 rounded-full border border-[oklch(0.86_0_0/0.9)] bg-[oklch(1_0_0/0.65)] px-3.5 py-1.5 backdrop-blur-md"
-          >
-            <span className="font-mono text-[11px] tracking-[0.14em] text-[#5E636F]">01</span>
-            <span className="h-[10px] w-px bg-[#C7CCD4]" aria-hidden />
-            <span className="font-mono text-[11px] tracking-[0.14em] text-[#2E3238]">PRODUCT DEMO</span>
-          </div>
-
           <h1
             ref={headline.ref}
             data-in-view={headline.inView}
             className="font-display mt-6 max-w-[22ch] text-[clamp(2.2rem,5vw,4.2rem)] font-normal leading-[1.02] tracking-[-0.025em] text-[#050608]"
           >
             <span className="md:whitespace-nowrap">Enclave in action.</span>
-            <br />
-            <span className="text-[#7F848F]">Inside your AWS account.</span>
           </h1>
 
           <p
@@ -107,9 +95,8 @@ export default function DemoContent() {
             data-in-view={body.inView}
             className="scroll-reveal mt-6 max-w-[58ch] text-[15px] leading-[1.6] tracking-[-0.005em] text-[#50545B]"
           >
-            Watch sovereign AI search running end-to-end. Employees ask natural-language questions
-            against internal knowledge and every byte stays inside the customer&rsquo;s VPC. No data leaves
-            the perimeter.
+            See Enclave answer questions across your company knowledge while your data stays
+            in your own environment and under your control.
           </p>
         </div>
 
