@@ -422,7 +422,7 @@ function ReleaseHero() {
           data-in-view={headline.inView}
           className="scroll-reveal font-display mt-6 max-w-[20ch] text-[clamp(2.2rem,5vw,4.4rem)] font-normal leading-[1.04] tracking-[-0.02em] text-[#050608]"
         >
-          <span className="block">Sovereign search at scale.</span>
+          <span className="block">Search that stays in your environment.</span>
           <span className="block text-[#3A3D43]">A detailed benchmark.</span>
         </h1>
 
