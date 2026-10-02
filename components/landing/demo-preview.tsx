@@ -4,7 +4,15 @@ import { ArrowUpRight, Play } from 'lucide-react'
 
 export default function DemoPreview() {
   return (
-    <section className="bg-[#F5F5F2] text-[#111214]">
+    <section
+      className="relative overflow-hidden text-[#111214]"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(245,245,242,0.95), rgba(245,245,242,0.97)), url('/landing-hero-bg.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 70%',
+      }}
+    >
       <div className="mx-auto w-full max-w-[1440px] px-6 pb-16 pt-0 sm:px-10 lg:px-14 lg:pb-20 lg:pt-0">
         <div className="max-w-[680px]">
           <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#6A6D72]">
@@ -34,7 +42,7 @@ export default function DemoPreview() {
             />
 
             <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition group-hover:bg-black/20">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 shadow-lg">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-transparent shadow-lg">
                 <Play className="ml-1 h-6 w-6 fill-black text-black" />
               </div>
             </div>

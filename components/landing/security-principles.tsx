@@ -1,6 +1,14 @@
 export default function SecurityPrinciples() {
   return (
-    <section className="bg-[#F5F5F2] text-[#111214]">
+    <section
+      className="relative overflow-hidden text-[#111214]"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(245,245,242,0.90), rgba(245,245,242,0.94)), url('/landing-hero-bg.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 35%',
+      }}
+    >
       <div className="mx-auto w-full max-w-[1440px] px-6 pt-10 pb-20 sm:px-10 lg:px-14 lg:pt-12 lg:pb-24">
         <div className="max-w-[760px]">
           <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#6A6D72]">
@@ -16,7 +24,7 @@ export default function SecurityPrinciples() {
         </div>
 
         <div className="mt-12 grid gap-px overflow-hidden rounded-[8px] border border-[#D8D8D3] bg-[#D8D8D3] md:grid-cols-2">
-          <div className="bg-[#F5F5F2] p-8 sm:p-10">
+          <div className="bg-transparent/90 backdrop-blur-[2px] p-8 sm:p-10">
             <h3 className="text-[20px] font-semibold tracking-[-0.02em]">
               People only see what they are allowed to see
             </h3>
@@ -25,7 +33,7 @@ export default function SecurityPrinciples() {
             </p>
           </div>
 
-          <div className="bg-[#F5F5F2] p-8 sm:p-10">
+          <div className="bg-transparent/90 backdrop-blur-[2px] p-8 sm:p-10">
             <h3 className="text-[20px] font-semibold tracking-[-0.02em]">
               Every answer shows its sources
             </h3>
@@ -34,7 +42,7 @@ export default function SecurityPrinciples() {
             </p>
           </div>
 
-          <div className="bg-[#F5F5F2] p-8 sm:p-10">
+          <div className="bg-transparent/90 backdrop-blur-[2px] p-8 sm:p-10">
             <h3 className="text-[20px] font-semibold tracking-[-0.02em]">
               Your data stays in your cloud
             </h3>
@@ -43,7 +51,7 @@ export default function SecurityPrinciples() {
             </p>
           </div>
 
-          <div className="bg-[#F5F5F2] p-8 sm:p-10">
+          <div className="bg-transparent/90 backdrop-blur-[2px] p-8 sm:p-10">
             <h3 className="text-[20px] font-semibold tracking-[-0.02em]">
               Use the model you already trust
             </h3>
