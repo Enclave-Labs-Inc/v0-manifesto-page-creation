@@ -3,6 +3,7 @@ import Navigation from '@/components/site/navigation'
 import LandingHero from '@/components/landing/hero'
 import SecurityPrinciples from '@/components/landing/security-principles'
 import DemoPreview from '@/components/landing/demo-preview'
+import BuiltAtEnclave from '@/components/landing/built-at-enclave'
 import LandingFooter from '@/components/landing/landing-footer'
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function Home() {
         <LandingHero />
         <SecurityPrinciples />
         <DemoPreview />
+        <BuiltAtEnclave />
       </main>
 
       <LandingFooter />

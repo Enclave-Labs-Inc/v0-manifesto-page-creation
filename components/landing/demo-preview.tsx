@@ -13,7 +13,7 @@ export default function DemoPreview() {
         backgroundPosition: 'center 70%',
       }}
     >
-      <div className="mx-auto w-full max-w-[1440px] px-6 pb-16 pt-0 sm:px-10 lg:px-14 lg:pb-20 lg:pt-0">
+      <div className="mx-auto w-full max-w-[1440px] px-6 pb-8 pt-0 sm:px-10 lg:px-14 lg:pb-10 lg:pt-0">
         <div className="max-w-[680px]">
           <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#6A6D72]">
             See Enclave in action
