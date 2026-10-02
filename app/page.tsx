@@ -1,17 +1,13 @@
 import type { Metadata } from 'next'
 import Navigation from '@/components/site/navigation'
 import LandingHero from '@/components/landing/hero'
-import InfrastructureRail from '@/components/landing/infrastructure-rail'
-import ProblemSection from '@/components/landing/problem'
-import HowItWorks from '@/components/landing/how-it-works'
-import SovereigntyProof from '@/components/landing/sovereignty-proof'
-import AlternativesSection from '@/components/landing/alternatives'
-import FinalCTA from '@/components/landing/final-cta'
+import SecurityPrinciples from '@/components/landing/security-principles'
+import DemoPreview from '@/components/landing/demo-preview'
 import LandingFooter from '@/components/landing/landing-footer'
 
 export const metadata: Metadata = {
-  title: 'Enclave · Sovereign Company Brain',
-  description: 'Enterprise AI for internal knowledge that deploys inside your AWS account. Nothing leaves your perimeter.',
+  title: 'Enclave · AI for your company knowledge',
+  description: 'Ask questions across your company knowledge while keeping your data, permissions and infrastructure under your control.',
 }
 
 export default function Home() {
@@ -20,12 +16,8 @@ export default function Home() {
       <Navigation theme="light" />
       <main>
         <LandingHero />
-        <InfrastructureRail />
-        <ProblemSection />
-        <HowItWorks />
-        <SovereigntyProof />
-        <AlternativesSection />
-        <FinalCTA />
+        <SecurityPrinciples />
+        <DemoPreview />
       </main>
       <LandingFooter />
     </div>

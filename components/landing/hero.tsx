@@ -32,7 +32,7 @@ export default function LandingHero() {
   }, [])
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[oklch(0.965_0_0)] text-[#050608]">
+    <section className="relative flex min-h-[88svh] flex-col overflow-hidden bg-[oklch(0.965_0_0)] text-[#050608]">
       {/* Parallax photo — full-bleed background. */}
       <div
         ref={imgRef}
@@ -72,33 +72,28 @@ export default function LandingHero() {
         className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[32vh] bg-[linear-gradient(180deg,transparent_0%,oklch(0.14_0.006_240/0.35)_50%,oklch(0.095_0_0)_100%)]"
       />
 
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-[110px] bg-[linear-gradient(180deg,transparent_0%,oklch(0.965_0_0/0.55)_55%,oklch(0.965_0_0)_100%)]"
+      />
+
       <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-center px-5 pt-[110px] pb-16 sm:px-10 sm:pt-[140px] sm:pb-24 lg:px-14">
         <div>
           {/* Text block — headline overflows the inner column intentionally
               on md+ so the tagline sits on one line. */}
-          <div className="landing-reveal landing-reveal-eyebrow inline-flex items-center gap-2.5 rounded-full border border-[oklch(0.86_0_0/0.9)] bg-[oklch(1_0_0/0.65)] py-1.5 pl-1.5 pr-3.5 backdrop-blur-md sm:gap-3 sm:pr-4">
-            <div className="flex -space-x-1.5">
-              {['#1F2937', '#4B5563', '#6B7280'].map((bg, i) => (
-                <span
-                  key={i}
-                  aria-hidden
-                  className="h-4 w-4 rounded-full ring-2 ring-[oklch(0.98_0_0)] sm:h-5 sm:w-5"
-                  style={{ backgroundColor: bg }}
-                />
-              ))}
-            </div>
-            <p className="text-[11px] font-medium tracking-[-0.01em] text-[#17191D] sm:text-[12px]">
-              3 organisations on the waitlist
-            </p>
-          </div>
-
-          <h1 className="landing-reveal landing-reveal-title font-display mt-6 text-[clamp(2rem,4.8vw,4.2rem)] font-normal leading-[1.02] tracking-[-0.02em] text-[#050608]">
-            <span className="block">Sovereign AI</span>
-            <span className="block text-[#2A2D33] md:whitespace-nowrap">for regulated companies</span>
+          <h1 className="landing-reveal landing-reveal-title font-display mt-6 max-w-[1050px] text-[clamp(2.8rem,5.6vw,5.8rem)] font-normal leading-[0.95] tracking-[-0.04em] text-[#050608]">
+            <span className="block">Ask your company anything.</span>
+            <span className="block text-[#2A2D33] md:whitespace-nowrap">
+              Your data stays in your cloud.
+            </span>
           </h1>
 
           <p className="landing-reveal landing-reveal-body mt-6 max-w-[54ch] text-[14px] leading-[1.6] tracking-[-0.005em] text-[#17191D] sm:mt-7 sm:text-[15px]">
-            Give your organisation AI superpowers without compromising your privacy.
+            Enclave connects the knowledge scattered across Slack, Google Drive, GitHub, Jira and other tools your company already uses, so your team can ask questions and get answers with sources.
+          </p>
+
+          <p className="landing-reveal landing-reveal-body mt-4 text-[13px] font-semibold tracking-[-0.005em] text-[#111214] sm:text-[14px]">
+            Runs inside your cloud environment. Not ours.
           </p>
 
           <div className="landing-reveal landing-reveal-actions mt-8 sm:mt-10">
@@ -106,7 +101,7 @@ export default function LandingHero() {
               href="https://cal.com/shashank-bhardwaj-fwmii1/30min"
               className="group inline-flex h-[48px] items-center gap-2.5 rounded-[6px] bg-[#050608] px-6 text-[11px] font-bold uppercase tracking-[0.18em] text-[oklch(0.985_0_0)] transition-[background-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985] sm:h-[46px]"
             >
-              Request access
+              Talk to us
               <ArrowUpRight
                 className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 strokeWidth={2}
