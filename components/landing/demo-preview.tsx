@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight, Play } from 'lucide-react'
 
@@ -33,16 +32,18 @@ export default function DemoPreview() {
 
         <Link href="/demo" className="group mt-10 block">
           <div className="relative aspect-[16/7] overflow-hidden rounded-[10px] border border-[#D8D8D3] bg-black">
-            <Image
-              src="/demo-preview.jpg"
-              alt="Enclave Ask interface"
-              width={1600}
-              height={900}
+            <video
+              src="/enclave-product-demo.mp4"
               className="h-full w-full object-cover object-center"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
             />
 
-            <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition group-hover:bg-black/20">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-transparent shadow-lg">
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/10 transition group-hover:bg-black/20">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 shadow-lg">
                 <Play className="ml-1 h-6 w-6 fill-black text-black" />
               </div>
             </div>

@@ -108,7 +108,7 @@ export default function DemoContent() {
         >
           <video
             ref={videoRef}
-            src="/demo-1.mp4"
+            src="/enclave-product-demo.mp4"
             className="w-full"
             playsInline
             controls={playing}
