@@ -104,7 +104,7 @@ export default function DemoContent() {
         <div
           ref={video.ref}
           data-in-view={video.inView}
-          className="scroll-reveal relative mt-14 overflow-hidden rounded-[14px] border border-[#E0E3E8] bg-[#050608]"
+          className="scroll-reveal relative mx-auto mt-10 max-w-[1100px] overflow-hidden rounded-[14px] border border-[#E0E3E8] bg-[#050608]"
         >
           <video
             ref={videoRef}

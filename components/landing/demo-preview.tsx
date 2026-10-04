@@ -1,5 +1,24 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowUpRight, Play } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
+
+const frames = [
+  {
+    src: '/demo-frames/frame-09.jpg',
+    alt: 'Enclave knowledge graph connecting company information',
+    className: 'md:w-[26%]',
+  },
+  {
+    src: '/demo-frames/frame-11.jpg',
+    alt: 'Enclave question interface',
+    className: 'md:w-[31%]',
+  },
+  {
+    src: '/demo-frames/frame-13.jpg',
+    alt: 'Enclave answer with supporting sources',
+    className: 'md:w-[43%]',
+  },
+]
 
 export default function DemoPreview() {
   return (
@@ -30,23 +49,30 @@ export default function DemoPreview() {
           </p>
         </div>
 
-        <Link href="/demo" className="group mt-10 block">
-          <div className="relative aspect-[16/7] overflow-hidden rounded-[10px] border border-[#D8D8D3] bg-black">
-            <video
-              src="/enclave-product-demo.mp4"
-              className="h-full w-full object-cover object-center"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            />
-
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/10 transition group-hover:bg-black/20">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 shadow-lg">
-                <Play className="ml-1 h-6 w-6 fill-black text-black" />
+        <Link href="/demo" className="group mt-11 block">
+          <div className="flex h-[220px] overflow-hidden rounded-[4px] border border-[#D8D8D3] sm:h-[250px] md:h-[270px]">
+            {frames.map((frame, index) => (
+              <div
+                key={frame.src}
+                className={`group/frame relative shrink-0 overflow-hidden ${frame.className} ${
+                  index !== frames.length - 1
+                    ? 'border-r border-white/50'
+                    : ''
+                }`}
+              >
+                <Image
+                  src={frame.src}
+                  alt={frame.alt}
+                  fill
+                  sizes="(min-width: 768px) 40vw, 100vw"
+                  className={`transition-transform duration-500 ease-out group-hover/frame:scale-[1.12] ${
+                    index === 2
+                      ? 'object-cover object-[center_35%]'
+                      : 'object-cover object-center'
+                  }`}
+                />
               </div>
-            </div>
+            ))}
           </div>
 
           <div className="mt-5 inline-flex items-center gap-2 text-[13px] font-semibold">
