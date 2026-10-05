@@ -22,24 +22,16 @@ const frames = [
 
 export default function DemoPreview() {
   return (
-    <section
-      className="relative overflow-hidden text-[#111214]"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(245,245,242,0.95), rgba(245,245,242,0.97)), url('/landing-hero-bg.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center 70%',
-      }}
-    >
+    <section className="relative overflow-hidden bg-white text-[#111214]">
       <div className="mx-auto w-full max-w-[1440px] px-6 pb-8 pt-0 sm:px-10 lg:px-14 lg:pb-10 lg:pt-0">
-        <div className="max-w-[680px]">
+        <div>
           <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#6A6D72]">
             See Enclave in action
           </p>
 
-          <h2 className="mt-5 font-display text-[clamp(2.2rem,4vw,4rem)] font-normal leading-[1.02] tracking-[-0.035em]">
-            Ask across your company knowledge.
-            <span className="block text-[#6A6D72]">
+          <h2 className="mt-5 font-display text-[clamp(1.75rem,3.4vw,3.2rem)] font-normal leading-[1.1] tracking-[-0.025em]">
+            <span className="block md:whitespace-nowrap">Ask across your company knowledge.</span>
+            <span className="block text-[#6A6D72] md:whitespace-nowrap">
               Get answers with sources.
             </span>
           </h2>

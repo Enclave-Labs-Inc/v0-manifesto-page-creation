@@ -1,23 +1,15 @@
 export default function SecurityPrinciples() {
   return (
-    <section
-      className="relative overflow-hidden text-[#111214]"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(245,245,242,0.90), rgba(245,245,242,0.94)), url('/landing-hero-bg.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center 35%',
-      }}
-    >
+    <section className="relative overflow-hidden bg-white text-[#111214]">
       <div className="mx-auto w-full max-w-[1440px] px-6 pt-10 pb-20 sm:px-10 lg:px-14 lg:pt-12 lg:pb-24">
-        <div className="max-w-[760px]">
+        <div>
           <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#6A6D72]">
             Built around your existing security
           </p>
 
-          <h2 className="mt-5 font-display text-[clamp(2.4rem,4.5vw,4.8rem)] font-normal leading-[1.02] tracking-[-0.035em]">
-            Same data. Same permissions.
-            <span className="block text-[#6A6D72]">
+          <h2 className="mt-5 font-display text-[clamp(1.75rem,3.4vw,3.2rem)] font-normal leading-[1.1] tracking-[-0.025em]">
+            <span className="block md:whitespace-nowrap">Same data. Same permissions.</span>
+            <span className="block text-[#6A6D72] md:whitespace-nowrap">
               Enclave works with your existing access rules.
             </span>
           </h2>

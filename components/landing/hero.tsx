@@ -1,10 +1,48 @@
 'use client'
 
 import { ArrowUpRight } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 
 export default function LandingHero() {
+  const parallaxRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const node = parallaxRef.current
+    if (!node) return
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
+    if (prefersReducedMotion) return
+
+    let rafId = 0
+    const update = () => {
+      rafId = 0
+      node.style.transform = `translate3d(0, ${window.scrollY * 0.4}px, 0)`
+    }
+    const onScroll = () => {
+      if (rafId) return
+      rafId = requestAnimationFrame(update)
+    }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (rafId) cancelAnimationFrame(rafId)
+    }
+  }, [])
+
 return (
     <section className="relative flex min-h-screen flex-col overflow-hidden text-[#050608]">
+      {/* Parallax mountain layer — moves at 0.4x the scroll speed so it reads
+          as a background plane. Expanded vertically so no seam appears at the
+          hero's top or bottom edges when the layer translates. */}
+      <div
+        ref={parallaxRef}
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 -top-[20%] h-[140%] bg-cover bg-center will-change-transform"
+        style={{ backgroundImage: "url('/landing-hero-bg.jpg')" }}
+      />
 {/* Radial mesh — three layered ellipses that produce an organic
           morning-mist wash on the left where the text sits. Density is
           strongest around the headline and releases cleanly across the

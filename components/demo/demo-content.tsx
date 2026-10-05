@@ -109,7 +109,9 @@ export default function DemoContent() {
           <video
             ref={videoRef}
             src="/enclave-product-demo.mp4"
-            className="w-full"
+            poster="/demo-poster.jpg"
+            preload="metadata"
+            className="aspect-video w-full object-cover"
             playsInline
             controls={playing}
             onClick={handleVideoClick}
@@ -120,9 +122,9 @@ export default function DemoContent() {
             <button
               onClick={handleOverlayClick}
               aria-label="Play demo"
-              className="absolute inset-0 flex items-center justify-center bg-[#050608]/35 transition-[background-color] duration-200 hover:bg-[#050608]/25"
+              className="group/play absolute inset-0 flex items-center justify-center bg-gradient-to-b from-transparent via-transparent to-[#050608]/15 transition-colors duration-200 hover:to-[#050608]/25"
             >
-              <span className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-white/95 transition-transform duration-200 hover:scale-105 active:scale-95">
+              <span className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-white/95 shadow-[0_4px_20px_rgba(0,0,0,0.18)] transition-transform duration-200 group-hover/play:scale-105 group-active/play:scale-95">
                 <Play className="ml-1 h-7 w-7 text-[#050608]" fill="currentColor" strokeWidth={0} />
               </span>
             </button>
