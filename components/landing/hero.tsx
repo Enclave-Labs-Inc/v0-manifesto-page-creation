@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react'
 
 export default function LandingHero() {
 return (
-    <section className="relative flex min-h-[88svh] flex-col overflow-hidden text-[#050608]">
+    <section className="relative flex min-h-screen flex-col overflow-hidden text-[#050608]">
 {/* Radial mesh — three layered ellipses that produce an organic
           morning-mist wash on the left where the text sits. Density is
           strongest around the headline and releases cleanly across the
@@ -26,19 +26,19 @@ return (
         <div>
           {/* Text block — headline overflows the inner column intentionally
               on md+ so the tagline sits on one line. */}
-          <h1 className="landing-reveal landing-reveal-title font-display mt-6 max-w-[1050px] text-[clamp(2.8rem,5.6vw,5.8rem)] font-normal leading-[0.95] tracking-[-0.04em] text-[#050608]">
-            <span className="block">Ask your company anything.</span>
+          <h1 className="landing-reveal landing-reveal-title font-display mt-6 max-w-[1100px] text-[clamp(2rem,4.8vw,4.2rem)] font-normal leading-[1.02] tracking-[-0.02em] text-[#050608]">
+            <span className="block">Sovereign Knowledge Layer</span>
             <span className="block text-[#2A2D33] md:whitespace-nowrap">
-              Your data stays in your cloud.
+              for the Enterprise.
             </span>
           </h1>
 
-          <p className="landing-reveal landing-reveal-body mt-6 max-w-[54ch] text-[14px] leading-[1.6] tracking-[-0.005em] text-[#17191D] sm:mt-7 sm:text-[15px]">
-            Enclave connects the knowledge scattered across Slack, Google Drive, GitHub, Jira and other tools your company already uses, so your team can ask questions and get answers with sources.
+          <p className="landing-reveal landing-reveal-body mt-8 max-w-[760px] text-[18px] font-normal leading-[1.4] tracking-[-0.015em] text-[#0A0C10] sm:mt-10 sm:text-[22px]">
+            The answer engine for your company.
           </p>
 
-          <p className="landing-reveal landing-reveal-body mt-4 text-[13px] font-semibold tracking-[-0.005em] text-[#111214] sm:text-[14px]">
-            Runs inside your cloud environment. Not ours.
+          <p className="landing-reveal landing-reveal-body mt-3 max-w-[760px] text-[14px] leading-[1.55] tracking-[-0.005em] text-[#4A4E57] sm:mt-4 sm:text-[16px]">
+            <span className="sm:whitespace-nowrap">Grounded in every system your team already uses, and bound by every permission they already have.</span>
           </p>
 
           <div className="landing-reveal landing-reveal-actions mt-8 sm:mt-10">
