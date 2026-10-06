@@ -4,30 +4,11 @@ import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import EnclaveLogo from '@/components/site/enclave-logo'
 
-const columns = [
-  {
-    label: 'Product',
-    links: [
-      { href: '/manifesto', label: 'Manifesto' },
-      { href: '/manifesto#III', label: 'Architecture' },
-      { href: '/releases', label: 'Releases' },
-      { href: '/demo', label: 'Demo' },
-    ],
-  },
-  {
-    label: 'Company',
-    links: [
-      { href: 'mailto:contact@getenclave.ai', label: 'Contact' },
-      { href: '/manifesto', label: 'About' },
-    ],
-  },
-  {
-    label: 'Legal',
-    links: [
-      { href: '/manifesto', label: 'Terms' },
-      { href: '/manifesto', label: 'Privacy' },
-    ],
-  },
+const footerLinks = [
+  { href: '/manifesto', label: 'Manifesto' },
+  { href: '/releases', label: 'Releases' },
+  { href: '/demo', label: 'Demo' },
+  { href: 'mailto:contact@getenclave.ai', label: 'Contact' },
 ]
 
 export default function LandingFooter() {
@@ -57,27 +38,17 @@ export default function LandingFooter() {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-10">
-            {columns.map((col) => (
-              <div key={col.label} className="flex flex-col gap-4">
-                <p className="font-mono text-[10px] tracking-[0.18em] text-[#5E636F]">
-                  {col.label.toUpperCase()}
-                </p>
-                <ul className="flex flex-col gap-2.5">
-                  {col.links.map((link) => (
-                    <li key={`${col.label}-${link.label}`}>
-                      <Link
-                        href={link.href}
-                        className="text-[13px] tracking-[-0.005em] text-[#C5C9D2] transition-colors duration-150 hover:text-white"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <nav className="flex flex-wrap items-start justify-between gap-x-10 gap-y-5 pt-1">
+            {footerLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-[13px] tracking-[-0.005em] text-[#C5C9D2] transition-colors duration-150 hover:text-white"
+              >
+                {link.label}
+              </Link>
             ))}
-          </div>
+          </nav>
         </div>
 
         {/* Bottom row: hairline + mono copyright */}

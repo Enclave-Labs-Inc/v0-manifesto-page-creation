@@ -82,24 +82,12 @@ export default function DemoContent() {
       <div className="relative z-[1] mx-auto max-w-[1440px] px-5 pt-[clamp(6rem,11vw,9rem)] pb-[clamp(5rem,9vw,8rem)] sm:px-10 lg:px-14">
         {/* Header block — LEFT-aligned, echoes the landing rhythm */}
         <div className="flex flex-col items-start text-left">
-          <div
-            ref={chip.ref}
-            data-in-view={chip.inView}
-            className="scroll-reveal inline-flex items-center gap-2.5 rounded-full border border-[oklch(0.86_0_0/0.9)] bg-[oklch(1_0_0/0.65)] px-3.5 py-1.5 backdrop-blur-md"
-          >
-            <span className="font-mono text-[11px] tracking-[0.14em] text-[#5E636F]">01</span>
-            <span className="h-[10px] w-px bg-[#C7CCD4]" aria-hidden />
-            <span className="font-mono text-[11px] tracking-[0.14em] text-[#2E3238]">PRODUCT DEMO</span>
-          </div>
-
           <h1
             ref={headline.ref}
             data-in-view={headline.inView}
             className="font-display mt-6 max-w-[22ch] text-[clamp(2.2rem,5vw,4.2rem)] font-normal leading-[1.02] tracking-[-0.025em] text-[#050608]"
           >
             <span className="md:whitespace-nowrap">Enclave in action.</span>
-            <br />
-            <span className="text-[#7F848F]">Inside your AWS account.</span>
           </h1>
 
           <p
@@ -107,9 +95,8 @@ export default function DemoContent() {
             data-in-view={body.inView}
             className="scroll-reveal mt-6 max-w-[58ch] text-[15px] leading-[1.6] tracking-[-0.005em] text-[#50545B]"
           >
-            Watch sovereign AI search running end-to-end. Employees ask natural-language questions
-            against internal knowledge and every byte stays inside the customer&rsquo;s VPC. No data leaves
-            the perimeter.
+            See Enclave answer questions across your company knowledge while your data stays
+            in your own environment and under your control.
           </p>
         </div>
 
@@ -117,12 +104,14 @@ export default function DemoContent() {
         <div
           ref={video.ref}
           data-in-view={video.inView}
-          className="scroll-reveal relative mt-14 overflow-hidden rounded-[14px] border border-[#E0E3E8] bg-[#050608]"
+          className="scroll-reveal relative mx-auto mt-10 max-w-[1100px] overflow-hidden rounded-[14px] border border-[#E0E3E8] bg-[#050608]"
         >
           <video
             ref={videoRef}
-            src="/demo-1.mp4"
-            className="w-full"
+            src="/enclave-product-demo.mp4"
+            poster="/demo-poster.jpg"
+            preload="metadata"
+            className="aspect-video w-full object-cover"
             playsInline
             controls={playing}
             onClick={handleVideoClick}
@@ -133,9 +122,9 @@ export default function DemoContent() {
             <button
               onClick={handleOverlayClick}
               aria-label="Play demo"
-              className="absolute inset-0 flex items-center justify-center bg-[#050608]/35 transition-[background-color] duration-200 hover:bg-[#050608]/25"
+              className="group/play absolute inset-0 flex items-center justify-center bg-gradient-to-b from-transparent via-transparent to-[#050608]/15 transition-colors duration-200 hover:to-[#050608]/25"
             >
-              <span className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-white/95 transition-transform duration-200 hover:scale-105 active:scale-95">
+              <span className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-white/95 shadow-[0_4px_20px_rgba(0,0,0,0.18)] transition-transform duration-200 group-hover/play:scale-105 group-active/play:scale-95">
                 <Play className="ml-1 h-7 w-7 text-[#050608]" fill="currentColor" strokeWidth={0} />
               </span>
             </button>

@@ -124,8 +124,7 @@ function IndexHero() {
         data-in-view={headline.inView}
         className="font-display mt-6 max-w-[20ch] text-[clamp(2.4rem,5.5vw,4.8rem)] font-normal leading-[1.02] tracking-[-0.025em] text-[#050608]"
       >
-        <span className="block">Releases,</span>
-        <span className="block text-[#7F848F]">shipped in the open.</span>
+        <span className="block">Release notes</span>
       </h1>
 
       <p

@@ -13,10 +13,10 @@ export const releases: ReleaseMeta[] = [
     slug: 'sovereign-search-at-scale',
     version: 'v0.0.1',
     date: '27 May 2026',
-    title: 'Sovereign Search at Scale',
+    title: 'Search That Stays in Your Environment',
     subtitle: 'A detailed benchmark report',
     description:
-      'Our first public benchmark of the sovereign retrieval engine: tested on a 1M-chunk synthetic corpus and real AWS S3. ~13 KB read per query at scale, sub-millisecond warm latency, competitive recall on FiQA, plus the cache bug we caught and the permission claim we tested and retired.',
+      'Our first public benchmark of the retrieval engine that runs in your environment: tested on a 1M-chunk synthetic corpus and real AWS S3. ~13 KB read per query at scale, sub-millisecond warm latency, competitive recall on FiQA, plus the cache bug we caught and the permission claim we tested and retired.',
     tags: ['Benchmark', 'Retrieval engine'],
   },
 ]

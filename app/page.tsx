@@ -1,32 +1,34 @@
 import type { Metadata } from 'next'
 import Navigation from '@/components/site/navigation'
 import LandingHero from '@/components/landing/hero'
-import InfrastructureRail from '@/components/landing/infrastructure-rail'
-import ProblemSection from '@/components/landing/problem'
-import HowItWorks from '@/components/landing/how-it-works'
-import SovereigntyProof from '@/components/landing/sovereignty-proof'
-import AlternativesSection from '@/components/landing/alternatives'
-import FinalCTA from '@/components/landing/final-cta'
+import SecurityPrinciples from '@/components/landing/security-principles'
+import DemoPreview from '@/components/landing/demo-preview'
+import BuiltAtEnclave from '@/components/landing/built-at-enclave'
 import LandingFooter from '@/components/landing/landing-footer'
 
 export const metadata: Metadata = {
-  title: 'Enclave · Sovereign Company Brain',
-  description: 'Enterprise AI for internal knowledge that deploys inside your AWS account. Nothing leaves your perimeter.',
+  title: 'Enclave · AI for your company knowledge',
+  description:
+    'Ask questions across your company knowledge while keeping your data, permissions and infrastructure under your control.',
 }
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[oklch(0.965_0_0)] text-[#111214]">
+    <div className="min-h-screen text-[#111214]">
       <Navigation theme="light" />
-      <main>
+
+      <main
+        className="bg-cover bg-center bg-fixed"
+        style={{
+          backgroundImage: "url('/landing-hero-bg.jpg')",
+        }}
+      >
         <LandingHero />
-        <InfrastructureRail />
-        <ProblemSection />
-        <HowItWorks />
-        <SovereigntyProof />
-        <AlternativesSection />
-        <FinalCTA />
+        <SecurityPrinciples />
+        <DemoPreview />
+        <BuiltAtEnclave />
       </main>
+
       <LandingFooter />
     </div>
   )

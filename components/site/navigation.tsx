@@ -54,7 +54,7 @@ export default function Navigation({ theme = 'light' }: NavigationProps) {
         isDark
           ? 'sticky border-b border-[#1E2025] bg-[#111215]/95 backdrop-blur-md'
           : hasScrolled || menuOpen
-            ? 'fixed inset-x-0 border-b border-[oklch(0.9_0_0/0.6)] bg-[oklch(0.985_0_0/0.92)] backdrop-blur-xl'
+            ? 'fixed inset-x-0 border-b border-[#D8D8D3] bg-[#F5F5F2]'
             : 'fixed inset-x-0 border-b border-transparent bg-transparent'
       )}
     >
@@ -100,7 +100,7 @@ export default function Navigation({ theme = 'light' }: NavigationProps) {
               : 'border-[#1B1D21] text-[#050608] hover:bg-[#050608] hover:text-[oklch(0.985_0_0)]'
           )}
         >
-          Request access
+          Talk to us
           <ArrowUpRight className="h-3 w-3" strokeWidth={2} />
         </a>
 
@@ -135,7 +135,7 @@ export default function Navigation({ theme = 'light' }: NavigationProps) {
             href="https://cal.com/shashank-bhardwaj-fwmii1/30min"
             className="mt-2 inline-flex h-[44px] w-full items-center justify-center gap-2 rounded-[4px] bg-[#050608] px-4 text-[11px] font-medium uppercase tracking-[0.18em] text-[oklch(0.985_0_0)]"
           >
-            Request access
+            Talk to us
             <ArrowUpRight className="h-3 w-3" strokeWidth={2} />
           </a>
         </div>
