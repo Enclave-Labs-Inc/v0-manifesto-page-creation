@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { FileText, GitMerge, History, Plus } from 'lucide-react'
-import { Eyebrow } from '@/components/landing/eyebrow'
 import { ENTITY, type EntityType } from './entity'
 import { useReveal } from './use-reveal'
 
@@ -99,33 +98,41 @@ export default function Connections() {
   }, [step, auto, body.inView])
 
   const visible = rels.filter((r) => r.added <= step)
-  const counts = {
-    sources: step + 1,
-    relationships: visible.filter((r) => r.closed === undefined || r.closed > step).length,
-    linked: visible.filter((r) => r.linked !== undefined).length,
-  }
 
   return (
     <section id="connections" className="relative scroll-mt-16 overflow-hidden bg-white text-[#050608]">
-      <div className="mx-auto max-w-[1440px] px-5 py-[clamp(4.5rem,9vw,8rem)] sm:px-10 lg:px-14">
-        <div ref={head.ref} data-in-view={head.inView} className="scroll-reveal grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-end">
-          <div>
-            <Eyebrow bulletColor={ENTITY.Company}>Connections</Eyebrow>
-            <h2 className="font-display mt-6 text-[clamp(1.8rem,3.4vw,3.2rem)] font-normal leading-[1.06] tracking-[-0.025em]">
-              Every new document
-              <span className="block text-[#6A6D72]">joins the same graph.</span>
-            </h2>
-          </div>
-          <p className="max-w-[52ch] text-[15px] leading-[1.7] text-[#55585D]">
-            Each source is read against your ontology. A name in one filing resolves to the same entity in
-            the next, so relationships form across documents nobody linked by hand. When a newer source
-            changes a fact, the old one is closed, not lost.
+      <div className="mx-auto max-w-[1440px] px-5 py-[clamp(6rem,12vw,10rem)] sm:px-10 lg:px-14">
+        <div ref={head.ref} data-in-view={head.inView} className="scroll-reveal max-w-[760px]">
+          <h2 className="font-display text-[clamp(2rem,3.6vw,3.4rem)] font-normal leading-[1.05] tracking-[-0.025em]">
+            Every new document joins the same graph.
+          </h2>
+          <p className="mt-6 max-w-[56ch] text-[17px] leading-[1.65] text-[#55585D]">
+            Names resolve across sources, so relationships form on their own. When a newer document changes a
+            fact, the old one is closed, not lost.
           </p>
         </div>
 
-        <div ref={body.ref} data-in-view={body.inView} className="scroll-reveal mt-14 grid gap-6 lg:grid-cols-[1fr_1.1fr]">
+        <div ref={body.ref} data-in-view={body.inView} className="scroll-reveal mt-16 grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-10">
           {/* Sources */}
           <div className="flex flex-col gap-3">
+            <div className="flex gap-2 lg:hidden" role="group" aria-label="Choose a document">
+              {sources.map((src, i) => (
+                <button
+                  key={src.id}
+                  type="button"
+                  aria-pressed={i === step}
+                  onClick={() => {
+                    setAuto(false)
+                    setStep(i)
+                  }}
+                  className={`flex-1 rounded-full px-3 py-2 text-[12px] transition-colors ${
+                    i === step ? 'bg-[#050608] text-white' : 'bg-[#F0F0EC] text-[#3A3D45]'
+                  }`}
+                >
+                  {src.kind.split(' · ')[0]} · {src.title.split(' ')[0]}
+                </button>
+              ))}
+            </div>
             {sources.map((src, i) => {
               const active = i === step
               const read = i <= step
@@ -139,6 +146,8 @@ export default function Connections() {
                   }}
                   aria-pressed={active}
                   className={`relative overflow-hidden rounded-[12px] border p-5 text-left transition-[border-color,background-color,box-shadow] duration-300 ${
+                    active ? '' : 'hidden lg:block'
+                  } ${
                     active
                       ? 'border-[#D8DAE0] bg-[#FAFAF8] shadow-[0_20px_50px_-30px_oklch(0.35_0.08_265/0.45)]'
                       : 'border-[#ECECE8] bg-white hover:border-[#D8DAE0]'
@@ -150,14 +159,14 @@ export default function Connections() {
                         className="flex h-8 w-8 items-center justify-center rounded-[8px]"
                         style={{ background: `color-mix(in oklch, ${ENTITY.Filing} ${read ? 16 : 6}%, white)` }}
                       >
-                        <FileText className="h-4 w-4" style={{ color: read ? ENTITY.Filing : '#9499A6' }} />
+                        <FileText className="h-4 w-4" style={{ color: read ? ENTITY.Filing : '#6A6D72' }} />
                       </span>
                       <div>
                         <p className="text-[14px] font-semibold tracking-[-0.01em]">{src.title}</p>
-                        <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#9499A6]">{src.kind}</p>
+                        <p className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#6A6D72]">{src.kind}</p>
                       </div>
                     </div>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#9499A6]">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#6A6D72]">
                       {active ? 'Reading' : read ? 'Read' : 'Queued'}
                     </span>
                   </div>
@@ -199,35 +208,11 @@ export default function Connections() {
           </div>
 
           {/* The graph so far */}
-          <div className="relative overflow-hidden rounded-[14px] border border-[#E6E6E1] bg-[oklch(0.975_0.004_265)]">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 opacity-70"
-              style={{
-                backgroundImage:
-                  'radial-gradient(ellipse 60% 50% at 100% 0%, oklch(0.88 0.08 265 / 0.5) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 0% 100%, oklch(0.9 0.07 175 / 0.45) 0%, transparent 70%)',
-              }}
-            />
+          <div className="relative overflow-hidden rounded-[14px] bg-[oklch(0.975_0.004_265)]">
             <div className="relative p-5 sm:p-7">
-              <div className="flex flex-wrap items-baseline justify-between gap-4">
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-[#50545B]">The graph so far</p>
-                <dl className="flex gap-5 font-mono text-[11px] text-[#50545B]">
-                  <div className="flex gap-1.5">
-                    <dt>sources</dt>
-                    <dd className="text-[#050608]">{counts.sources}</dd>
-                  </div>
-                  <div className="flex gap-1.5">
-                    <dt>live facts</dt>
-                    <dd className="text-[#050608]">{counts.relationships}</dd>
-                  </div>
-                  <div className="flex gap-1.5">
-                    <dt>cross-source</dt>
-                    <dd className="text-[#050608]">{counts.linked}</dd>
-                  </div>
-                </dl>
-              </div>
+              <p className="text-[13px] text-[#50545B]">The graph so far</p>
 
-              <ul className="mt-5 space-y-2">
+              <ul className="mt-4 divide-y divide-[oklch(0.2_0_0/0.07)]">
                 {visible.map((r) => {
                   const isNew = r.added === step
                   const closed = r.closed !== undefined && r.closed <= step
@@ -235,20 +220,20 @@ export default function Connections() {
                   return (
                     <li
                       key={`${r.s}-${r.p}-${r.o}`}
-                      className={`${isNew ? 'ontos-swap' : ''} flex flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-[8px] border px-3.5 py-2.5 transition-[opacity,border-color,background-color] duration-500 ${
-                        closed ? 'border-transparent bg-white/40 opacity-60' : 'border-[oklch(0.2_0_0/0.06)] bg-white/80'
+                      className={`${isNew ? 'ontos-swap' : ''} flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-3 transition-opacity duration-500 ${
+                        closed ? 'opacity-55' : ''
                       }`}
                     >
-                      <span className={`text-[13.5px] ${closed ? 'text-[#787D8A] line-through decoration-[#9499A6]' : ''}`}>
-                        {r.s} <span className="font-mono text-[11px] text-[#9499A6]">{r.p}</span> {r.o}
+                      <span className={`text-[13.5px] ${closed ? 'text-[#6A6D72] line-through decoration-[#6A6D72]' : ''}`}>
+                        {r.s} <span className="font-mono text-[11px] text-[#6A6D72]">{r.p}</span> {r.o}
                       </span>
                       <span className="flex items-center gap-2">
-                        {r.note && (justClosed || (isNew && r.closed === undefined)) &&<span className="text-[11.5px] text-[#787D8A]">{r.note}</span>}
+                        {r.note && (justClosed || (isNew && r.closed === undefined)) &&<span className="text-[12px] text-[#6A6D72]">{r.note}</span>}
                         {justClosed ? (
                           <Badge icon={<History className="h-3 w-3" />} color={ENTITY.Person} label="Superseded" />
                         ) : isNew && r.linked !== undefined ? (
                           <Badge icon={<GitMerge className="h-3 w-3" />} color={ENTITY.Model} label="Linked" />
-                        ) : isNew ? (
+                        ) : isNew && step > 0 ? (
                           <Badge icon={<Plus className="h-3 w-3" />} color={ENTITY.Filing} label="New" />
                         ) : null}
                       </span>

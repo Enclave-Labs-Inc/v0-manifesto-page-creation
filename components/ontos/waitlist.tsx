@@ -1,67 +1,56 @@
 'use client'
 
-import { ArrowRight, Check } from 'lucide-react'
-import { Eyebrow } from '@/components/landing/eyebrow'
-import { AURORA, ENTITY } from './entity'
+import { ArrowRight } from 'lucide-react'
+import { AURORA } from './entity'
 import { SIGN_IN_URL, WAITLIST_URL } from './links'
 import { useReveal } from './use-reveal'
 
-const perks = [
-  'Your own project, endpoint and API keys',
-  'Sample fintech and pharma data to explore',
-  'A direct line to the team building it',
-]
+const GITHUB_URL = 'https://github.com/Enclave-Labs-Inc/Ontos'
 
 export default function Waitlist() {
   const head = useReveal<HTMLDivElement>()
 
   return (
     <section id="waitlist" className="relative scroll-mt-16 overflow-hidden bg-[oklch(0.975_0.004_265)] text-[#050608]">
-      <div aria-hidden className="pointer-events-none absolute inset-0" style={{ backgroundImage: AURORA }} />
+      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-80" style={{ backgroundImage: AURORA }} />
 
-      <div className="relative mx-auto grid max-w-[1440px] gap-12 px-5 py-[clamp(5rem,10vw,9rem)] sm:px-10 lg:grid-cols-[1fr_1fr] lg:gap-16 lg:px-14">
-        <div ref={head.ref} data-in-view={head.inView} className="scroll-reveal flex flex-col justify-center">
-          <Eyebrow bulletColor={ENTITY.Filing}>Early access</Eyebrow>
-          <h2 className="font-display mt-6 text-[clamp(2rem,4vw,3.6rem)] font-normal leading-[1.04] tracking-[-0.025em]">
-            The platform is almost ready.
-            <span className="block text-[#6A6D72]">Get on the list.</span>
-          </h2>
-          <p className="mt-6 max-w-[46ch] text-[15px] leading-[1.7] text-[#3A3D45]">
-            We’re onboarding teams in small groups during the private alpha. Tell us what you’d connect
-            first, and we’ll email your invite as soon as a place opens.
-          </p>
-        </div>
+      <div
+        ref={head.ref}
+        data-in-view={head.inView}
+        className="scroll-reveal relative mx-auto flex max-w-[1440px] flex-col items-start px-5 py-[clamp(7rem,14vw,12rem)] sm:px-10 lg:px-14"
+      >
+        <h2 className="max-w-[18ch] font-display text-[clamp(2.4rem,5vw,4.6rem)] font-normal leading-[1.02] tracking-[-0.03em]">
+          You bring the data.
+          <span className="block text-[#6A6D72]">We run everything else.</span>
+        </h2>
+        <p className="mt-7 max-w-[48ch] text-[17px] leading-[1.65] text-[#3A3D45]">
+          The platform is almost ready. We’re onboarding teams in small groups.
+        </p>
 
-        <div className="flex flex-col justify-center rounded-[14px] border border-[oklch(0.88_0_0/0.9)] bg-[#FAFAF8]/85 p-6 shadow-[0_40px_100px_-40px_oklch(0.35_0.08_265/0.45)] backdrop-blur-xl sm:p-10">
-          <p className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-[#6A6D72]">Private alpha</p>
-          <ul className="mt-6 space-y-4 text-[15px] text-[#2A2D33]">
-            {perks.map((item) => (
-              <li key={item} className="flex items-center gap-3">
-                <span
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
-                  style={{ background: `color-mix(in oklch, ${ENTITY.Filing} 18%, white)` }}
-                >
-                  <Check className="h-3.5 w-3.5" style={{ color: '#0f7a54' }} strokeWidth={2.5} />
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
-
+        <div className="mt-10 flex flex-wrap items-center gap-6">
           <a
             href={WAITLIST_URL}
-            className="group mt-10 inline-flex h-[50px] w-full items-center justify-center gap-2.5 rounded-[6px] bg-[#050608] px-6 text-[11px] font-bold uppercase tracking-[0.18em] text-[oklch(0.985_0_0)] transition-[background-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
+            className="group inline-flex h-[50px] items-center gap-2.5 rounded-[6px] bg-[#050608] px-7 text-[11px] font-bold uppercase tracking-[0.18em] text-[oklch(0.985_0_0)] transition-[background-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985]"
           >
             Join the waitlist
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2} />
           </a>
-          <p className="mt-4 text-center text-[13px] text-[#6A6D72]">
-            Already invited?{' '}
-            <a href={SIGN_IN_URL} className="text-[#050608] underline decoration-[#CFCFCA] underline-offset-[3px] hover:decoration-[#050608]">
-              Sign in
-            </a>
-          </p>
+          <a href={SIGN_IN_URL} className="text-[14px] text-[#3A3D45] underline decoration-[#C9CCD3] underline-offset-4 hover:text-[#050608] hover:decoration-[#050608]">
+            Already invited? Sign in
+          </a>
         </div>
+
+        <p className="mt-16 text-[13px] text-[#6A6D72]">
+          The engine underneath is open, so anyone can check the guarantees.{' '}
+          <a
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#050608] underline decoration-[#C9CCD3] underline-offset-[3px] hover:decoration-[#050608]"
+          >
+            Read the code
+          </a>
+        </p>
       </div>
     </section>
   )

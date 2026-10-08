@@ -12,8 +12,6 @@ export const ENTITY = {
 
 export type EntityType = keyof typeof ENTITY
 
-export const ACCENT = '#2a78d6'
-
 /** Soft multi-hue wash used behind hero and product panels (Glean-style aurora). */
 export const AURORA =
   'radial-gradient(ellipse 55% 60% at 12% 18%, oklch(0.86 0.09 265 / 0.55) 0%, transparent 70%),' +

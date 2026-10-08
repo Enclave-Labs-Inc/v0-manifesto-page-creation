@@ -4,10 +4,8 @@ import LandingFooter from '@/components/landing/landing-footer'
 import OntosHero from '@/components/ontos/ontos-hero'
 import Connections from '@/components/ontos/connections'
 import AskDemo from '@/components/ontos/ask-demo'
-import Pipeline from '@/components/ontos/pipeline'
-import Proofs from '@/components/ontos/proofs'
+import Guarantees from '@/components/ontos/guarantees'
 import Developers from '@/components/ontos/developers'
-import Deployment from '@/components/ontos/deployment'
 import Waitlist from '@/components/ontos/waitlist'
 
 export const metadata: Metadata = {
@@ -24,10 +22,8 @@ export default function OntosPage() {
         <OntosHero />
         <Connections />
         <AskDemo />
-        <Pipeline />
-        <Proofs />
+        <Guarantees />
         <Developers />
-        <Deployment />
         <Waitlist />
       </main>
       <LandingFooter />
