@@ -638,16 +638,6 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  @keyframes ontos-ping {
-    75%,
-    100% {
-      transform: scale(2.4);
-      opacity: 0;
-    }
-  }
-  .ontos-ping {
-    animation: ontos-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
   @keyframes ontos-mark {
     from {
       background-size: 0 100%;

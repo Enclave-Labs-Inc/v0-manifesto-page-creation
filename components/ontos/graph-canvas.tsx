@@ -127,16 +127,3 @@ export default function GraphCanvas() {
     </svg>
   )
 }
-
-export function GraphLegend() {
-  return (
-    <ul className="flex flex-wrap gap-x-4 gap-y-2">
-      {(Object.keys(ENTITY) as EntityType[]).map((t) => (
-        <li key={t} className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-[#50545B]">
-          <span className="h-2 w-2 rounded-full" style={{ background: ENTITY[t] }} />
-          {t}
-        </li>
-      ))}
-    </ul>
-  )
-}
