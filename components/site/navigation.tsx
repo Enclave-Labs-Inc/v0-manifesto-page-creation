@@ -8,6 +8,7 @@ import EnclaveLogo from '@/components/site/enclave-logo'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
+  { href: '/ontos', label: 'Ontos' },
   { href: '/manifesto', label: 'Manifesto' },
   { href: '/releases', label: 'Releases' },
   { href: '/demo', label: 'Demo' },
@@ -69,6 +70,7 @@ export default function Navigation({ theme = 'light' }: NavigationProps) {
         <div className="ml-auto hidden items-center gap-9 md:flex">
           {navLinks.map((link) => {
             const isActive =
+              (link.href === '/ontos' && pathname.startsWith('/ontos')) ||
               (link.href === '/manifesto' && pathname.startsWith('/manifesto')) ||
               (link.href === '/releases' && pathname.startsWith('/releases')) ||
               (link.href === '/demo' && pathname.startsWith('/demo'))

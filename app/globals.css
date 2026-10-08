@@ -596,3 +596,87 @@
     transition: none;
   }
 }
+
+/* Ontos page — graph canvas entrance and the dashed flow on lit edges. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes ontos-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes ontos-dash {
+    to {
+      stroke-dashoffset: -16;
+    }
+  }
+  .ontos-node,
+  .ontos-edge {
+    animation: ontos-fade 900ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+  .ontos-flow {
+    animation: ontos-dash 900ms linear infinite;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes ontos-swap {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .ontos-swap {
+    animation: ontos-swap 420ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes ontos-ping {
+    75%,
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+  .ontos-ping {
+    animation: ontos-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes ontos-mark {
+    from {
+      background-size: 0 100%;
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .ontos-mark {
+    animation: ontos-mark 500ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+  @keyframes ontos-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  .ontos-progress {
+    animation-name: ontos-progress;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ontos-progress {
+    display: none;
+  }
+}

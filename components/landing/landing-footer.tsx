@@ -5,6 +5,7 @@ import { ArrowUpRight } from 'lucide-react'
 import EnclaveLogo from '@/components/site/enclave-logo'
 
 const footerLinks = [
+  { href: '/ontos', label: 'Ontos' },
   { href: '/manifesto', label: 'Manifesto' },
   { href: '/releases', label: 'Releases' },
   { href: '/demo', label: 'Demo' },
