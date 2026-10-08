@@ -6,7 +6,7 @@ import ManifestoContent from '@/components/manifesto/manifesto-content'
 export const metadata: Metadata = {
   title: 'Manifesto · Enclave',
   description:
-    'The Company Brain for organizations that cannot send their data to SaaS AI vendors.',
+    'Enclave is building the knowledge layer for the enterprise: search and answers across everything a company knows, grounded in sources, bound by permissions, and running where the data lives.',
 }
 
 export default function ManifestoPage() {
