@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 
@@ -80,16 +81,16 @@ return (
           </p>
 
           <div className="landing-reveal landing-reveal-actions mt-8 sm:mt-10">
-            <a
-              href="https://cal.com/shashank-bhardwaj-fwmii1/30min"
+            <Link
+              href="/waitlist"
               className="group inline-flex h-[48px] items-center gap-2.5 rounded-[6px] bg-[#050608] px-6 text-[11px] font-bold uppercase tracking-[0.18em] text-[oklch(0.985_0_0)] transition-[background-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-[#17191D] active:scale-[0.985] sm:h-[46px]"
             >
-              Talk to us
+              Join the waitlist
               <ArrowUpRight
                 className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 strokeWidth={2}
               />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
