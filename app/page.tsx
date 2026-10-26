@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import Navigation from '@/components/site/navigation'
 import LandingHero from '@/components/landing/hero'
 import SecurityPrinciples from '@/components/landing/security-principles'
+import DeploymentOptions from '@/components/landing/deployment-options'
+import AnyModel from '@/components/landing/any-model'
+import KnowledgeGraph from '@/components/landing/knowledge-graph'
 import DemoPreview from '@/components/landing/demo-preview'
 import BuiltAtEnclave from '@/components/landing/built-at-enclave'
 import LandingFooter from '@/components/landing/landing-footer'
@@ -25,6 +28,9 @@ export default function Home() {
       >
         <LandingHero />
         <SecurityPrinciples />
+        <DeploymentOptions />
+        <AnyModel />
+        <KnowledgeGraph />
         <DemoPreview />
         <BuiltAtEnclave />
       </main>
